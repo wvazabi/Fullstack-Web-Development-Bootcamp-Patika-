@@ -1,2 +1,2 @@
-# Fullstack-Web-Development-Bootcamp-Patika-
-Patika+ Fullstack Web Development Bootcamp
+## Fullstack-Web-Development-Bootcamp-Patika-
+# Week 1
