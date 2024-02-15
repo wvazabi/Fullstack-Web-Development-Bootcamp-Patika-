@@ -101,27 +101,38 @@ public class Main {
 //            }
 //            System.out.println("\n");
 //        }
-
+//
+//        String[] names = {"A","B","A","A","C","V","B","C","X","G","H","F","E","E"};
+//        int nameLenght = names.length;
+//        int[] count = new int[nameLenght];
+//
+//
+//        for(int i = 0; i < nameLenght; i++) {
+//            int temp = 0;
+//            for(int j = 0; j < nameLenght; j++) {
+//                if(names[i].equals(names[j])) {
+//                    temp += 1;
+//                }
+//                count[i] = temp;
+//            }
+//        }
+//
+//        for(int i = 0; i < nameLenght; i++) {
+//            System.out.println(names[i] + " characters: "+count[i] +" count contains ");
+//        }
+        Boolean bool = new Boolean(false);
         String[] names = {"A","B","A","A","C","V","B","C","X","G","H","F","E","E"};
         int nameLenght = names.length;
-        int[] count = new int[nameLenght];
-
+        String x = new String();
+        x = "a";
 
         for(int i = 0; i < nameLenght; i++) {
-            int temp = 0;
-            for(int j = 0; j < nameLenght; j++) {
-                if(names[i].equals(names[j])) {
-                    temp += 1;
-                }
-                count[i] = temp;
+            if (names[i].equals(x)){
+                bool = true;
             }
         }
 
-        for(int i = 0; i < nameLenght; i++) {
-            System.out.println(names[i] + " characters: "+count[i] +" count contains ");
-        }
-
-
+        System.out.println("Dizide karakter olma durumu " + bool);
 
 
 
