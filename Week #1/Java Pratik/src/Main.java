@@ -14,17 +14,26 @@ public class Main {
 //
 //        System.out.println(Arrays.toString(names));
 // Java split metodu ile cümleyi bölme işlemi
+//
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Please Enter Your Sentence");
+//        String sentence = sc.nextLine();
+//        System.out.println(sentence);
+//
+//        String [] words = sentence.split(" ");
+//        System.out.println(words[0]);
+//        System.out.println(words[1]);
+//        System.out.println(words[2]);
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please Enter Your Sentence");
-        String sentence = sc.nextLine();
-        System.out.println(sentence);
+        // iki boyutlu arraylerde işlemler
 
-        String [] words = sentence.split(" ");
-        System.out.println(words[0]);
-        System.out.println(words[1]);
-        System.out.println(words[2]);
+        String[] name = {"Enes0","Enes2","Enes3","Enes4","Enes5"};
+        int index = 0;
 
+        while( index < name.length ) {
+            System.out.println(name[index]);
+            index++;
+        }
 
 
     }
