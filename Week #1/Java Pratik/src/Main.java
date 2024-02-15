@@ -50,20 +50,77 @@ public class Main {
 //
 //        System.out.println(sum);
 
-        int[] numbers = { 3,5 };
-        int index = 0;
-        int toplam = 0;
-        int lenght = numbers.length;
-        System.out.println(lenght);
+//        int[] numbers = { 3,5 };
+//        int index = 0;
+//        int toplam = 0;
+//        int lenght = numbers.length;
+//        System.out.println(lenght);
+//
+//
+//        while( index < lenght) {
+//            System.out.println(numbers[index]);
+//            toplam += numbers[index];
+//            index++;
+//        }
+//
+//        System.out.println("\n" + toplam);
+
+        // for döngüsü
+
+//        String[] arr = {"Enes", "Nilay", "Araba", "Kamyon", "Makina", "Lego"};
+//        int lenght = arr.length;
+//
+//        for( int i = 0; i < lenght; i++) {
+//            System.out.println(arr[i]);
+//        }
+
+//
+//
+//        for( int i = 20; i < 120; i++) {
+//            if (i % 3 == 0) {
+//                System.out.println(i);
+//            }
+//
+//        }
+
+//        // root calculator
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("enter number: \n");
+//        int num = sc.nextInt();
+//
+//        for(int i = 0; i < num; i++){
+//            if (i * i == num){
+//                System.out.println("root of the number is: " + i);
+//            }
+//        }
+// multiplication table
+//
+//        for (int i = 1; i < 10; i++){
+//            for(int j = 1; j < 10; j++){
+//                System.out.println(i + " * " + j + " = " + (i * j));
+//            }
+//            System.out.println("\n");
+//        }
+
+        String[] names = {"A","B","A","A","C","V","B","C","X","G","H","F","E","E"};
+        int nameLenght = names.length;
+        int[] count = new int[nameLenght];
 
 
-        while( index < lenght) {
-            System.out.println(numbers[index]);
-            toplam += numbers[index];
-            index++;
+        for(int i = 0; i < nameLenght; i++) {
+            int temp = 0;
+            for(int j = 0; j < nameLenght; j++) {
+                if(names[i].equals(names[j])) {
+                    temp += 1;
+                }
+                count[i] = temp;
+            }
         }
 
-        System.out.println("\n" + toplam);
+        for(int i = 0; i < nameLenght; i++) {
+            System.out.println(names[i] + " characters: "+count[i] +" count contains ");
+        }
+
 
 
 
