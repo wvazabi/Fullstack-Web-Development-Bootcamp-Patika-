@@ -15,9 +15,11 @@ public class Main {
 //
 //        int maxNum = maxNumber(arr);
 //        System.out.println(maxNum);
-        boolean bool = maxSort(arr);
-        System.out.println("sorting status: " + bool);
+//        boolean bool = maxSort(arr);
+//        System.out.println("sorting status: " + bool);
 
+    Car car = new Car();
+        System.out.println(car.name + car.model);
 
     }
 
