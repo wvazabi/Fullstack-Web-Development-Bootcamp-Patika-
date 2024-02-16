@@ -2,19 +2,34 @@ public class Main {
     public static void main(String[] args) {
         int num1 = 3;
         int num2 = 6;
-        int[] arr = {3,5,6,12,7,4};
+        int[] arr = {3,5,32,12,7,4};
+
 
         //sum(num1,num2);
        // find(num1,arr);
 //       int sum =  sumR(num1, num2);
 //       System.out.println(sum);
+//
+//        int fact = factorial(num2);
+//        System.out.println(fact);
 
-        int fact = factorial(num2);
-        System.out.println(fact);
+        int maxNum = maxNumber(arr);
+        System.out.println(maxNum);
+
 
     }
 
+    public static int maxNumber(int[] num){
+        int maxNum = 0;
 
+        for(int sayi : num) {
+           if(sayi > maxNum){
+               maxNum = sayi;
+           }
+        }
+
+        return maxNum;
+    }
     public static int factorial(int num) {
         int result = 1;
 
