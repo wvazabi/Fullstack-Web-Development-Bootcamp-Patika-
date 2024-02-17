@@ -19,8 +19,12 @@ public class Main {
 //        System.out.println("sorting status: " + bool);
 
     Car car = new Car();
-        System.out.println(car.name + car.model);
+        //System.out.println(car.name + car.model);
 
+        Library lib = new Library();
+        System.out.println(lib.numOfBooks);
+        System.out.println(lib.closeDate);
+        System.out.println(lib.esDate);
     }
 
     public static boolean maxSort(int[] num){
