@@ -22,9 +22,25 @@ public class Main {
         //System.out.println(car.name + car.model);
 
         Library lib = new Library();
-        System.out.println(lib.numOfBooks);
-        System.out.println(lib.closeDate);
-        System.out.println(lib.esDate);
+//        System.out.println(lib.numOfBooks);
+//        System.out.println(lib.closeDate);
+//        System.out.println(lib.esDate);
+
+        Student st = new Student();
+
+//        st.regStudent();
+//        st.regStudent();
+//        st.regStudent();
+//        st.removeStudent();
+//        System.out.println(st.numOfStudent);
+
+//        Teacher th = new Teacher();
+//        th.print();
+
+        Calculator cal = new Calculator();
+        cal.sum(num1,num2);
+
+
     }
 
     public static boolean maxSort(int[] num){
