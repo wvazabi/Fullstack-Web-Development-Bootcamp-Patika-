@@ -37,9 +37,19 @@ public class Main {
 //        Teacher th = new Teacher();
 //        th.print();
 
-        Calculator cal = new Calculator();
-        cal.sum(num1,num2);
+//        Calculator cal = new Calculator();
+//        cal.sum(num1,num2);
+//        Information info = new Information();
+//        info.genre = "computer info";
+//        info.memory = 216;
+//        info.status = true;
+//        System.out.println("num = " + info.num);
+//
+//        info.print();
 
+        Information info2 = new Information(64,28);
+        info2.print();
+        System.out.println(info2.memory);
 
     }
 
