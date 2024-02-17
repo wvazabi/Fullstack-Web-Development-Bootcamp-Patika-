@@ -46,10 +46,20 @@ public class Main {
 //        System.out.println("num = " + info.num);
 //
 //        info.print();
+      Information info3 = new Information();
+       Information info2 = new Information(64,28,21);
 
-        Information info2 = new Information(64,28);
-        info2.print();
-        System.out.println(info2.memory);
+//        info2.print();
+//        System.out.println(info2.memory);
+        //System.out.println(Information.model);
+
+       // Information.test2();
+        //info2.print();
+        System.out.println(info2.status);
+
+        // private System.out.println(Information.brand);
+
+
 
     }
 
