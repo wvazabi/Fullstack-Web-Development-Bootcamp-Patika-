@@ -25,7 +25,7 @@ public class Main {
             if (username.equals("engeneskaya") && password.equals("123")) {
                 System.out.println("\nSuccessfully log in");
                 System.out.println("-----------------------");
-                System.out.println("Welcome " + username);
+                System.out.println("Welcome " + "deniz");
 
                 // Start of transaction loop
                 while (select != 4) {
