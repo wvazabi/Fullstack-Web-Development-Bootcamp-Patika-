@@ -4,34 +4,20 @@ public class Main {
     static int methods(int num) {
         int temp = num;
 
-        //System.out.print(num);
-        //System.out.print(" ");
-
-
-        if (temp <= 0) {
-
-
-            temp += 5;
-            System.out.print(temp);
-            System.out.print(" ");
-
-            if (temp != num) {
-                return methods(temp);
-
-            } else {
-                return temp;
-            }
-
-        } else {
-
+        System.out.print(num);
+        System.out.print(" ");
+        while (!(temp <= 0)) {
             temp -= 5;
             System.out.print(temp);
             System.out.print(" ");
-            return methods(temp);
-
-
         }
 
+        while (temp != num) {
+            temp += 5;
+            System.out.print(temp);
+            System.out.print(" ");
+        }
+        return 1;
     }
 
     public static void main(String[] args) {
