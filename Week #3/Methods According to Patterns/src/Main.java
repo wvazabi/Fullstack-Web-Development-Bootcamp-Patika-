@@ -1,36 +1,36 @@
 import java.util.Scanner;
 
 public class Main {
-    static int methods(int num) {
-        int temp = num;
+    //Recursive method to print the pattern
+    public static void pattern(int number) {
+        // Base case: if number is less than or equal to 0, print it and return
+        if (number <= 0) {
+            System.out.print(number + " ");
+        } else {
+            // Print the current number
+            System.out.print(number + " ");
 
-        System.out.print(num);
-        System.out.print(" ");
-        while (!(temp <= 0)) {
-            temp -= 5;
-            System.out.print(temp);
-            System.out.print(" ");
-        }
+            // Recursive call: reduce the number by 5 and call the pattern method again
+            System.out.println("test");
+            pattern(number - 5);
 
-        while (temp != num) {
-            temp += 5;
-            System.out.print(temp);
-            System.out.print(" ");
+            // Print the current number again after the recursive call
+            System.out.print(number + " ");
+
+
         }
-        return 1;
     }
 
     public static void main(String[] args) {
+        // Create a Scanner object to get user input
+        Scanner sc = new Scanner(System.in);
 
-        int num1 = 0;
+        // Prompt the user to enter a number
+        System.out.print("Enter a number: ");
+        // Read the number entered by the user
+        int number = sc.nextInt();
 
-        System.out.println("Please Enter a number");
-
-        Scanner input = new Scanner(System.in);
-
-        num1 = input.nextInt();
-
-        int x = methods(num1);
-
+        // Call the pattern method with the user input number
+        pattern(number);
     }
 }
