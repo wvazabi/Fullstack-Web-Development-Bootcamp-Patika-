@@ -17,9 +17,9 @@ public class Main {
 
         for (int i = 0; i < matris.length; i++) {
             for (int j = 0; j < matris[i].length; j++) {
-                System.out.println("Enter the value");
-                int x = input.nextInt();
-                matris[i][j] = x;
+                //System.out.println("Enter the value");
+                //int x = input.nextInt();
+                matris[i][j] = (int) (Math.random() * 100);
             }
         }
 
