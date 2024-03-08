@@ -23,6 +23,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("kayak"));
+        System.out.println(isPalindrome("adam"));
     }
 }
