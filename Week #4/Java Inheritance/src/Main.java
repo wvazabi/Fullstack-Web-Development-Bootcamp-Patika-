@@ -13,11 +13,11 @@ class Arithmetic{
 
 }
 
-class Adder extends Arithmetic{
+ class Adder extends Arithmetic{
 
 }
 
-public class Solution{
+public class Main{
     public static void main(String []args){
         // Create a new Adder object
         Adder a = new Adder();
