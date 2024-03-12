@@ -58,6 +58,7 @@ public class Player {
             this.setGameCharGame(gameChar.getName());
             this.setDamage(gameChar.getDamage());
             this.setHealth(gameChar.getHealth());
+            this.setMoney(gameChar.getMoney());
         }
 
         public String getName () {

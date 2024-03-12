@@ -13,7 +13,7 @@ public class ToolStore extends NormalLoc {
 
         int selectedMenu = input.nextInt();
 
-        while(selectedMenu < 1 || selectedMenu > 3) {
+        while (selectedMenu < 1 || selectedMenu > 3) {
             System.out.println("Please enter a valid number");
             selectedMenu = input.nextInt();
         }
@@ -35,9 +35,9 @@ public class ToolStore extends NormalLoc {
         return true;
     }
 
-    public void printWeapons(){
+    public void printWeapons() {
         System.out.println("------------- Weapons --------------");
-        for(Weapon w : Weapon.weapons()){
+        for (Weapon w : Weapon.weapons()) {
             System.out.println("Weapon: " + w.getName() +
                     "\t <ID: " + w.getId() +
                     "\t Damage: " + w.getDamage() +
@@ -48,29 +48,29 @@ public class ToolStore extends NormalLoc {
 
         int selectedWeapon = input.nextInt();
 
-        while(selectedWeapon < 1 || selectedWeapon > 3) {
+        while (selectedWeapon < 1 || selectedWeapon > 3) {
             System.out.println("Please enter a valid number");
             selectedWeapon = input.nextInt();
         }
 
-        switch (selectedWeapon) {
-            case 1:
-                printWeapons();
-                break;
-            case 2:
-                printArmors();
-                break;
-            case 3:
+        Weapon selectedWeaponObj = Weapon.getWeaponObjById(selectedWeapon);
 
-                break;
-            default:
-                break;
+        if (selectedWeaponObj != null) {
+            if(selectedWeaponObj.getPrice() > this.getPlayer().getMoney()) {
+                System.out.println("SORRY!!! There is no enough money to buy " + selectedWeaponObj.getName());
+
+            } else {
+                System.out.println(selectedWeaponObj.getName() + " has been bought");
+                int balance = this.getPlayer().getMoney() - selectedWeaponObj.getPrice();
+                this.getPlayer().setMoney(balance);
+                System.out.println("Kalan Paranız " + this.getPlayer().getMoney());
+            }
+
         }
-
 
     }
 
-    public void printArmors(){
+    public void printArmors() {
         System.out.println("Armors");
     }
 }
