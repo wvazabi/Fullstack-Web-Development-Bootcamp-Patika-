@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class Player {
-   private String name;
-   private int money;
-   private int health;
-   private int damage;
+    private String name;
+    private int money;
+    private int health;
+    private int damage;
 
-   private String gameCharGame;
+    private String gameCharGame;
 
     Scanner input = new Scanner(System.in);
 
@@ -42,62 +42,61 @@ public class Player {
                 break;
             default:
                 initPlayer(new Samurai());
-                break;
         }
+        System.out.println("##################################################################");
+
 
         System.out.println("Character: " + this.getGameCharGame() +
                 "\t Damage: " + this.getDamage() +
                 "\t Health: " + this.getHealth() +
                 "\t Money: " + this.getMoney());
 
-
-
-
     }
 
-    public void initPlayer(GameChar gameChar){
-        this.setGameCharGame(gameChar.getName());
-        this.setDamage(gameChar.getDamage());
-        this.setHealth(gameChar.getHealth());
-    }
 
-    public String getName() {
-        return name;
-    }
+        public void initPlayer (GameChar gameChar){
+            this.setGameCharGame(gameChar.getName());
+            this.setDamage(gameChar.getDamage());
+            this.setHealth(gameChar.getHealth());
+        }
 
-    public int getMoney() {
-        return money;
-    }
+        public String getName () {
+            return name;
+        }
 
-    public int getHealth() {
-        return health;
-    }
+        public int getMoney () {
+            return money;
+        }
 
-    public int getDamage() {
-        return damage;
-    }
+        public int getHealth () {
+            return health;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        public int getDamage () {
+            return damage;
+        }
 
-    public void setMoney(int money) {
-        this.money = money;
-    }
+        public void setName (String name){
+            this.name = name;
+        }
 
-    public void setHealth(int healt) {
-        this.health = healt;
-    }
+        public void setMoney ( int money){
+            this.money = money;
+        }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
+        public void setHealth ( int healt){
+            this.health = healt;
+        }
 
-    public String getGameCharGame() {
-        return gameCharGame;
-    }
+        public void setDamage ( int damage){
+            this.damage = damage;
+        }
 
-    public void setGameCharGame(String gameCharGame) {
-        this.gameCharGame = gameCharGame;
+        public String getGameCharGame () {
+            return gameCharGame;
+        }
+
+        public void setGameCharGame (String gameCharGame){
+            this.gameCharGame = gameCharGame;
+        }
     }
-}
