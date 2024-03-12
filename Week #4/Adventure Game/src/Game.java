@@ -15,6 +15,7 @@ public class Game {
         Location location = null;
 
         while (true) {
+            player.playerInfo();
             System.out.println("##################################################################");
 
             System.out.println("Please select a location" +

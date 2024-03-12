@@ -21,9 +21,11 @@ public class ToolStore extends NormalLoc {
         switch (selectedMenu) {
             case 1:
                 printWeapons();
+                buyWeapon();
                 break;
             case 2:
                 printArmors();
+                buyWeapon();
                 break;
             case 3:
                 System.out.println("Goodbye, and we look forward to seeing you again.");
@@ -43,6 +45,11 @@ public class ToolStore extends NormalLoc {
                     "\t Damage: " + w.getDamage() +
                     "\t Price: " + w.getPrice() + ">");
         }
+
+    }
+
+    public void buyWeapon(){
+
         System.out.println("-------------------------------------");
         System.out.println("Please Select a Weapon");
 
@@ -55,6 +62,8 @@ public class ToolStore extends NormalLoc {
 
         Weapon selectedWeaponObj = Weapon.getWeaponObjById(selectedWeapon);
 
+    // Weapon buy methods
+
         if (selectedWeaponObj != null) {
             if(selectedWeaponObj.getPrice() > this.getPlayer().getMoney()) {
                 System.out.println("SORRY!!! There is no enough money to buy " + selectedWeaponObj.getName());
@@ -63,10 +72,17 @@ public class ToolStore extends NormalLoc {
                 System.out.println(selectedWeaponObj.getName() + " has been bought");
                 int balance = this.getPlayer().getMoney() - selectedWeaponObj.getPrice();
                 this.getPlayer().setMoney(balance);
-                System.out.println("Kalan Paranız " + this.getPlayer().getMoney());
+                this.getPlayer().getInventory().setWeapon(selectedWeaponObj);
+                System.out.println("###################################################");
+//                System.out.println("Kalan Paranız " + this.getPlayer().getMoney());
+//                System.out.println("Previous Weapon: " + this.getPlayer().getInventory().getWeapon().getName());
+//                System.out.println("Current Weapon: " + this.getPlayer().getInventory().getWeapon().getName());
             }
 
+
+
         }
+
 
     }
 
