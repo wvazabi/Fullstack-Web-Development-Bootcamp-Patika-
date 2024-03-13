@@ -15,8 +15,9 @@ public class Inventory {
         return weapon;
     }
 
-    public void setWeapon(Weapon weapon) {
+    public boolean setWeapon(Weapon weapon) {
         this.weapon = weapon;
+        return false;
     }
 
     public Armor getArmor() {

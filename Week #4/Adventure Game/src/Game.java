@@ -6,13 +6,14 @@ public class Game {
 
     public void start(){
         System.out.println("------ Welcome to The Adventure Game!!! ------");
-        System.out.println ("Please Enter your name: ");
-        String playerName = "enes"; //input.nextLine();
+        System.out.print ("Please Enter your name: ");
+        String playerName = input.nextLine();
         Player player = new Player(playerName);
         System.out.println("Player Name: " + player.getName());
 
         player.selectedGameChar();
         Location location = null;
+
 
         while (true) {
             player.playerInfo();
@@ -24,6 +25,7 @@ public class Game {
                     "\n Cave:          3" +
                     "\n Forest:        4" +
                     "\n River:         5" +
+                    "\n Mine:          6" +
                     "\n Exit:          0");
 
             System.out.println("##################################################################");
@@ -50,6 +52,9 @@ public class Game {
                     break;
                 case 5:
                     location = new River(player);
+                    break;
+                case 6:
+                    location = new Mine(player);
                     break;
                 default:
                     location = new SafeHouse(player);
