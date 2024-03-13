@@ -17,3 +17,11 @@
 | ----------- | ---------------- | -------------- |
 | <img src="https://github.com/wvazabi/MineSweeper/blob/main/MineSweeper%20Images/Image%20%232.png" weight="300" height="450"> | <img src="https://github.com/wvazabi/MineSweeper/blob/main/MineSweeper%20Images/Image%20%231.png" weight="300" height="450"> | <img src="https://github.com/wvazabi/MineSweeper/blob/main/MineSweeper%20Images/Image%20%233.png" weight="300" height="450"> |
 
+------------------------------------------------------------------------------------------------
+
+2. Adventure Game - This is a simple text-based adventure game implemented in Java. The game features maps, locations, inventories, items, various characters, and opponent characters. [(Link)](https://github.com/wvazabi/Adventure-Game)
+
+   
+|     Tool Store     | Loc: Mine  Obs: Snake |     
+| ------------------ | --------------------- |  
+| <img src="https://github.com/wvazabi/Adventure-Game/blob/main/Adventure%20Game%20Images/toolstore.png" weight="500" height="500"> | <img src="https://github.com/wvazabi/Adventure-Game/blob/main/Adventure%20Game%20Images/snake.png" weight="500" height="500"> | 
