@@ -28,6 +28,9 @@ public class Game {
 
             System.out.println("##################################################################");
 
+//            Forest f = new Forest(player);
+//            f.playerStats();
+//            f.obstacleStats();
 
             int selectedLoc = input.nextInt();
 
