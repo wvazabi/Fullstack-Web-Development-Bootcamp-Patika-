@@ -54,7 +54,12 @@ public class Armor {
     }
 
     public void setBlock(int block) {
-        this.block = block;
+        if(block < 0) {
+            this.block = 0;
+        } else {
+            this.block = block;
+        }
+
     }
 
     public int getPrice() {

@@ -4,6 +4,7 @@ public class Player {
     private String name;
     private int money;
     private int health;
+    private int orjinalHealth;
     private int damage;
     private Inventory inventory;
 
@@ -76,6 +77,8 @@ public class Player {
             this.setDamage(gameChar.getDamage());
             this.setHealth(gameChar.getHealth());
             this.setMoney(gameChar.getMoney());
+            this.setOrjinalHealth(gameChar.getHealth());
+
         }
 
         public String getName () {
@@ -103,7 +106,12 @@ public class Player {
         }
 
         public void setHealth ( int healt){
-            this.health = healt;
+            if(healt < 0){
+                this.health = 0;
+            } else {
+                this.health = healt;
+            }
+
         }
 
         public void setDamage ( int damage){
@@ -124,5 +132,13 @@ public class Player {
 
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
+    }
+
+    public int getOrjinalHealth() {
+        return orjinalHealth;
+    }
+
+    public void setOrjinalHealth(int orjinalHealth) {
+        this.orjinalHealth = orjinalHealth;
     }
 }

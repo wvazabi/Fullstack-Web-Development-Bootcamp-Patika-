@@ -1,8 +1,13 @@
+import jdk.nashorn.internal.runtime.regexp.joni.exception.SyntaxException;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public abstract class BattleLocation extends Location {
     Obstacle obstacle;
     String award;
+
+    Scanner input = new Scanner(System.in);
 
     public BattleLocation(Player player, String name, Obstacle obstacle, String award) {
         super(player, name);
@@ -13,15 +18,35 @@ public abstract class BattleLocation extends Location {
     @Override
     public boolean onLocation() {
 
+        if(this.getPlayer().getInventory().water.equals(this.getAward()) ||
+                this.getPlayer().getInventory().fireWood.equals(this.getAward()) ||
+                this.getPlayer().getInventory().food.equals(this.getAward())){
+            return true;
+        }
+
         int obsNum = getRandomObstacleNum();
 
         System.out.println("Your Location is: " + this.getName());
         System.out.println("!!!Danger!!! " + obsNum + " " + this.obstacle.getName() + " is coming");
         System.out.print("Do you wanna Fight or Run (f/r): ");
+
         String selectedCase = input.nextLine();
+
         selectedCase = selectedCase.toUpperCase();
         if (selectedCase.equals("F") && combat(obsNum)) {
             System.out.println("Congratulations!!! ****** You beat all enemies *******");
+            if(this.getAward().equals("food")){
+                this.getPlayer().getInventory().setFood(this.getAward());
+                System.out.println("You won the " + this.getPlayer().getInventory().food + " wuhuu!!!!");
+            } else if (this.getAward().equals("firewood")) {
+                this.getPlayer().getInventory().setFireWood(this.getAward());
+                System.out.println("You won the " + this.getPlayer().getInventory().fireWood + " wuhuu!!!!");
+
+            } else if (this.getAward().equals("water")) {
+                this.getPlayer().getInventory().setWater(this.getAward());
+                System.out.println("You won the " + this.getPlayer().getInventory().water + " wuhuu!!!!");
+            }
+
             return true;
         }
 
@@ -30,7 +55,7 @@ public abstract class BattleLocation extends Location {
             return false;
         }
 
-        return true;
+       return true;
     }
 
     public boolean combat(int obstacleNumber) {
@@ -46,18 +71,26 @@ public abstract class BattleLocation extends Location {
                 System.out.print("Battle or Run (b/r): ");
                 String selectedCombat = input.nextLine().toUpperCase();
                 if(selectedCombat.equals("B")) {
-                    System.out.println("\"First you attack!!");
-                    this.obstacle.setHealth(this.obstacle.getHealth() - this.getPlayer().getDamage());
-                    afterHit(i);
-                    if(this.obstacle.getHealth() > 0) {
-                        System.out.println(this.obstacle.getName() + "Attack to you!!!");
-                        int obstacleDamage = this.getObstacle().getDamage() - this.getPlayer().getInventory().getArmor().getBlock();
-                        if(obstacleDamage < 0){
-                            obstacleDamage = 0;
+                    double randNum = randNum();
+                    if(randNum <= 50){
+                        System.out.println("\"First you attack!!");
+                        if(this.getPlayer().getHealth() > 0) {
+                            this.obstacle.setHealth(this.obstacle.getHealth() - this.getPlayer().getDamage());
+                            afterHit(i);
                         }
-                        this.getPlayer().setHealth(this.getPlayer().getHealth() - obstacleDamage );
-                        afterHit(i);
+                    } else {
+                        if(this.obstacle.getHealth() > 0) {
+                            System.out.println(this.obstacle.getName() + "Attack to you!!!");
+                            int obstacleDamage = this.getObstacle().getDamage() - this.getPlayer().getInventory().getArmor().getBlock();
+                            this.getPlayer().getInventory().getArmor().setBlock(this.getPlayer().getInventory().getArmor().getBlock() -  this.getObstacle().getDamage());
+                            if(obstacleDamage < 0){
+                                obstacleDamage = 0;
+                            }
+                            this.getPlayer().setHealth(this.getPlayer().getHealth() - obstacleDamage );
+                            afterHit(i);
+                        }
                     }
+
                     if(this.getPlayer().getHealth() <= 0) {
                         System.out.println("You are dead!!");
                         return false;
@@ -81,6 +114,11 @@ public abstract class BattleLocation extends Location {
         }
 
         return true;
+    }
+
+    public double randNum() {
+
+        return Math.random() * 100;
     }
 
     public void afterHit(int i) {

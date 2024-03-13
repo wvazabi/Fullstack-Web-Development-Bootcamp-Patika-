@@ -76,10 +76,8 @@ public class ToolStore extends NormalLoc {
                 this.getPlayer().setMoney(balance);
                 this.getPlayer().getInventory().setWeapon(selectedWeaponObj);
                 System.out.println("###################################################");
-//                System.out.println("Kalan Paranız " + this.getPlayer().getMoney());
-//                System.out.println("Previous Weapon: " + this.getPlayer().getInventory().getWeapon().getName());
-//                System.out.println("Current Weapon: " + this.getPlayer().getInventory().getWeapon().getName());
-            }
+
+         }
 
 
 
