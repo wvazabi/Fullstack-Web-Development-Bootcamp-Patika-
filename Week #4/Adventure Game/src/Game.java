@@ -19,12 +19,12 @@ public class Game {
             System.out.println("##################################################################");
 
             System.out.println("Please select a location" +
-                    "\n Safe House: 1" +
-                    "\n Tool Store: 2" +
-                    "\n Cave: 3" +
-                    "\n Forest: 4" +
-                    "\n River: 5" +
-                    "\n Exit: 0");
+                    "\n Safe House:    1" +
+                    "\n Tool Store:    2" +
+                    "\n Cave:          3" +
+                    "\n Forest:        4" +
+                    "\n River:         5" +
+                    "\n Exit:          0");
 
             System.out.println("##################################################################");
 
