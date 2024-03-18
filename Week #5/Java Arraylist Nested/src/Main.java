@@ -16,9 +16,9 @@ public class Main {
         int n = STDIN.nextInt(); // n lines
 
         for (int i = 0; i < n; i++) {
-            int d = STDIN.nextInt(); // d
+            int dElement = STDIN.nextInt(); // d
             ArrayList<Integer> innerList = new ArrayList<>();
-            for (int j = 0; j < d; j++) {
+            for (int j = 0; j < dElement; j++) {
                 innerList.add(STDIN.nextInt());
             }
             number.add(innerList);
