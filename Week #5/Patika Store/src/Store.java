@@ -27,18 +27,21 @@ public class Store {
     }
 
     public void addMobilePhone(MobilePhone mb) {
-
+        mobilePhones.add(mb);
     }
 
     public void addNotebook(Notebook nt) {
-
+        notebook.add(nt);
     }
 
-    public void removePhone(MobilePhone mb) {
-
+    public void removePhone(int id) {
+        int indexID = id - 1;
+        mobilePhones.remove(indexID);
     }
 
-    public void removeNotebook(Notebook nt) {
+    public void removeNotebook(int id) {
+        int indexID = id - 1;
+        notebook.remove(indexID);
 
     }
 
