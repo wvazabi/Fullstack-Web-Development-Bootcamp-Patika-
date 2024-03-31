@@ -12,6 +12,24 @@ public class DBConnect {
             // TODO kayıt getirme
             conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             st = conn.createStatement();
+            //TODO Transaction
+            conn.setAutoCommit(false);
+// PreparedStatement ile Insert İşlemi
+            PreparedStatement pr = conn.prepareStatement("INSERT INTO student (student_name,student_class) VALUES (?,?)");
+            pr.setString(1, "Harry");
+            pr.setString(2, "7");
+            pr.executeUpdate();
+
+            if (1 == 1) {
+                throw new SQLException();
+            }
+
+// PreparedStatement ile Insert İşlemi
+            pr.setString(1, "Ron");
+            pr.setString(2, "1");
+            pr.executeUpdate();
+            conn.commit();
+            conn.close();
 //            ResultSet resultSet = st.executeQuery("SELECT * FROM student");
 //            while (resultSet.next()) {
 //                System.out.println("ID : " + resultSet.getInt("student_id"));
@@ -52,13 +70,22 @@ public class DBConnect {
             st.executeUpdate(updateQuery);
 
             // PreparedStatement ile Delete İşlemi
-            PreparedStatement pr = conn.prepareStatement("DELETE FROM student WHERE student_id = ?");
+            //PreparedStatement pr = conn.prepareStatement("DELETE FROM student WHERE student_id = ?");
             pr.setInt(1, 4);
             pr.executeUpdate();
 
             st.close();
 
         } catch (SQLException ex) {
+
+            try {
+                if (conn != null) {
+                    conn.rollback();
+                }
+            }
+            catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
 
                 System.out.println("SQLException: " + ex.getMessage());
                 System.out.println("SQLState: " + ex.getSQLState());
