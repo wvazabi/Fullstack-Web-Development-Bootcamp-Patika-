@@ -77,7 +77,7 @@ public class Main {
             String Temporary[] = new String[mesaj];
 
             for (int i = 0; i < mesaj; i++) {
-                System.out.println((i+1)+".Takımın Adını Giriniz");
+                System.out.println((i+1)+".Takımın Adını Giriniz: ");
                 String Takım=input2.nextLine();
                 Takımlar.add(Takım);
             }
