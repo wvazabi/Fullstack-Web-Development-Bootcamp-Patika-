@@ -6,7 +6,12 @@ import entity.User;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+
 
 public class UserView extends  JFrame {
     private JPanel container;
@@ -16,6 +21,7 @@ public class UserView extends  JFrame {
     private JButton btn_user_new;
     private UserController userController;
     private DefaultTableModel mdl_user;
+    private JPopupMenu user_popup;
 
     public UserView(){
         this.add(container);
@@ -29,11 +35,12 @@ public class UserView extends  JFrame {
         //business katman bağlantısı
         this.userController = new UserController();
         this.mdl_user = new DefaultTableModel();
+        this.user_popup = new JPopupMenu();
 
         // Table Model
         //kolon başlıkları oluştur
 
-        Object[] columnUser = {"ID", "Ad", "Tip", "Cinsiyet", "Mail", "Şifre"};
+        Object[] columnUser = {"Id", "Name", "Type", "Gender", "E-mail", "Password"};
         this.mdl_user.setColumnIdentifiers(columnUser);
 
         ArrayList<User> users = this.userController.findAll();
@@ -55,6 +62,33 @@ public class UserView extends  JFrame {
         this.tbl_user.setModel(this.mdl_user);
         this.tbl_user.setEnabled(false);
         this.tbl_user.getTableHeader().setReorderingAllowed(false);
+
+
+        this.tbl_user.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                int selectedRow = tbl_user.rowAtPoint(e.getPoint());
+                tbl_user.setRowSelectionInterval(selectedRow,selectedRow);
+
+            }
+        });
+
+        this.user_popup.add("Update").addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              int selectedID = Integer.parseInt(tbl_user.getValueAt(tbl_user.getSelectedRow(),0).toString());
+                System.out.println(selectedID);
+            }
+        });
+        this.user_popup.add("Delete").addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedID = Integer.parseInt(tbl_user.getValueAt(tbl_user.getSelectedRow(),0).toString());
+                System.out.println(selectedID);
+            }
+        });
+
+        this.tbl_user.setComponentPopupMenu(user_popup);
 
     }
 }

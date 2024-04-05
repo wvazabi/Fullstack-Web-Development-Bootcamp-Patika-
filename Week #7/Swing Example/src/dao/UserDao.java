@@ -19,7 +19,7 @@ public class UserDao {
 
      public ArrayList<User> findAll() {
          ArrayList<User> users = new ArrayList<>();
-         String query = "SELECT * FROM public.user";
+         String query = "SELECT * FROM public.users";
 
          try {
 
@@ -28,7 +28,7 @@ public class UserDao {
                  User user = new User();
                  user.setId(rs.getInt("id"));
                  user.setName(rs.getString("name"));
-                 user.setEmail(rs.getString("email"));
+                 user.setEmail(rs.getString("mail"));
                  user.setPassword(rs.getString("password"));
                  user.setType(User.Type.valueOf(rs.getString("type")));
                  user.setGender(User.Gender.valueOf(rs.getString("gender")));
@@ -43,5 +43,7 @@ public class UserDao {
 
          return users;
      }
+
+     
 
 }
