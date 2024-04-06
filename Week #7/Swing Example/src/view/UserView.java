@@ -90,6 +90,12 @@ public class UserView extends  JFrame {
         });
 
         this.tbl_user.setComponentPopupMenu(user_popup);
+        btn_user_new.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditView editView = new EditView(new User());
 
+            }
+        });
     }
 }

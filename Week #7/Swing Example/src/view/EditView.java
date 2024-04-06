@@ -87,15 +87,29 @@ public class EditView extends JFrame {
                     } else {
                         user.setGender(User.Gender.FEMALE);
                     }
+                    if (user.getId() != 0) {
+                        if (userController.update(user)){
+                            JOptionPane.showMessageDialog(null,
+                                    "Data has been uptaded",
+                                    "Update Data",
+                                    JOptionPane.INFORMATION_MESSAGE
+                            );
+                            dispose();
+                        }
+                    } else {
+                        // SAVE
+                        if(userController.save(user)) {
+                            JOptionPane.showMessageDialog(null,
+                                    "Data has been created",
+                                    "Add Data",
+                                    JOptionPane.INFORMATION_MESSAGE
+                            );
+                            dispose();
+                        }
 
-                    if (userController.update(user)){
-                        JOptionPane.showMessageDialog(null,
-                                "Data has been uptaded",
-                                "Update Data",
-                                JOptionPane.INFORMATION_MESSAGE
-                        );
-                        dispose();
+
                     }
+
 
 
                 }

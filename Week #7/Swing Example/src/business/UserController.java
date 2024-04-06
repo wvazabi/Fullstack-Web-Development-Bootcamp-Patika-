@@ -33,4 +33,8 @@ public class UserController {
         }
         return userDao.update(user);
     }
+
+    public boolean save(User user) {
+        return this.userDao.save(user);
+    }
 }
