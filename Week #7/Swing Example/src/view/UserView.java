@@ -77,7 +77,8 @@ public class UserView extends  JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
               int selectedID = Integer.parseInt(tbl_user.getValueAt(tbl_user.getSelectedRow(),0).toString());
-                System.out.println(selectedID);
+              User selectedUser = userController.getById(selectedID);
+              EditView editView = new EditView(selectedUser);
             }
         });
         this.user_popup.add("Delete").addActionListener(new ActionListener() {
