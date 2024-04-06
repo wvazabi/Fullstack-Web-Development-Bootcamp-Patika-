@@ -37,4 +37,8 @@ public class UserController {
     public boolean save(User user) {
         return this.userDao.save(user);
     }
+
+    public boolean delete(int id) {
+        return this.userDao.delete(id);
+    }
 }

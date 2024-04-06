@@ -120,4 +120,18 @@ public class UserDao {
          return false;
     }
 
+    public boolean delete(int id) {
+        String query = "DELETE FROM public.users WHERE id = ?";
+
+        try{
+            PreparedStatement pr = this.connection.prepareStatement(query);
+            pr.setInt(1,id);
+            return pr.executeUpdate() != -1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }

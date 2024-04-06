@@ -2,6 +2,7 @@ package view;
 
 import business.UserController;
 import entity.User;
+import sun.security.util.Password;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -19,13 +20,14 @@ public class UserView extends  JFrame {
     private JPanel pnl_user;
     private JTable tbl_user;
     private JButton btn_user_new;
+    private JButton btn_refresh;
     private UserController userController;
     private DefaultTableModel mdl_user;
     private JPopupMenu user_popup;
 
     public UserView(){
         this.add(container);
-        this.setTitle("Kullanıcı Yönetimi");
+        this.setTitle("User Management");
         this.setSize(500,500);
         int x = (Toolkit.getDefaultToolkit().getScreenSize().width - this.getWidth()) / 2;
         int y = (Toolkit.getDefaultToolkit().getScreenSize().height - this.getHeight()) / 2;
@@ -85,7 +87,7 @@ public class UserView extends  JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int selectedID = Integer.parseInt(tbl_user.getValueAt(tbl_user.getSelectedRow(),0).toString());
-                System.out.println(selectedID);
+                userController.delete(selectedID);
             }
         });
 
@@ -97,5 +99,34 @@ public class UserView extends  JFrame {
 
             }
         });
+        btn_refresh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                mdl_user.setRowCount(0);
+                ArrayList<User> users = userController.findAll();
+
+                for(User user : users) {
+                    Object[] row = {
+                            user.getId(),
+                            user.getName(),
+                            user.getType(),
+                            user.getGender(),
+                            user.getEmail(),
+                            user.getPassword()
+                    };
+                    mdl_user.addRow(row);
+                }
+
+               tbl_user.setModel(mdl_user);
+               tbl_user.setEnabled(false);
+               tbl_user.getTableHeader().setReorderingAllowed(false);
+
+            }
+        });
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
