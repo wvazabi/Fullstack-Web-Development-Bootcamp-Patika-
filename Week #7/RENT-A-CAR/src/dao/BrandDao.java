@@ -31,6 +31,19 @@ public class BrandDao {
         return brandArrayList;
     }
 
+    //TODO save boolean çünkü ya başarılıdır ya başarısızdır
+    public boolean save(Brand brand) {
+        String query = "INSERT INTO public.brand (brand_name) VALUES (?)";
+
+        try {
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
     public Brand match(ResultSet resultSet) throws SQLException {
         Brand brand = new Brand();
         brand.setId(resultSet.getInt("brand_id"));

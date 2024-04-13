@@ -63,7 +63,10 @@ public class AdminView extends Layout{
         //TODO sağ tıkla menu
         this.brandMenu = new JPopupMenu();
         brandMenu.add("Add").addActionListener(e -> {
-            System.out.println("New clicked");
+            System.out.println("Add clicked");
+            BrandView brandView = new BrandView(null);
+
+
         });
         brandMenu.add("Delete");
         brandMenu.add("Update");
