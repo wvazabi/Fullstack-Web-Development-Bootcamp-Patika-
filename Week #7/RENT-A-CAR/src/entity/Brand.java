@@ -7,6 +7,9 @@ public class Brand {
 
     public Brand() {
     }
+    public Brand(String name) {
+        this.name = name;
+    }
 
     public Brand(int id, String name) {
         this.id = id;

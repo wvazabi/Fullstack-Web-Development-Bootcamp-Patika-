@@ -65,11 +65,12 @@ public class AdminView extends Layout{
         brandMenu.add("Add").addActionListener(e -> {
             System.out.println("Add clicked");
             BrandView brandView = new BrandView(null);
-
-
         });
         brandMenu.add("Delete");
-        brandMenu.add("Update");
+        brandMenu.add("Update").addActionListener(e -> {
+            int selectedBrandId = Integer.parseInt(tbl_brand.getValueAt(tbl_brand.getSelectedRow(),0).toString());
+            BrandView brandView = new BrandView(this.brandManager.getById(selectedBrandId));
+        });
 
         tbl_brand.setComponentPopupMenu(brandMenu);
     }

@@ -35,6 +35,9 @@ public class Helper {
                 msg = "Successfully completed";
                 header = "Completed";
                 break;
+            case "error":
+                 msg = "Error";
+                 header = "Error Message";
             default:
                 msg = str;
                 header = title;
