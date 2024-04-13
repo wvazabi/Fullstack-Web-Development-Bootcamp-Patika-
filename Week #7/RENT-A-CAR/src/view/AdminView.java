@@ -6,10 +6,7 @@ import entity.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class AdminView extends Layout{
@@ -37,21 +34,9 @@ public class AdminView extends Layout{
         }
 
         this.lbl_welcome.setText("Welcome " + this.user.getUsername());
-        Object[] col_brand = {"Brand ID", "Brand Name"};
-        ArrayList<Brand> brandArrayList = brandManager.findAll();
-        tmdl_brand.setColumnIdentifiers(col_brand);
 
-        for(Brand brand : brandArrayList) {
-            //her klonun karşılığı gelen obje lazım
-            Object[] obj = {brand.getId(),brand.getName()};
-            tmdl_brand.addRow(obj);
-        }
+        loadBrandTable();
 
-        tbl_brand.setModel(tmdl_brand);
-        //TODO tablodaki sütunları tıklayarak yer değiştirmeyi kapatma
-        tbl_brand.getTableHeader().setReorderingAllowed(false);
-        //TODO düzenleme iptal etme
-        tbl_brand.setEnabled(false);
         this.tbl_brand.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -60,18 +45,58 @@ public class AdminView extends Layout{
             }
         });
 
+
         //TODO sağ tıkla menu
         this.brandMenu = new JPopupMenu();
         brandMenu.add("Add").addActionListener(e -> {
             System.out.println("Add clicked");
             BrandView brandView = new BrandView(null);
+            brandView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadBrandTable();
+                }
+            });
         });
         brandMenu.add("Delete");
+
         brandMenu.add("Update").addActionListener(e -> {
             int selectedBrandId = Integer.parseInt(tbl_brand.getValueAt(tbl_brand.getSelectedRow(),0).toString());
             BrandView brandView = new BrandView(this.brandManager.getById(selectedBrandId));
+            brandView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadBrandTable();
+                }
+            });
         });
 
         tbl_brand.setComponentPopupMenu(brandMenu);
     }
+
+    public void loadBrandTable() {
+
+        Object[] col_brand = {"Brand ID", "Brand Name"};
+        ArrayList<Brand> brandArrayList = brandManager.findAll();
+        tmdl_brand.setColumnIdentifiers(col_brand);
+
+
+
+        tbl_brand.setModel(tmdl_brand);
+        //TODO tablodaki sütunları tıklayarak yer değiştirmeyi kapatma
+        tbl_brand.getTableHeader().setReorderingAllowed(false);
+        //TODO düzenleme iptal etme
+        tbl_brand.setEnabled(false);
+
+        DefaultTableModel clearModel = (DefaultTableModel) this.tbl_brand.getModel();
+        clearModel.setRowCount(0);
+        for(Brand brand : brandArrayList) {
+            //her klonun karşılığı gelen obje lazım
+            Object[] obj = {brand.getId(),brand.getName()};
+            tmdl_brand.addRow(obj);
+        }
+
+    }
+
+
 }

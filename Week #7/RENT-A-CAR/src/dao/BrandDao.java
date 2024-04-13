@@ -20,7 +20,7 @@ public class BrandDao {
 
     public ArrayList<Brand> findAll(){
         ArrayList<Brand> brandArrayList = new ArrayList<>();
-        String query = "SELECT * FROM public.brand";
+        String query = "SELECT * FROM public.brand ORDER BY brand_id ASC";
         try {
             ResultSet resultSet = this.CON.createStatement().executeQuery(query);
             while (resultSet.next()){
