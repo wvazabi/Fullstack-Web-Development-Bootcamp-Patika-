@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Helper {
-//TODO change theme
+    //TODO change theme
     public static void setTheme() {
         for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
@@ -18,12 +18,13 @@ public class Helper {
             }
         }
     }
-//TODO check  empty field
+
+    //TODO check  empty field
     public static boolean isFieldEmpty(JTextField field) {
         return field.getText().trim().isEmpty();
     }
 
-    public static void showMsg(String str,String title) {
+    public static void showMsg(String str, String title) {
         String msg;
         String header = title;
         switch (str) {
@@ -36,8 +37,8 @@ public class Helper {
                 header = "Completed";
                 break;
             case "error":
-                 msg = "Error";
-                 header = "Error Message";
+                msg = "Error";
+                header = "Error Message";
             default:
                 msg = str;
                 header = title;
@@ -59,7 +60,17 @@ public class Helper {
             default:
                 return 0;
         }
+    }
 
+    public static boolean confirm(String str) {
+        String msg;
+        if (str.equals("sure")) {
+            msg = "Are you sure !!";
+
+        } else {
+            msg = str;
+        }
+        return JOptionPane.showConfirmDialog(null, msg, "Are you sure?", JOptionPane.YES_NO_OPTION) == 0;
 
     }
 

@@ -1,6 +1,7 @@
 package view;
 
 import business.BrandManager;
+import core.Helper;
 import entity.Brand;
 import entity.User;
 
@@ -9,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class AdminView extends Layout{
+public class AdminView extends Layout {
     private JPanel container;
     private JLabel lbl_welcome;
     private JTabbedPane tab_menu;
@@ -26,17 +27,32 @@ public class AdminView extends Layout{
     public AdminView(User user) {
         this.brandManager = new BrandManager();
         this.add(container);
-        this.guiInitilaze(1000,500,"Admin Panel");
+        this.guiInitilaze(1000, 500, "Admin Panel");
         this.user = user;
 
-        if(user == null) {
+        if (user == null) {
             dispose();
         }
 
         this.lbl_welcome.setText("Welcome " + this.user.getUsername());
 
         loadBrandTable();
+        loadBrandComponent();
 
+
+        tbl_brand.setComponentPopupMenu(brandMenu);
+    }
+
+    public void loadBrandTable() {
+
+        Object[] col_brand = {"Brand ID", "Brand Name"};
+        ArrayList<Object[]> brandList = brandManager.getForTable(col_brand.length);
+        this.createTable(this.tmdl_brand, this.tbl_brand, col_brand, brandList);
+
+    }
+
+    public void loadBrandComponent() {
+        //TODO sağ clik
         this.tbl_brand.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -58,10 +74,23 @@ public class AdminView extends Layout{
                 }
             });
         });
-        brandMenu.add("Delete");
+        brandMenu.add("Delete").addActionListener(e -> {
+            if (Helper.confirm("sure")){
+                int selectBrandId = this.getTableSelectedRow(tbl_brand, 0);
+                if(this.brandManager.delete(selectBrandId)) {
+                    Helper.showMsg("done","");
+                    loadBrandTable();
+                } else {
+                    Helper.showMsg("error","");
+                }
+            }
+
+
+        });
 
         brandMenu.add("Update").addActionListener(e -> {
             int selectedBrandId = Integer.parseInt(tbl_brand.getValueAt(tbl_brand.getSelectedRow(),0).toString());
+
             BrandView brandView = new BrandView(this.brandManager.getById(selectedBrandId));
             brandView.addWindowListener(new WindowAdapter() {
                 @Override
@@ -70,32 +99,6 @@ public class AdminView extends Layout{
                 }
             });
         });
-
-        tbl_brand.setComponentPopupMenu(brandMenu);
-    }
-
-    public void loadBrandTable() {
-
-        Object[] col_brand = {"Brand ID", "Brand Name"};
-        ArrayList<Brand> brandArrayList = brandManager.findAll();
-        tmdl_brand.setColumnIdentifiers(col_brand);
-
-
-
-        tbl_brand.setModel(tmdl_brand);
-        //TODO tablodaki sütunları tıklayarak yer değiştirmeyi kapatma
-        tbl_brand.getTableHeader().setReorderingAllowed(false);
-        //TODO düzenleme iptal etme
-        tbl_brand.setEnabled(false);
-
-        DefaultTableModel clearModel = (DefaultTableModel) this.tbl_brand.getModel();
-        clearModel.setRowCount(0);
-        for(Brand brand : brandArrayList) {
-            //her klonun karşılığı gelen obje lazım
-            Object[] obj = {brand.getId(),brand.getName()};
-            tmdl_brand.addRow(obj);
-        }
-
     }
 
 
