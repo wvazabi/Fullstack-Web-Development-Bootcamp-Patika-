@@ -1,8 +1,8 @@
 package view;
 
 import business.BrandManager;
+import business.ModelManager;
 import core.Helper;
-import entity.Brand;
 import entity.User;
 
 import javax.swing.*;
@@ -18,14 +18,28 @@ public class AdminView extends Layout {
     private JPanel pnl_top;
     private JScrollPane scrl_brand;
     private JTable tbl_brand;
+    private JPanel pnl_model;
+    private JScrollPane scrl_model;
+    private JTable tbl_model;
     private User user;
 
+    //TODO table model
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
+    private DefaultTableModel tmdl_model = new DefaultTableModel();
+
+    //TODO  manager
     private BrandManager brandManager;
+    private ModelManager modelManager;
+
+    //TODO JPopUpMenu
     private JPopupMenu brandMenu;
+    private JPopupMenu model_Menu;
+
+    private Object[] col_model;
 
     public AdminView(User user) {
         this.brandManager = new BrandManager();
+        this.modelManager = new ModelManager();
         this.add(container);
         this.guiInitilaze(1000, 500, "Admin Panel");
         this.user = user;
@@ -38,6 +52,7 @@ public class AdminView extends Layout {
 
         loadBrandTable();
         loadBrandComponent();
+        loadModelTable();
 
 
         tbl_brand.setComponentPopupMenu(brandMenu);
@@ -50,6 +65,18 @@ public class AdminView extends Layout {
         this.createTable(this.tmdl_brand, this.tbl_brand, col_brand, brandList);
 
     }
+
+    public void loadModelTable() {
+        this.col_model = new Object[]{"Model ID","Marka", "Model Adı","Tip","Yıl","Yakıt Türü ","Vites"};
+        ArrayList<Object[]> modelList = this.modelManager.getForTable(this.col_model.length,this.modelManager.findAll());
+
+//        if(modelList ==null){
+//            modelList =
+//        }
+
+        this.createTable(this.tmdl_model, this.tbl_model, this.col_model, modelList);
+    }
+
 
     public void loadBrandComponent() {
         //TODO sağ clik
