@@ -11,32 +11,33 @@ import entity.Model;
 
 import javax.swing.*;
 
-public class CarView  extends  Layout{
+public class CarView extends Layout {
     private JPanel container;
     private JComboBox<ComboItem> cmb_model;
-    private JComboBox<Car.Color>  cmb_color;
+    private JComboBox<Car.Color> cmb_color;
     private JButton btn_car_save;
     private JTextField fld_km;
     private JTextField fld_plate;
-    private  Car car;
+    private Car car;
     private CarManager carManager;
     private ModelManager modelManager;
 
     public CarView(Car car) {
         this.car = car;
-        this.carManager=new CarManager();
-        this.modelManager =new ModelManager();
+        this.carManager = new CarManager();
+        this.modelManager = new ModelManager();
         add(container);
-        this.guiInitilaze(300,400,"Car Add / Edit");
+        this.guiInitilaze(300, 400, "Car Add / Edit");
 
+        //TODO combo item içinde string birleştirme model brand vb
         this.cmb_color.setModel(new DefaultComboBoxModel<>(Car.Color.values()));
-        for(Model model : this.modelManager.findAll()){
+        for (Model model : this.modelManager.findAll()) {
             this.cmb_model.addItem(model.getComboItem());
         }
 
 
-        if(this.car.getId() != 0){
-            ComboItem selectedItem =car.getModel().getComboItem();
+        if (this.car.getId() != 0) {
+            ComboItem selectedItem = car.getModel().getComboItem();
             this.cmb_model.getModel().setSelectedItem(selectedItem);
             this.cmb_color.getModel().setSelectedItem(car.getColor());
             this.fld_plate.setText(car.getPlate());
@@ -45,28 +46,28 @@ public class CarView  extends  Layout{
         }
 
         this.btn_car_save.addActionListener(e -> {
-            if(Helper.isFieldListEmpty(new JTextField[]{this.fld_km,this.fld_plate})){
+            if (Helper.isFieldListEmpty(new JTextField[]{this.fld_km, this.fld_plate})) {
                 Helper.showMsg("fill");
-            }else{
+            } else {
                 boolean result;
                 ComboItem selectedModel = (ComboItem) this.cmb_model.getSelectedItem();
                 this.car.setModel_id(selectedModel.getKey());
-                this.car.setColor((Car.Color)this.cmb_color.getSelectedItem());
+                this.car.setColor((Car.Color) this.cmb_color.getSelectedItem());
                 this.car.setPlate(this.fld_plate.getText());
                 this.car.setKm(Integer.parseInt(this.fld_km.getText()));
 
-                if(this.car.getId() != 0){
-                    result =this.carManager.update(this.car);
+                if (this.car.getId() != 0) {
+                    result = this.carManager.update(this.car);
                     //result =this.brandManager.save(new Brand(fld_brand_name.getText()));
-                }else{
+                } else {
 
-                    result=this.carManager.save(this.car);
+                    result = this.carManager.save(this.car);
                 }
-                if(result){
+                if (result) {
                     Helper.showMsg("done");
                     dispose();
 
-                }else{
+                } else {
                     Helper.showMsg("error");
                 }
 

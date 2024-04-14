@@ -1,10 +1,12 @@
 package view;
 
 import business.BrandManager;
+import business.CarManager;
 import business.ModelManager;
 import core.ComboItem;
 import core.Helper;
 import entity.Brand;
+import entity.Car;
 import entity.Model;
 import entity.User;
 
@@ -40,20 +42,26 @@ public class AdminView extends Layout {
     //TODO table model
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
     private DefaultTableModel tmdl_model = new DefaultTableModel();
+    private DefaultTableModel tmdl_car = new DefaultTableModel();
 
     //TODO  manager
     private BrandManager brandManager;
     private ModelManager modelManager;
+    private CarManager carManager;
 
     //TODO JPopUpMenu
     private JPopupMenu brand_menu;
     private JPopupMenu model_menu;
+    private JPopupMenu car_menu;
 
     private Object[] col_model;
+
 
     public AdminView(User user) {
         this.brandManager = new BrandManager();
         this.modelManager = new ModelManager();
+        this.carManager = new CarManager();
+
         this.add(container);
         this.guiInitilaze(1000, 500, "Admin Panel");
         this.user = user;
@@ -72,9 +80,94 @@ public class AdminView extends Layout {
         loadModelComponent();
         loadModelFilter();
 
+        loadCarComponent();
+        loadCarTable();
+
+
     }
 
-    private void loadModelFilter() {
+
+
+
+    public void loadCarTable() {
+        Object[] col_car = {"ID", "Marka", "Model", "Plaka", "Renk", "Km", "Yıl", "Tip", "Yakit Türü", "Vites"};
+        ArrayList<Car> allCars = this.carManager.findAll(); // Tüm araçları al
+        if (allCars != null) { // Null kontrolü yap
+            ArrayList<Object[]> carList = this.carManager.getForTable(col_car.length, allCars); // Tablo için gerekli listeyi oluştur
+            createTable(this.tmdl_car, this.tbl_car, col_car, carList);
+        } else {
+            // Hata mesajı veya başka bir işlem yapılabilir
+            System.err.println("Error: Car list is null");
+        }
+    }
+
+
+    public void loadBrandTable() {
+
+        Object[] col_brand = {"Brand ID", "Brand Name"};
+        ArrayList<Object[]> brandList = brandManager.getForTable(col_brand.length);
+        this.createTable(this.tmdl_brand, this.tbl_brand, col_brand, brandList);
+    }
+
+    private void loadCarComponent() {
+
+        this.tableRowSelect(this.tbl_car);
+
+        this.car_menu = new JPopupMenu();
+        this.car_menu.add("Yeni").addActionListener(e -> {
+            CarView carView = new CarView(new Car());
+            carView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadCarTable();
+                }
+            });
+        });
+        this.car_menu.add("Güncelle").addActionListener(e -> {
+            int selectCarlId = this.getTableSelectedRow(tbl_car, 0);
+            CarView carView = new CarView(this.carManager.getById(selectCarlId));
+            carView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadCarTable();
+                    //loadRentalsTable(null);
+                }
+            });
+        });
+        this.car_menu.add("Sil").addActionListener(e -> {
+            if (Helper.confirm("sure")) {
+                int selectCarId = this.getTableSelectedRow(tbl_car, 0);
+                if (this.carManager.delete(selectCarId)) {
+                    Helper.showMsg("done");
+
+                    loadCarTable();
+                } else {
+                    Helper.showMsg("error");
+                }
+            }
+        });
+        this.tbl_car.setComponentPopupMenu(this.car_menu);
+
+//        this.btn_search_model.addActionListener(e -> {
+//            ComboItem selectedBrand = (ComboItem) this.cmb_s_model_brand.getSelectedItem();
+//            int brandId = 0;
+//            if (selectedBrand != null) {
+//                brandId = selectedBrand.getKey();
+//            }
+//            ArrayList<Model> modelListBySearch = this.modelManager.searcForTable(
+//                    brandId,
+//                    (Model.Fuel) cmb_s_model_fuel.getSelectedItem(),
+//                    (Model.Gear) cmb_s_model_gear.getSelectedItem(),
+//                    (Model.Type) cmb_s_model_type.getSelectedItem()
+//            );
+//
+//            ArrayList<Object[]> modelRowListBySearch = this.modelManager.getForTable(this.col_model.length, modelListBySearch);
+//            loadModelTable(modelRowListBySearch);
+//        });
+
+    }
+
+        private void loadModelFilter() {
         this.cmb_s_model_type.setModel(new DefaultComboBoxModel<>(Model.Type.values()));
         this.cmb_s_model_type.setSelectedItem(null);
         this.cmb_s_model_gear.setModel(new DefaultComboBoxModel<>(Model.Gear.values()));
@@ -113,6 +206,7 @@ public class AdminView extends Layout {
                     Helper.showMsg("done","");
 
                     loadModelTable(null);
+                    loadCarTable();
                 }else {
                     Helper.showMsg("error");
                 }
@@ -127,6 +221,7 @@ public class AdminView extends Layout {
                 @Override
                 public void windowClosed(WindowEvent e) {
                     loadModelTable(null);
+                    loadCarTable();
                 }
             });
 
@@ -159,12 +254,7 @@ public class AdminView extends Layout {
         });
     }
 
-    public void loadBrandTable() {
 
-        Object[] col_brand = {"Brand ID", "Brand Name"};
-        ArrayList<Object[]> brandList = brandManager.getForTable(col_brand.length);
-        this.createTable(this.tmdl_brand, this.tbl_brand, col_brand, brandList);
-    }
 
     public void loadModelTable(ArrayList<Object[]> modelList) {
         this.col_model = new Object[]{"Model ID","Marka", "Model Adı","Tip","Yıl","Yakıt Türü ","Vites"};
@@ -203,6 +293,7 @@ public class AdminView extends Layout {
                     loadBrandTable();
                     loadModelTable(null);
                     loadModelFilter();
+                    loadCarTable();
 
                 } else {
                     Helper.showMsg("error","");
@@ -222,6 +313,7 @@ public class AdminView extends Layout {
                     loadBrandTable();
                     loadModelTable(null);
                     loadModelFilter();
+                    loadCarTable();
 
                 }
             });

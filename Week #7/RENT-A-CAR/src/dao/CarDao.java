@@ -29,18 +29,16 @@ public class CarDao {
     //TODO id ye göre çağırma işlemi
     public Car getById(int id) {
         Car obj = null;
-        String query = "SELECT * FROM public.car WHERE car_id = ?";
+        String query = "Select * FROM public.car WHERE car_id = ?";
         try {
             PreparedStatement pr = con.prepareStatement(query);
             pr.setInt(1, id);
             ResultSet rs = pr.executeQuery();
             if (rs.next()) {
                 obj = this.match(rs);
-
-
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
 
         return obj;
@@ -48,10 +46,9 @@ public class CarDao {
     }
     //TODO custom query ile hepsini getirdiğin metod
     public ArrayList<Car> findAll() {
-        String sql = "SELECT * FROM public.car ORDER BY car_id ASC";
-        return this.selectByQuery(sql);
-
+        return this.selectByQuery("SELECT * FROM public.car  ORDER BY car_id ASC");
     }
+
     //TODO verdiğin queryi araç listesi olarak dödürüyor
     public ArrayList<Car> selectByQuery(String query) {
         ArrayList<Car> cars = new ArrayList<>();
@@ -59,13 +56,14 @@ public class CarDao {
             ResultSet rs = this.con.createStatement().executeQuery(query);
             while (rs.next()) {
                 cars.add(this.match(rs));
-
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return cars;
     }
+
+
     //TODO match result setten gelen verileri car la eşleştiriyordu
     public Car match(ResultSet rs) throws SQLException {
         Car car = new Car();
