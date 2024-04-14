@@ -37,6 +37,16 @@ public class AdminView extends Layout {
     private JPanel pnl_car;
     private JScrollPane scrl_car;
     private JTable tbl_car;
+    private JPanel pnl_booking;
+    private JPanel pnl_booking_search;
+    private JScrollPane scrl_booking;
+    private JTextField fld_strt_date;
+    private JTextField fld_fnsh_date;
+    private JComboBox cmb_booking_gear;
+    private JComboBox cmb_booking_fuel;
+    private JComboBox cmb_booking_type;
+    private JButton button1;
+    private JTable tbl_booking;
     private User user;
 
     //TODO table model
