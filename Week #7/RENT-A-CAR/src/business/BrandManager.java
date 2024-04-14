@@ -4,6 +4,7 @@ import core.Helper;
 import dao.BrandDao;
 import dao.UserDao;
 import entity.Brand;
+import entity.Model;
 import entity.User;
 
 import java.util.ArrayList;
@@ -11,9 +12,11 @@ import java.util.ArrayList;
 public class BrandManager {
 
     private final BrandDao brandDao;
+    private final ModelManager modelManager;
 
     public BrandManager() {
         this.brandDao = new BrandDao();
+        this.modelManager = new ModelManager();
     }
 
     public ArrayList<Object[]> getForTable(int size) {
@@ -58,6 +61,10 @@ public class BrandManager {
         if(this.getById(id)==null){
             Helper.showMsg(id + " ID kayıtlı marka bulunamadı", "");
             return false;
+        }
+
+        for(Model model : this.modelManager.getByListBrandId(id)){
+            this.modelManager.delete(model.getId());
         }
 
         return this.brandDao.delete(id);

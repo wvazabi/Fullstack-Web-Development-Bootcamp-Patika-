@@ -24,7 +24,7 @@ public class Model {
 
     public enum Type {
         SEDAN,
-        HACBACK
+        HATCHBACK
     }
 
 

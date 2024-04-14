@@ -20,6 +20,12 @@ public class Helper {
     }
 
     //TODO check  empty field
+    public static boolean isFieldListEmpty(JTextField[] fieldList){
+        for (JTextField field :fieldList){
+            if(isFieldEmpty(field)) return true;
+        }
+        return false;
+    }
     public static boolean isFieldEmpty(JTextField field) {
         return field.getText().trim().isEmpty();
     }
@@ -42,6 +48,32 @@ public class Helper {
             default:
                 msg = str;
                 header = title;
+        }
+
+        JOptionPane.showMessageDialog(null,
+                msg,
+                header,
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static void showMsg(String str) {
+        String msg;
+        String header;
+        switch (str) {
+            case "fill":
+                msg = "Please fill empty fields";
+                header = "Alert !";
+                break;
+            case "done":
+                msg = "Successfully completed";
+                header = "Completed";
+                break;
+            case "error":
+                msg = "Error";
+                header = "Error Message";
+            default:
+                msg = str;
+                header = "Message";
         }
 
         JOptionPane.showMessageDialog(null,

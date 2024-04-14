@@ -35,6 +35,9 @@ public class ModelDao {
         return obj;
 
     }
+
+
+
     public ArrayList<Model> getByListBrandId(int brandId) {
 
         String sql = "SELECT * FROM public.model WHERE model_brand_id = " +brandId;
