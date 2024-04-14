@@ -53,6 +53,7 @@ public class AdminView extends Layout {
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
     private DefaultTableModel tmdl_model = new DefaultTableModel();
     private DefaultTableModel tmdl_car = new DefaultTableModel();
+    private DefaultTableModel tmdl_booking = new DefaultTableModel();
 
     //TODO  manager
     private BrandManager brandManager;
@@ -64,7 +65,10 @@ public class AdminView extends Layout {
     private JPopupMenu model_menu;
     private JPopupMenu car_menu;
 
+    private JPopupMenu booking_menu;
+
     private Object[] col_model;
+    private Object[] col_booking_list;
 
 
     public AdminView(User user) {
@@ -93,8 +97,43 @@ public class AdminView extends Layout {
         loadCarComponent();
         loadCarTable();
 
+        //TODO Booking tab menu
+
+        loadBookingTable(null);
+        loadBookingComponent();
+        loadBookingFilter();
+
+
 
     }
+
+    public void loadBookingComponent() {
+        tableRowSelect(this.tbl_booking);
+        this.booking_menu = new JPopupMenu();
+        this.booking_menu.add("Rezervasyon Yap").addActionListener(e ->{
+
+        });
+
+
+        
+
+    }
+
+    private void loadBookingTable(ArrayList<Object[]> carList) {
+        Object[] col_booking_list = new Object[]{"ID", "Brand", "Model", "Plate", "Color", "Km", "Year", "Type", "Fuel", "Gear"};
+        createTable(this.tmdl_booking, this.tbl_booking, col_booking_list, carList);
+    }
+
+    public void loadBookingFilter(){
+        this.cmb_booking_type.setModel(new DefaultComboBoxModel<>(Model.Type.values()));
+        this.cmb_booking_type.setSelectedItem(null);
+        this.cmb_booking_gear.setModel(new DefaultComboBoxModel<>(Model.Gear.values()));
+        this.cmb_booking_gear.setSelectedItem(null);
+        this.cmb_booking_fuel.setModel(new DefaultComboBoxModel<>(Model.Fuel.values()));
+        this.cmb_booking_fuel.setSelectedItem(null);
+
+    }
+
 
 
 
