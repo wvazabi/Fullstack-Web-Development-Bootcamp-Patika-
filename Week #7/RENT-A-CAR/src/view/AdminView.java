@@ -32,8 +32,8 @@ public class AdminView extends Layout {
     private ModelManager modelManager;
 
     //TODO JPopUpMenu
-    private JPopupMenu brandMenu;
-    private JPopupMenu model_Menu;
+    private JPopupMenu brand_menu;
+    private JPopupMenu model_menu;
 
     private Object[] col_model;
 
@@ -52,10 +52,29 @@ public class AdminView extends Layout {
 
         loadBrandTable();
         loadBrandComponent();
+
+
         loadModelTable();
+        loadModelComponent();
 
+    }
 
-        tbl_brand.setComponentPopupMenu(brandMenu);
+    private void loadModelComponent() {
+        tableRowSelect(tbl_model);
+        this.model_menu = new JPopupMenu();
+
+        model_menu.add("Add").addActionListener(e -> {
+
+        });
+        model_menu.add("Delete").addActionListener(e -> {
+
+        });
+
+        model_menu.add("Update").addActionListener(e -> {
+
+        });
+
+        tbl_model.setComponentPopupMenu(model_menu);
     }
 
     public void loadBrandTable() {
@@ -63,7 +82,6 @@ public class AdminView extends Layout {
         Object[] col_brand = {"Brand ID", "Brand Name"};
         ArrayList<Object[]> brandList = brandManager.getForTable(col_brand.length);
         this.createTable(this.tmdl_brand, this.tbl_brand, col_brand, brandList);
-
     }
 
     public void loadModelTable() {
@@ -80,18 +98,12 @@ public class AdminView extends Layout {
 
     public void loadBrandComponent() {
         //TODO sağ clik
-        this.tbl_brand.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                int selected_row = tbl_brand.rowAtPoint(e.getPoint());
-                tbl_brand.setRowSelectionInterval(selected_row,selected_row);
-            }
-        });
+        this.tableRowSelect(this.tbl_brand);
 
 
         //TODO sağ tıkla menu
-        this.brandMenu = new JPopupMenu();
-        brandMenu.add("Add").addActionListener(e -> {
+        this.brand_menu = new JPopupMenu();
+        brand_menu.add("Add").addActionListener(e -> {
             System.out.println("Add clicked");
             BrandView brandView = new BrandView(null);
             brandView.addWindowListener(new WindowAdapter() {
@@ -101,7 +113,7 @@ public class AdminView extends Layout {
                 }
             });
         });
-        brandMenu.add("Delete").addActionListener(e -> {
+        brand_menu.add("Delete").addActionListener(e -> {
             if (Helper.confirm("sure")){
                 int selectBrandId = this.getTableSelectedRow(tbl_brand, 0);
                 if(this.brandManager.delete(selectBrandId)) {
@@ -115,7 +127,7 @@ public class AdminView extends Layout {
 
         });
 
-        brandMenu.add("Update").addActionListener(e -> {
+        brand_menu.add("Update").addActionListener(e -> {
             int selectedBrandId = Integer.parseInt(tbl_brand.getValueAt(tbl_brand.getSelectedRow(),0).toString());
 
             BrandView brandView = new BrandView(this.brandManager.getById(selectedBrandId));
@@ -126,7 +138,9 @@ public class AdminView extends Layout {
                 }
             });
         });
+
+        tbl_brand.setComponentPopupMenu(brand_menu);
     }
 
-
+    
 }
