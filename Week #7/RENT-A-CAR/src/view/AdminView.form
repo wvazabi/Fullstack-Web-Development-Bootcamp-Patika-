@@ -64,7 +64,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="1af82" class="javax.swing.JTextField" binding="fld_strt_date">
+                  <component id="1af82" class="javax.swing.JTextField" binding="fld_strt_date" custom-create="true">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <gridbag weightx="1.0" weighty="1.0"/>
@@ -73,7 +73,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="7734a" class="javax.swing.JTextField" binding="fld_fnsh_date">
+                  <component id="7734a" class="javax.swing.JTextField" binding="fld_fnsh_date" custom-create="true">
                     <constraints>
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                       <gridbag weightx="1.0" weighty="1.0"/>
@@ -83,21 +83,21 @@
                   <component id="595b" class="javax.swing.JComboBox" binding="cmb_booking_gear">
                     <constraints>
                       <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                      <gridbag weightx="0.0" weighty="1.0"/>
+                      <gridbag weightx="0.5" weighty="1.0"/>
                     </constraints>
                     <properties/>
                   </component>
                   <component id="7c687" class="javax.swing.JComboBox" binding="cmb_booking_fuel">
                     <constraints>
                       <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                      <gridbag weightx="0.0" weighty="1.0"/>
+                      <gridbag weightx="0.5" weighty="1.0"/>
                     </constraints>
                     <properties/>
                   </component>
                   <component id="79248" class="javax.swing.JComboBox" binding="cmb_booking_type">
                     <constraints>
                       <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                      <gridbag weightx="0.0" weighty="1.0"/>
+                      <gridbag weightx="0.3" weighty="1.0"/>
                     </constraints>
                     <properties/>
                   </component>
@@ -107,7 +107,7 @@
                       <gridbag weightx="1.0" weighty="1.0"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value="Start Date"/>
                     </properties>
                   </component>
                   <component id="b198d" class="javax.swing.JLabel">
@@ -116,7 +116,7 @@
                       <gridbag weightx="1.0" weighty="1.0"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value="End Date"/>
                     </properties>
                   </component>
                   <component id="b5160" class="javax.swing.JLabel">
@@ -125,7 +125,7 @@
                       <gridbag weightx="0.0" weighty="1.0"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value="Gear Type"/>
                     </properties>
                   </component>
                   <component id="6b19b" class="javax.swing.JLabel">
@@ -134,7 +134,7 @@
                       <gridbag weightx="0.0" weighty="1.0"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value="Fuel Type"/>
                     </properties>
                   </component>
                   <component id="2a01d" class="javax.swing.JLabel">
@@ -143,16 +143,25 @@
                       <gridbag weightx="0.0" weighty="1.0"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value="Car Type"/>
                     </properties>
                   </component>
-                  <component id="50453" class="javax.swing.JButton" binding="button1" default-binding="true">
+                  <component id="50453" class="javax.swing.JButton" binding="btn_booking_search">
                     <constraints>
                       <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <gridbag weightx="0.0" weighty="1.0"/>
                     </constraints>
                     <properties>
-                      <text value="Button"/>
+                      <text value="Find Car"/>
+                    </properties>
+                  </component>
+                  <component id="4b00a" class="javax.swing.JButton" binding="btn_cncl_booking">
+                    <constraints>
+                      <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <text value="Clear"/>
                     </properties>
                   </component>
                 </children>

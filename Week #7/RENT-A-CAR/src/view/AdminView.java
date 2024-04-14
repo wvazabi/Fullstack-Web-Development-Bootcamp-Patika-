@@ -12,7 +12,9 @@ import entity.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 import java.awt.event.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class AdminView extends Layout {
@@ -45,8 +47,9 @@ public class AdminView extends Layout {
     private JComboBox cmb_booking_gear;
     private JComboBox cmb_booking_fuel;
     private JComboBox cmb_booking_type;
-    private JButton button1;
+    private JButton btn_booking_search;
     private JTable tbl_booking;
+    private JButton btn_cncl_booking;
     private User user;
 
     //TODO table model
@@ -68,6 +71,7 @@ public class AdminView extends Layout {
     private JPopupMenu booking_menu;
 
     private Object[] col_model;
+    private Object[] col_car;
     private Object[] col_booking_list;
 
 
@@ -104,7 +108,24 @@ public class AdminView extends Layout {
         loadBookingFilter();
 
 
+        btn_booking_search.addActionListener(e -> {
+            ArrayList<Car> carList = this.carManager.searchForBooking(
+                    fld_strt_date.getText(),
+                    fld_fnsh_date.getText(),
+                    (Model.Type) cmb_booking_type.getSelectedItem(),
+                    (Model.Gear) cmb_booking_gear.getSelectedItem(),
+                    (Model.Fuel) cmb_booking_fuel.getSelectedItem()
 
+
+            );
+            // TODO get for table ile objeye dönüştürücez tabloda göstermek için
+            ArrayList<Object[]> carBookingRow = this.carManager.getForTable(this.col_car.length,carList);
+            loadBookingTable(carBookingRow);
+
+        });
+        btn_cncl_booking.addActionListener(e -> {
+             loadBookingFilter();
+        });
     }
 
     public void loadBookingComponent() {
@@ -115,7 +136,7 @@ public class AdminView extends Layout {
         });
 
 
-        
+
 
     }
 
@@ -139,7 +160,7 @@ public class AdminView extends Layout {
 
 
     public void loadCarTable() {
-        Object[] col_car = {"ID", "Marka", "Model", "Plaka", "Renk", "Km", "Yıl", "Tip", "Yakit Türü", "Vites"};
+        this.col_car = new Object[]{"ID", "Marka", "Model", "Plaka", "Renk", "Km", "Yıl", "Tip", "Yakit Türü", "Vites"};
         ArrayList<Car> allCars = this.carManager.findAll(); // Tüm araçları al
         if (allCars != null) { // Null kontrolü yap
             ArrayList<Object[]> carList = this.carManager.getForTable(col_car.length, allCars); // Tablo için gerekli listeyi oluştur
@@ -372,4 +393,13 @@ public class AdminView extends Layout {
     }
 
 
+    //TODO custom UI component
+    private void createUIComponents() throws ParseException {
+        this.fld_strt_date = new JFormattedTextField(new MaskFormatter("##/##/####"));
+        this.fld_strt_date.setText("17/01/2024");
+        this.fld_fnsh_date = new JFormattedTextField(new MaskFormatter("##/##/####"));
+        this.fld_fnsh_date.setText("16/10/2024");
+
+
+    }
 }
