@@ -108,6 +108,24 @@ public class AdminView extends Layout {
         loadBookingFilter();
 
 
+
+    }
+
+    public void loadBookingComponent() {
+        tableRowSelect(this.tbl_booking);
+        this.booking_menu = new JPopupMenu();
+        this.booking_menu.add("Make reservation").addActionListener(e ->{
+            int selectedCarId = this.getTableSelectedRow(this.tbl_booking, 0);
+            BookingView bookingView = new BookingView(
+                    this.carManager.getById(selectedCarId),
+                    this.fld_strt_date.getText(),
+                    this.fld_fnsh_date.getText()
+            );
+
+        });
+
+        this.tbl_booking.setComponentPopupMenu(booking_menu);
+
         btn_booking_search.addActionListener(e -> {
             ArrayList<Car> carList = this.carManager.searchForBooking(
                     fld_strt_date.getText(),
@@ -124,15 +142,7 @@ public class AdminView extends Layout {
 
         });
         btn_cncl_booking.addActionListener(e -> {
-             loadBookingFilter();
-        });
-    }
-
-    public void loadBookingComponent() {
-        tableRowSelect(this.tbl_booking);
-        this.booking_menu = new JPopupMenu();
-        this.booking_menu.add("Rezervasyon Yap").addActionListener(e ->{
-
+            loadBookingFilter();
         });
 
 
@@ -218,22 +228,22 @@ public class AdminView extends Layout {
         });
         this.tbl_car.setComponentPopupMenu(this.car_menu);
 
-//        this.btn_search_model.addActionListener(e -> {
-//            ComboItem selectedBrand = (ComboItem) this.cmb_s_model_brand.getSelectedItem();
-//            int brandId = 0;
-//            if (selectedBrand != null) {
-//                brandId = selectedBrand.getKey();
-//            }
-//            ArrayList<Model> modelListBySearch = this.modelManager.searcForTable(
-//                    brandId,
-//                    (Model.Fuel) cmb_s_model_fuel.getSelectedItem(),
-//                    (Model.Gear) cmb_s_model_gear.getSelectedItem(),
-//                    (Model.Type) cmb_s_model_type.getSelectedItem()
-//            );
-//
-//            ArrayList<Object[]> modelRowListBySearch = this.modelManager.getForTable(this.col_model.length, modelListBySearch);
-//            loadModelTable(modelRowListBySearch);
-//        });
+        this.btn_search_model.addActionListener(e -> {
+            ComboItem selectedBrand = (ComboItem) this.cmb_s_model_brand.getSelectedItem();
+            int brandId = 0;
+            if (selectedBrand != null) {
+                brandId = selectedBrand.getKey();
+            }
+            ArrayList<Model> modelListBySearch = this.modelManager.searcForTable(
+                    brandId,
+                    (Model.Fuel) cmb_s_model_fuel.getSelectedItem(),
+                    (Model.Gear) cmb_s_model_gear.getSelectedItem(),
+                    (Model.Type) cmb_s_model_type.getSelectedItem()
+            );
+
+            ArrayList<Object[]> modelRowListBySearch = this.modelManager.getForTable(this.col_model.length, modelListBySearch);
+            loadModelTable(modelRowListBySearch);
+        });
 
     }
 
@@ -396,7 +406,7 @@ public class AdminView extends Layout {
     //TODO custom UI component
     private void createUIComponents() throws ParseException {
         this.fld_strt_date = new JFormattedTextField(new MaskFormatter("##/##/####"));
-        this.fld_strt_date.setText("17/01/2024");
+        this.fld_strt_date.setText("16/01/2023");
         this.fld_fnsh_date = new JFormattedTextField(new MaskFormatter("##/##/####"));
         this.fld_fnsh_date.setText("16/10/2024");
 
