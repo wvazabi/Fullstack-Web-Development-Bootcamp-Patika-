@@ -25,6 +25,7 @@ public class BookDao {
     public Book getById(int id) {
         Book obj = null;
         String query = "SELECT * FROM public.book WHERE book_id = ? ";
+        
         try {
             PreparedStatement pr = this.con.prepareStatement(query);
             pr.setInt(1, id);
