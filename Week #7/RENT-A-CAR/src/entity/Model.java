@@ -25,10 +25,15 @@ public class Model {
         AUTO
     }
 
+
+
     public enum Type {
         SEDAN,
-        HATCHBACK
+        HATCHBACK,
+        SUV
+
     }
+
 
 
     public int getId() {
