@@ -30,6 +30,7 @@ public class Helper {
         return field.getText().trim().isEmpty();
     }
 
+   //JOptionPane sınıfından türetilmiş show message dialog metodu
     public static void showMsg(String str, String title) {
         String msg;
         String header = title;
@@ -49,6 +50,7 @@ public class Helper {
                 msg = str;
                 header = title;
         }
+
 
         JOptionPane.showMessageDialog(null,
                 msg,
