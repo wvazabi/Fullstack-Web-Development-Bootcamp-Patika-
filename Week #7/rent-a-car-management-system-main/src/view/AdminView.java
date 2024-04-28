@@ -55,6 +55,7 @@ public class AdminView extends Layout{
     private JButton btn_find;
     private JTable tbl_booking;
     private JPanel pnl_search;
+    //TODO Formatlanabilir text fieldlar bunun içine format ataması yapabiliriz
     private JFormattedTextField fld_end_date;
     private JFormattedTextField fld_start_date;
     private JScrollPane scrl_booking;
@@ -68,11 +69,14 @@ public class AdminView extends Layout{
     private JButton btn_plate_clear;
     private JButton btn_plate_search;
     private User user;
+
+    // TODO tablolarda işlem yapabilmemiz için table modellere ihtiyaç var
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
     private DefaultTableModel tmdl_model = new DefaultTableModel();
     private DefaultTableModel tmbdl_car = new DefaultTableModel();
     private DefaultTableModel tmdl_booking = new DefaultTableModel();
     private DefaultTableModel tmdl_reservation = new DefaultTableModel();
+
     private BrandManager brandManager;
     private ModelManager modelManager;
     private JPopupMenu brand_menu;
@@ -155,7 +159,10 @@ public class AdminView extends Layout{
         });
         this.tbl_booking.setComponentPopupMenu(booking_menu);
 
+        // TODO araç bulma algoritması
         btn_find.addActionListener(e -> {
+            //TODO car managerdan yapılıyor arabalarla ilgili olduğu için araba döndüren array var filtrelenen arabaları
+            // alıp obje şeklinde tabloya göndermek için
             ArrayList<Car> carList = this.carManager.searchForBooking(
                     fld_start_date.getText(),
                     fld_end_date.getText(),
@@ -168,6 +175,7 @@ public class AdminView extends Layout{
             loadBookingTable(carBookingRow);
         });
 
+        //TODO clear search
         btn_clear_book_fltr.addActionListener(e -> {
             loadBookingFilter();
         });
@@ -274,9 +282,11 @@ public class AdminView extends Layout{
 
         this.tbl_model.setComponentPopupMenu(this.model_menu);
 
+        //TODO filtlereme yapılıyor butona tıklanıldığında
         this.btn_search.addActionListener(e -> {
             ComboItem selectedBrand = (ComboItem) this.cmb_brand.getSelectedItem();
             int brandId = 0;
+            //TODO boş search ettiğinde proplemler olmasması için
             if (selectedBrand != null) {
                 brandId = selectedBrand.getKey();
             }
@@ -286,11 +296,13 @@ public class AdminView extends Layout{
                     (Model.Gear) cmb_gear.getSelectedItem(),
                     (Model.Type) cmb_type.getSelectedItem()
             );
-
+            //TODO loadModelTable da göresilmesini istediğimiz datayı veriyoruz
             ArrayList<Object[]> modelRowListBySearch = this.modelManager.getForTable(this.col_model.length, modelListBySearch);
+            //TODO null yerine modelRowListBySearch veriliyor
             loadModelTable(modelRowListBySearch);
         });
 
+        //TODO arama filtreleri cancel olduğu zaman sıfırlanıyor
         this.btn_clear.addActionListener(e ->  {
             this.cmb_type.setSelectedItem(null);
             this.cmb_gear.setSelectedItem(null);
@@ -347,6 +359,7 @@ public class AdminView extends Layout{
 
     public void loadModelTable(ArrayList<Object[]> modelList) {
         this.col_model = new Object[]{"Model ID", "Brand", "Model", "Type", " Year", "Fuel Type", "Gear"};
+        //TODO bir değere göndermessek filtreleme olamdan listeleme
         if (modelList == null) {
             modelList = this.modelManager.getForTable(this.col_model.length, this.modelManager.findAll());
         }
@@ -354,6 +367,7 @@ public class AdminView extends Layout{
     }
 
     public void loadModelFilter() {
+        //TODO ilk seçilen itemları null'a çekiyoruz
         this.cmb_type.setModel(new DefaultComboBoxModel<>(Model.Type.values()));
         this.cmb_type.setSelectedItem(null);
 
@@ -376,10 +390,12 @@ public class AdminView extends Layout{
 
     public void loadBrandTable() {
         Object[] col_brand = {"Brand ID", "Brand Name"};
+        // TODO tablnun kolonları belirlenmesi için
         ArrayList<Object[]> brandList = this.brandManager.getForTable(col_brand.length);
         this.createTable(this.tmdl_brand, this.tbl_brand, col_brand, brandList);
     }
 
+    //TODO tarih text fieldları formatlanabilir text formatında yazılması
     private void createUIComponents() throws ParseException {
         this.fld_start_date = new JFormattedTextField(new MaskFormatter("##/##/####"));
         this.fld_start_date.setText("10/10/2023");

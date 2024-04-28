@@ -15,7 +15,7 @@ public class ModelManager {
 
     public ArrayList<Object[]> getForTable(int size, ArrayList<Model> modelList) {
         ArrayList<Object[]> modelObjList = new ArrayList<>();
-
+        // TODO her satırda obj göstermesi istiyor addrow object
         for (Model obj : modelList) {
             int i = 0;
             Object[] rowObject = new Object[size];
@@ -55,12 +55,15 @@ public class ModelManager {
         return this.modelDao.delete(id);
     }
 
+
     public ArrayList<Model> getByListBrandId (int brandId) {
         return this.modelDao.getByListBrandId(brandId);
     }
 
+    //TODO model arama için
     public ArrayList<Model> searchForTable(int brandId, Model.Fuel fuel, Model.Gear gear, Model.Type type) {
         String select = "SELECT * FROM public.model";
+        //TODO dinamik sorgu için araylist oluşturuyor
         ArrayList<String> whereList = new ArrayList<>();
 
         if (brandId != 0) {
@@ -69,6 +72,7 @@ public class ModelManager {
         if (fuel != null) {
             whereList.add("model_fuel='" + fuel.toString() + "'");
         }
+        //TODO string olduğu için tırnak işareti kullanıyor
         if (gear != null) {
             whereList.add("model_gear='" + gear.toString() + "'");
         }
@@ -76,12 +80,15 @@ public class ModelManager {
             whereList.add("model_type='" + type.toString() + "'");
         }
 
+        // where list birleştirme
         String whereStr = String.join(" AND ", whereList);
         String query = select;
+        //TODO bir değer varsa
         if (whereStr.length() > 0) {
             query += " WHERE " + whereStr;
         }
 
+        //TODO bu query ye göre vei dödürüyoruz
         return this.modelDao.selectByQuery(query);
     }
 

@@ -1,6 +1,9 @@
 package core;
 
+//TODO seçilen değerin keyi ve ekrana gösterilen değerini birlikte tutmak için
+
 public class ComboItem {
+
     private int key;
     private String value;
 

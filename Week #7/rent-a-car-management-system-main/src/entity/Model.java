@@ -10,6 +10,7 @@ public class Model {
     private int year;
     private Fuel fuel;
     private Gear gear;
+    // TODO brand objeside oluşturuluyor brand id den aldığımız brande atıyoruz
     private Brand brand;
 
     public enum Fuel {
@@ -99,6 +100,7 @@ public class Model {
         this.brand = brand;
     }
 
+    //TODO car viewde model vcombo item gösteriş
     public ComboItem getComboItem() {
         return new ComboItem(this.getId(), this.getBrand().getName() + " - " + this.getName() + " - " + this.getYear() + " - " + this.getGear());
     }

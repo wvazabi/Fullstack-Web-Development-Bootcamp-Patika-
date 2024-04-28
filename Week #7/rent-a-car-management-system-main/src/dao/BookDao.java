@@ -89,6 +89,7 @@ public class BookDao {
             pr.setString(3, book.getIdno());
             pr.setString(4, book.getMpno());
             pr.setString(5, book.getMail());
+            //TODO veri tabanı formatına çeviriyor burda veriyi
             pr.setDate(6, Date.valueOf(book.getStrt_date()));
             pr.setDate(7, Date.valueOf(book.getFnsh_date()));
             pr.setInt(8, book.getPrc());
@@ -108,6 +109,7 @@ public class BookDao {
         book.setbCase(rs.getString("book_status"));
         book.setCar_id(rs.getInt("book_car_id"));
         book.setName(rs.getString("booker_name"));
+
         book.setStrt_date(LocalDate.parse(rs.getString("book_start_date")));
         book.setFnsh_date(LocalDate.parse(rs.getString("book_finish_date")));
         book.setCar(this.carDao.getById(rs.getInt("book_car_id")));

@@ -12,6 +12,7 @@ import javax.swing.*;
 public class ModelView extends Layout{
     private JPanel container;
     private JLabel lbl_heading;
+    //TODO generic yapı comboitem veriyoruz
     private JComboBox<ComboItem> cmb_brand;
     private JTextField fld_model_name;
     private JTextField fld_model_year;
@@ -35,10 +36,12 @@ public class ModelView extends Layout{
 
         this.cmb_brand.setModel(new DefaultComboBoxModel());
 
+        //TODO sistemdeki tüm brandleri geziyoruz
         for (Brand brand : this.brandManager.getAllBrands()) {
+            //TODO combobox'a yeni item ekleiyor comboitem tibinde brand id kry brand name value
             this.cmb_brand.addItem(new ComboItem(brand.getId(), brand.getName()));
         }
-
+    //TODO enum oldukları için combo item generic yapıya ihtiyaç yok
         this.cmb_fuel_type.setModel(new DefaultComboBoxModel<>(Model.Fuel.values()));
         this.cmb_gear_type.setModel(new DefaultComboBoxModel<>(Model.Gear.values()));
         this.cmb_model_type.setModel(new DefaultComboBoxModel<>(Model.Type.values()));

@@ -18,10 +18,14 @@ public class Layout extends JFrame {
     }
 
     public void createTable(DefaultTableModel model, JTable table, Object[] columns, ArrayList<Object[]> rows) {
+        // TODO kolonlarını oluşturuyor
         model.setColumnIdentifiers(columns);
+        // TODO model ataması
         table.setModel(model);
+        // TODO tablolardaki başlıkların yerlerinin değiştirilmesini kapatılamsı
         table.getTableHeader().setReorderingAllowed(false);
         table.getColumnModel().getColumn(0).setMaxWidth(75);
+        // TODO çift tıklanıldığında düzenlenmesi kapatıldı
         table.setEnabled(false);
 
         DefaultTableModel clearModel = (DefaultTableModel) table.getModel();
@@ -40,6 +44,7 @@ public class Layout extends JFrame {
         return Integer.parseInt(table.getValueAt(table.getSelectedRow(), index).toString());
     }
 
+    //TODO tabloyu tıklanır yapar
     public void tableRowSelect(JTable table) {
         table.addMouseListener(new MouseAdapter() {
             @Override

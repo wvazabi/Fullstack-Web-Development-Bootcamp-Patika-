@@ -33,9 +33,11 @@ public class CarView extends Layout{
 
         this.cmb_color.setModel(new DefaultComboBoxModel<>(Car.Color.values()));
         for (Model model : this.modelManager.findAll()) {
+            //TODO modelin combo iteminin yakışıl şeklinde güncelleme yapıyoruz
             this.cmb_model.addItem(model.getComboItem());
         }
 
+        //TODO car ın idesi varsa update işlemi alanları dolduruyoruz
         if (this.car.getId() != 0) {
             ComboItem selectedItem = car.getModel().getComboItem();
             this.cmb_model.getModel().setSelectedItem(selectedItem);
@@ -45,6 +47,7 @@ public class CarView extends Layout{
         }
 
         this.btn_save.addActionListener(e -> {
+            //TODO boş alanların kontrollerinin yapılması
             if (Helper.isFieldListEmpty(new JTextField[]{fld_km, fld_plate})) {
                 Helper.showMessage("fill");
             } else {

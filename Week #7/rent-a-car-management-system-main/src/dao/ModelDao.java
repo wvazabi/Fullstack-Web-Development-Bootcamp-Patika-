@@ -108,6 +108,8 @@ public class ModelDao {
         return true;
     }
 
+    // TODO query alıyor ve çaıştırıyor
+
     public ArrayList<Model> selectByQuery (String query) {
         ArrayList<Model> modelList = new ArrayList<>();
         try {
@@ -126,10 +128,12 @@ public class ModelDao {
         Model model = new Model();
         model.setId(rs.getInt("model_id"));
         model.setName(rs.getString("model_name"));
+        // TODO model sınıfının içindeki enumlar odluğu için
         model.setFuel(Model.Fuel.valueOf(rs.getString("model_fuel")));
         model.setGear(Model.Gear.valueOf(rs.getString("model_gear")));
         model.setType(Model.Type.valueOf(rs.getString("model_type")));
         model.setYear(rs.getInt("model_year"));
+        // TODO brand_id ile brand oluşturuyoruz
         model.setBrand(this.brandDao.getById(rs.getInt("model_brand_id")));
         model.setBrand_id(rs.getInt("model_brand_id"));
 
