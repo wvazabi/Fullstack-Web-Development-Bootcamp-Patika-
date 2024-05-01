@@ -19,6 +19,9 @@ public class Product {
     @Column(name = "product_stock", nullable = false)
     private int stock;
 
+    //product'ın bir codu varsa code entitysinde üretilmis bir nesneyi kendi özelliğmiş gibi alabilir.
+    // bundle olarak belirliyoruz
+   // JoinColumn u görünce JPA mappedbyla join yapar
     @OneToOne
     @JoinColumn(name = "product_code_id", referencedColumnName = "code_id")
     private Code code;

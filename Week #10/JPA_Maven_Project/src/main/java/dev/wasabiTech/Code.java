@@ -16,6 +16,8 @@ public class Code{
     @Column(name = "code_serial", nullable = false)
     private String serial;
 
+    // Code da kendi içersinde product'a sahip mappedby kısmına nesnein adını veriyoruz.
+    //JPA mappedby görünce joine gidip bakar
     @OneToOne(mappedBy = "code")
     private Product product;
 
@@ -46,6 +48,7 @@ public class Code{
         this.serial = serial;
     }
 
+    // product toString içersinde bastırılmıyor one to one ilişkilerde hata ile karşılaşılabilir
     @java.lang.Override
     public java.lang.String toString() {
         return "Code{" +
