@@ -2,6 +2,8 @@ package dev.wasabiTech;
 
 import jakarta.persistence.*;
 
+
+
 @Entity
 @Table(name="products")
 public class Product {
@@ -34,11 +36,18 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "product_category_id", referencedColumnName = "category_id")
     private Category category;
+
+    @ManyToMany
+    @JoinTable(
+            name = "pro2colors",
+            joinColumns = @JoinColumn(name = "pro2colors_product_id"),
+            inverseJoinColumns = @JoinColumn(name = "pro2colors_color_id"))
+    private List<Colors> colorList;
+}
+
     // Diğer özellikler ve getter/setter metotları
 
 
-    public Product() {
-    }
 
     public Category getCategory() {
         return category;

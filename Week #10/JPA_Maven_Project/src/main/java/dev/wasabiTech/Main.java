@@ -35,7 +35,7 @@ public class Main {
 //        transaction.commit();
 
         transaction.begin();
-
+/*
         //supplier
         Supplier supplier = new Supplier();
         supplier.setMail("apple@cargo.com");
@@ -67,6 +67,7 @@ public class Main {
         entityManager.persist(product);
         System.out.println(product.toString());
 
+*/
 
 
 
