@@ -35,19 +35,41 @@ public class Main {
 //        transaction.commit();
 
         transaction.begin();
+
+        //supplier
+        Supplier supplier = new Supplier();
+        supplier.setMail("apple@cargo.com");
+        supplier.setAddress("maltepe/istanbul");
+        supplier.setCompany("apple");
+        supplier.setContact("Apple USA");
+        entityManager.persist(supplier);
+
+        //category
+        Category category = new Category();
+        category.setName("Phones");
+        entityManager.persist(category);
+
+        //code
         Code code = new Code();
         code.setGroup("3111");
         code.setSerial("234324");
         entityManager.persist(code);
 
+        //product
         Product product = new Product();
         product.setName("Apple Iphoe 16");
         product.setPrice(22434.0);
         product.setStock(100);
         product.setCode(code);
+        product.setSupplier(supplier);
+        product.setCategory(category);
 
         entityManager.persist(product);
         System.out.println(product.toString());
+
+
+
+
         transaction.commit();
 
 

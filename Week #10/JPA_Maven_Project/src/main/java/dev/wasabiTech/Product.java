@@ -26,10 +26,26 @@ public class Product {
     @JoinColumn(name = "product_code_id", referencedColumnName = "code_id")
     private Code code;
 
+    //Supplier ile çoktan aza bir ilişkisi var
+    @ManyToOne
+    @JoinColumn(name = "product_supplier_id", referencedColumnName = "supplier_id")
+    private Supplier supplier;
+
+    @ManyToOne
+    @JoinColumn(name = "product_category_id", referencedColumnName = "category_id")
+    private Category category;
     // Diğer özellikler ve getter/setter metotları
 
 
     public Product() {
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public int getId() {
@@ -72,6 +88,14 @@ public class Product {
         this.code = code;
     }
 
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
     @java.lang.Override
     public java.lang.String toString() {
         return "Product{" +
@@ -80,6 +104,9 @@ public class Product {
                 ", price=" + price +
                 ", stock=" + stock +
                 ", code=" + code +
+                ", supplier=" + supplier +
+                ", category=" + category +
                 '}';
     }
+
 }
