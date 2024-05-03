@@ -2,6 +2,7 @@ package dev.wasabiTech;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 
 
 @Entity
@@ -24,7 +25,14 @@ public class Product {
     //product'ın bir codu varsa code entitysinde üretilmis bir nesneyi kendi özelliğmiş gibi alabilir.
     // bundle olarak belirliyoruz
    // JoinColumn u görünce JPA mappedbyla join yapar
-    @OneToOne
+
+    // TODO Lazy laod ihtiyacımız yoks ajoin kullanmayacak eagle olasaydı her şekilde kullan derdi
+    //  Merge oldugunda update oldugunda alt gruplarda update oluyor onda da değişim olduysa işlevsel
+    //  1to1 ilişkilerde özellikle cascade type removeçok önemli çünkü bir ilişki koparsa ikiside silinmeli
+    //  Many to one da kullanmak kesinlikle yanlış
+    //  ALL dersek hepsi geliyor refresh yenilenme alt nesnede 
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "product_code_id", referencedColumnName = "code_id")
     private Code code;
 
@@ -43,11 +51,13 @@ public class Product {
             joinColumns = @JoinColumn(name = "pro2colors_product_id"),
             inverseJoinColumns = @JoinColumn(name = "pro2colors_color_id"))
     private List<Colors> colorList;
-}
+
 
     // Diğer özellikler ve getter/setter metotları
 
 
+    public Product() {
+    }
 
     public Category getCategory() {
         return category;
@@ -105,16 +115,25 @@ public class Product {
         this.supplier = supplier;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    public List<Colors> getColorList() {
+        return colorList;
+    }
+
+    public void setColorList(List<Colors> colorList) {
+        this.colorList = colorList;
+    }
+
+    @Override
+    public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", name=" + name +
+                ", name='" + name + '\'' +
                 ", price=" + price +
                 ", stock=" + stock +
                 ", code=" + code +
                 ", supplier=" + supplier +
                 ", category=" + category +
+                ", colorList=" + colorList +
                 '}';
     }
 

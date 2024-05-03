@@ -21,35 +21,39 @@ public class Colors {
     public Colors() {
     }
 
-    public java.lang.Long getId() {
+    public Colors(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(java.lang.Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public List<ProductColors> getColorList() {
-        return colorList;
+    public String getName() {
+        return name;
     }
 
-    public void setColorList(List<ProductColors> colorList) {
-        this.colorList = colorList;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public java.lang.String getColorName() {
-        return colorName;
+    public List<Product> getProductList() {
+        return productList;
     }
 
-    public void setColorName(java.lang.String colorName) {
-        this.colorName = colorName;
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Colors{" +
                 "id=" + id +
-                ", colorName=" + colorName +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
