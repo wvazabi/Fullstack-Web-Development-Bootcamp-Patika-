@@ -2,7 +2,6 @@ package com.wasabi;
 
 import jakarta.persistence.*;
 
-import java.awt.print.Book;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,9 +24,8 @@ public class Author {
     @Column(name = "author_country", nullable = false)
     private String country;
 
-//    @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE)
-//    private List<Book> bookList;
-
+    @OneToMany(mappedBy = "author")
+    private List<Book> bookList;
 
     public Author() {
     }
@@ -40,13 +38,13 @@ public class Author {
         this.id = id;
     }
 
-//    public List<Book> getBookList() {
-//        return bookList;
-//    }
-//
-//    public void setBookList(List<Book> bookList) {
-//        this.bookList = bookList;
-//    }
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
 
     public String getName() {
         return name;
