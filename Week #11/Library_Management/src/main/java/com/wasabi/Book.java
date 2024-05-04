@@ -2,38 +2,42 @@ package com.wasabi;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="books")
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="book_id")
+    @Column(name = "book_id")
     private long id;
 
-    @Column(name="book_name", nullable = false)
+    @Column(name = "book_name", nullable = false)
     private String name;
 
-    @Column(name="book_publication_year",nullable = false)
+    @Column(name = "book_publication_year", nullable = false)
     private int publicationYear;
 
-    @Column(name="book_stock",nullable = false)
+    @Column(name = "book_stock", nullable = false)
     private int stock;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
-    @JoinColumn(name = "book_author_id",referencedColumnName = "author_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "book_author_id", referencedColumnName = "author_id")
     private Author author;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
-    @JoinColumn(name = "book_publisher_id",referencedColumnName = "publisher_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "book_publisher_id", referencedColumnName = "publisher_id")
     private Publisher publisher;
 
-//    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
-//    @JoinTable(name = "book2category",joinColumns = {@JoinColumn(name = "book2category_book_id")},inverseJoinColumns = {@JoinColumn(name = "book2category_category_id")})
-//    private List<Category> categories;
-//
-//    @OneToMany(mappedBy = "")
-//    private List<BookBorrowing> bookBorrowingList;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JoinTable(name = "book2category",
+            joinColumns = {@JoinColumn(name = "book2category_book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book2category_category_id")})
+    private List<Category> categories;
+
+    @OneToMany(mappedBy = "book")
+    private List<BookBorrowing> bookBorrowingList;
 
 
     public Book() {

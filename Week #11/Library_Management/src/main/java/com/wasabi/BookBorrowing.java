@@ -10,7 +10,7 @@ public class BookBorrowing {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="book_borrowing_id", columnDefinition = "serial")
+    @Column(name="book_borrowing_id")
     private long id;
 
     @Column(name="book_borrowing_borrower_name", nullable = false)

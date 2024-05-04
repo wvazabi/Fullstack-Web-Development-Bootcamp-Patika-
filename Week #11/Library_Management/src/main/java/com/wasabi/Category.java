@@ -10,7 +10,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="category_id", columnDefinition = "serial")
+    @Column(name="category_id")
     private long id;
 
     @Column(name="category_name", nullable = false)

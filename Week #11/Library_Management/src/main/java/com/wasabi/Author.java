@@ -12,21 +12,22 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="author_id")
+    @Column(name = "author_id")
     private long id;
 
-    @Column(name="author_name", nullable = false)
+    @Column(name = "author_name", nullable = false)
     private String name;
 
     @Temporal(TemporalType.DATE)
-    @Column(name="author_birthday",nullable = false)
+    @Column(name = "author_birthday", nullable = false)
     LocalDate birtDate;
 
-    @Column(name="author_country", nullable = false)
+    @Column(name = "author_country", nullable = false)
     private String country;
 
-//    @OneToMany(mappedBy = "author",cascade = CascadeType.REMOVE)
+//    @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE)
 //    private List<Book> bookList;
+
 
     public Author() {
     }

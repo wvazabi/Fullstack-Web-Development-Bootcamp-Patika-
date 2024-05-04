@@ -2,33 +2,37 @@ package com.wasabi;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name = "publishers")
+@Table(name="publishers")
 public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "publisher_id")
-    private int id;
+    @Column(name="publisher_id")
+    private long id;
 
-    @Column(name = "publisher_name", length = 100, nullable = false)
+    @Column(name="publisher_name", nullable = false)
     private String name;
 
-    @Column(name = "publisher_establishment_year")
-    private int estYear;
+    @Column(name="publisher_establish_year", nullable = false)
+    private int establishmentYear;
 
-
-    @Column(name = "publisher_address", unique = true, nullable = false)
+    @Column(name="publisher_address", nullable = false)
     private String address;
+
+    @OneToMany(mappedBy = "publisher",cascade = CascadeType.REMOVE)
+    private List<Book> bookList;
 
     public Publisher() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -40,12 +44,12 @@ public class Publisher {
         this.name = name;
     }
 
-    public int getEstYear() {
-        return estYear;
+    public int getEstablishmentYear() {
+        return establishmentYear;
     }
 
-    public void setEstYear(int estYear) {
-        this.estYear = estYear;
+    public void setEstablishmentYear(int establishmentYear) {
+        this.establishmentYear = establishmentYear;
     }
 
     public String getAddress() {
@@ -54,15 +58,5 @@ public class Publisher {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "Publisher{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", estYear=" + estYear +
-                ", address='" + address + '\'' +
-                '}';
     }
 }
