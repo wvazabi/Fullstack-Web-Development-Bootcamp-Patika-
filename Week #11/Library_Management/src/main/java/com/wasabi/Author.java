@@ -40,6 +40,14 @@ public class Author {
         this.id = id;
     }
 
+//    public List<Book> getBookList() {
+//        return bookList;
+//    }
+//
+//    public void setBookList(List<Book> bookList) {
+//        this.bookList = bookList;
+//    }
+
     public String getName() {
         return name;
     }

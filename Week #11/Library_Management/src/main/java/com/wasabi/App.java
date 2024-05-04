@@ -6,8 +6,12 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.transaction.Transaction;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
-    public static void main(String[] args) {
+    public static <categories> void main(String[] args) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("library_management");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -34,24 +38,56 @@ public class App {
         publisher2.setAddress("Maltepe/İstanbul");
         entityManager.persist(publisher2);
 
+        //Category
+        Category category = new Category();
+        category.setName("Fiction");
+        category.setDescription("Fiction Stories");
+        entityManager.persist(category);
+
+        //Author
+        Author author = new Author();
+        author.setName("George Lucas");
+        author.setCountry("USA");
+        author.setBirtDate(LocalDate.of(1994, 5, 14));
+        entityManager.persist(author);
+
+        Author author2 = new Author();
+        author2.setName("J. K. Rowling");
+        author2.setCountry("UK");
+        author2.setBirtDate(LocalDate.of(1965,7,31));
+        entityManager.persist(author2);
+
         //Book
         Book book = new Book();
         book.setName("Harry Potter");
         book.setStock(100);
         book.setPublicationYear(2002);
+        book.setAuthor(author2);
+        book.setPublisher(publisher);
+        List<Category> categories = new ArrayList<>();
+        categories.add(category);
+        book.setCategories(categories);
         entityManager.persist(book);
 
         Book book2 = new Book();
         book2.setName("Star Wars");
         book2.setPublicationYear(1994);
         book2.setStock(28);
+        book2.setAuthor(author);
+        book2.setPublisher(publisher2);
+        List<Category> categories2 = new ArrayList<>();
+        categories2.add(category);
+        book2.setCategories(categories2);
         entityManager.persist(book2);
 
-        //Author
 
-        Author author = new Author();
-        author.setName("");
-
+        //Book Borrowing
+        BookBorrowing bb = new BookBorrowing();
+        bb.setName("Enes Kaya");
+        bb.setBorrowingDate(LocalDate.of(2024,1,31));
+        bb.setReturnDate(LocalDate.of(2024,4,21));
+        bb.setBook(book);
+        entityManager.persist(bb);
 
 
 

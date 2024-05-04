@@ -35,6 +35,14 @@ public class BookBorrowing {
         return id;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

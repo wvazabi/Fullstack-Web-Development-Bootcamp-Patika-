@@ -43,6 +43,38 @@ public class Book {
     public Book() {
     }
 
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public List<BookBorrowing> getBookBorrowingList() {
+        return bookBorrowingList;
+    }
+
+    public void setBookBorrowingList(List<BookBorrowing> bookBorrowingList) {
+        this.bookBorrowingList = bookBorrowingList;
+    }
+
     public long getId() {
         return id;
     }
