@@ -8,7 +8,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="book_id", columnDefinition = "serial")
+    @Column(name="book_id")
     private long id;
 
     @Column(name="book_name", nullable = false)
@@ -28,12 +28,12 @@ public class Book {
     @JoinColumn(name = "book_publisher_id",referencedColumnName = "publisher_id")
     private Publisher publisher;
 
-    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
-    @JoinTable(name = "book2category",joinColumns = {@JoinColumn(name = "book2category_book_id")},inverseJoinColumns = {@JoinColumn(name = "book2category_category_id")})
-    private List<Category> categories;
-
-    @OneToMany(mappedBy = "")
-    private List<BookBorrowing> bookBorrowingList;
+//    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
+//    @JoinTable(name = "book2category",joinColumns = {@JoinColumn(name = "book2category_book_id")},inverseJoinColumns = {@JoinColumn(name = "book2category_category_id")})
+//    private List<Category> categories;
+//
+//    @OneToMany(mappedBy = "")
+//    private List<BookBorrowing> bookBorrowingList;
 
 
     public Book() {
