@@ -30,7 +30,7 @@ public class Product {
     //  Merge oldugunda update oldugunda alt gruplarda update oluyor onda da değişim olduysa işlevsel
     //  1to1 ilişkilerde özellikle cascade type removeçok önemli çünkü bir ilişki koparsa ikiside silinmeli
     //  Many to one da kullanmak kesinlikle yanlış
-    //  ALL dersek hepsi geliyor refresh yenilenme alt nesnede 
+    //  ALL dersek hepsi geliyor refresh yenilenme alt nesnede
 
     @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "product_code_id", referencedColumnName = "code_id")
