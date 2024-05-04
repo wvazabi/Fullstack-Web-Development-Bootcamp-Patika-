@@ -8,7 +8,7 @@ public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "publisher_id", columnDefinition = "serial")
+    @Column(name = "publisher_id")
     private int id;
 
     @Column(name = "publisher_name", length = 100, nullable = false)
@@ -18,7 +18,7 @@ public class Publisher {
     private int estYear;
 
 
-    @Column(name = "publisher_address")
+    @Column(name = "publisher_address", unique = true, nullable = false)
     private String address;
 
     public Publisher() {
