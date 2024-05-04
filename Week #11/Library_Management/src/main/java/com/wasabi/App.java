@@ -104,15 +104,14 @@ public class App {
 //
 //
 //        transaction.commit();
-
 //
-        transaction.begin();
-
-        Author author = entityManager.find(Author.class,2);
-        for(Book book : author.getBookList()) {
-            System.out.println(book.getName());
-        }
-        transaction.commit();
+//        transaction.begin();
+//
+//        Author author = entityManager.find(Author.class,2);
+//        for(Book book : author.getBookList()) {
+//            System.out.println(book.getName());
+//        }
+//        transaction.commit();
 
     }
 }
