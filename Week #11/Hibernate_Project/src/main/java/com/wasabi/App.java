@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.time.LocalDate;
+
 public class App {
     public static void main(String[] args) {
 
@@ -15,17 +17,29 @@ public class App {
         // Persistence xml yerine
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
+                //kullanmak istediğimiz entityleri burda ekliyoruz
+                .addAnnotatedClass(Customer.class)
                 .buildSessionFactory();
         // Build Hibernate Session Factory
         Session session = factory.openSession();
         // Open a session
 
+        //TODO Create - Read - Update - Delete CRUD
         session.beginTransaction();
         try {
             // Session başlatma ve transaction başlatma
 
 
             // Veritabanı işlemleri burada gerçekleştirilir
+
+            Customer customer = new Customer();
+            customer.setCustomerName("Test");
+            customer.setCustomerGender(Customer.GENDER.FEMALE);
+            customer.setCustomerOnDate(LocalDate.now());
+            customer.setCustomerMail("test@patika.dev");
+
+
+            session.persist(customer);
 
             // Transaction'ı commit etme
             session.getTransaction().commit();
