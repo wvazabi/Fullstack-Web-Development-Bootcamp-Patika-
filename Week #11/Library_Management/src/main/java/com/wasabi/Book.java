@@ -22,7 +22,6 @@ public class Book {
     @Column(name = "book_stock", nullable = false)
     private int stock;
 
-    //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "book_author_id", referencedColumnName = "author_id")
     private Author author;
