@@ -2,6 +2,7 @@ package com.wasabi;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class App {
@@ -13,21 +14,31 @@ public class App {
         // Hibernate Configuration
         // Persistence xml yerine
         SessionFactory factory = new Configuration()
-                .
-        Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml");
-
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory();
         // Build Hibernate Session Factory
-        SessionFactory sessionFactory = configuration.buildSessionFactory();
-
+        Session session = factory.openSession();
         // Open a session
-        try (Session session = sessionFactory.openSession()) {
-            // Hibernate operations go here
+
+        session.beginTransaction();
+        try {
+            // Session başlatma ve transaction başlatma
+
+
+            // Veritabanı işlemleri burada gerçekleştirilir
+
+            // Transaction'ı commit etme
+            session.getTransaction().commit();
         } catch (Exception e) {
+            // Hata durumunda transaction'ı geri al ve exception yazdır
+            session.getTransaction().rollback();
             e.printStackTrace();
+        } finally {
+            // Session'ı kapat
+                session.close();
         }
+
     }
 
 
-    }
 }
