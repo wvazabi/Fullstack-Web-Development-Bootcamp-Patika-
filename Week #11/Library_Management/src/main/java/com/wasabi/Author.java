@@ -24,7 +24,7 @@ public class Author {
     @Column(name = "author_country", nullable = false)
     private String country;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author",cascade = CascadeType.REMOVE)
     private List<Book> bookList;
 
     public Author() {
