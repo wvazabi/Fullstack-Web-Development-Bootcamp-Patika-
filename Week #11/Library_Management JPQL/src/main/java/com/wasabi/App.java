@@ -1,9 +1,6 @@
 package com.wasabi;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
 import jakarta.transaction.Transaction;
 
 import java.time.LocalDate;
@@ -112,6 +109,22 @@ public class App {
 //            System.out.println(book.getName());
 //        }
 //        transaction.commit();
+
+
+        // Tüm ürünleri çekme örneği
+        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p", Product.class);
+        List<Product> productList = query.getResultList();
+
+// ID'si 1 olan kategoriyi çekme örneği
+        TypedQuery<Category> categoryQuery = entityManager.createQuery("SELECT c FROM Category c WHERE c.id = 1", Category.class);
+        Category singleCategory = categoryQuery.getSingleResult();
+        JPQL ve Parametre Kullanımı:
+        java
+        Copy code
+// Belirli bir fiyattan düşük olan ürünleri çekme örneği
+        TypedQuery<Product> priceQuery = entityManager.createQuery("SELECT p FROM Product p WHERE p.price < :maxPrice", Product.class);
+        priceQuery.setParameter("maxPrice", 100.0);
+        List<Product> affordableProducts = priceQuery.getResultList();
 
         
 
