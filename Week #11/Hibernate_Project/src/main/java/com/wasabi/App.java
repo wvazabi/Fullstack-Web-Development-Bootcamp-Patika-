@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) {
@@ -33,14 +34,28 @@ public class App {
             // Veritabanı işlemleri burada gerçekleştirilir
 
             Customer customer = new Customer();
-            customer.setCustomerName("Test");
-            customer.setCustomerGender(Customer.GENDER.FEMALE);
-            customer.setCustomerOnDate(LocalDate.now());
-            customer.setCustomerMail("test@patika.dev");
 
+//            customer.setCustomerName("Test");
+//            customer.setCustomerGender(Customer.GENDER.FEMALE);
+//            customer.setCustomerOnDate(LocalDate.now());
+//            customer.setCustomerMail("test@patika.dev");
+//
+//
+//            session.persist(customer);
 
-            session.persist(customer);
+            //session.remove(customer);
 
+//            customer = session.get(Customer.class,1);
+//            System.out.println(customer.toString());
+
+            //farklı yolla veri çekme
+            //customer = session.byId(Customer.class).getReference(1);
+
+            List<Customer> customers = session
+                    .createSelectionQuery("FROM Customer", Customer.class)
+                    .getResultList();
+
+            System.out.println(customers.toString());
             // Transaction'ı commit etme
             session.getTransaction().commit();
         } catch (Exception e) {
