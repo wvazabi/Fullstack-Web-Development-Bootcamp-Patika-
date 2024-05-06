@@ -35,6 +35,7 @@ public class App {
 
             Customer customer = new Customer();
 
+            //
 //            customer.setCustomerName("Test");
 //            customer.setCustomerGender(Customer.GENDER.FEMALE);
 //            customer.setCustomerOnDate(LocalDate.now());
