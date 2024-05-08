@@ -27,21 +27,38 @@ public class CustometDao implements ICustomerDao {
 
     @Override
     public Customer findById(int id) {
-        return null;
+        return this.session.get(Customer.class,1);
+
     }
 
     @Override
     public void update(Customer customer) {
+        this.session.beginTransaction();
+        // persist o idli veri varsa update yoksa insert ediyor
+        this.session.persist(customer);
+        //session transaction oluşturuluyor
+        this.session.getTransaction().commit();
 
     }
 
     @Override
-    public void deleteById(int id) {
+    public void delete(Customer customer) {
+        this.session.beginTransaction();
+        //remove metodu obje aldığı için parametrede customer id alamadık
+        this.session.remove(customer);
+        this.session.getTransaction().commit();
 
     }
 
     @Override
     public List<Customer> findAll() {
-        return null;
+
+        //List<Customer>  customers = this.session.createSelectionQuery("FROM Customer",Customer.class).getResultList();
+
+        return this.session
+                .createSelectionQuery("FROM Customer",Customer.class)
+                .getResultList();
     }
+
+    //yeni metoda ihtiyaç duyduğumuzda interfacede tanımlayıp işlemleri yaparız
 }
