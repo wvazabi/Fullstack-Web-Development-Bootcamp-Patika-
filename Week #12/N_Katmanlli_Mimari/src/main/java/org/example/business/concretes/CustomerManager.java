@@ -58,6 +58,6 @@ public class CustomerManager implements ICustomerService {
 
     @Override
     public List<Customer> findAll() {
-        return null;
+        return custometDao.findAll();
     }
 }
