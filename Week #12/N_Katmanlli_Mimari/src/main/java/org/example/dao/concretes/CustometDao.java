@@ -28,7 +28,7 @@ public class CustometDao implements ICustomerDao {
 
     @Override
     public Customer findById(int id) {
-        return this.session.get(Customer.class,1);
+        return this.session.get(Customer.class,id);
 
     }
 
@@ -63,8 +63,8 @@ public class CustometDao implements ICustomerDao {
 
     @Override
     public Customer findByMail(String mail) {
-        SelectionQuery<Customer> query = this.session.
-                createSelectionQuery("FROM Customer WHERE mail = :mail", Customer.class);
+        SelectionQuery<Customer> query = this.session
+                .createSelectionQuery("FROM Customer WHERE customerMail = :mail", Customer.class);
         // sorgudaki maili metod içersindeki parametre ile değiştir
         query.setParameter("mail",mail);
         // eğer veri varsa customer objesi yoska null değeri

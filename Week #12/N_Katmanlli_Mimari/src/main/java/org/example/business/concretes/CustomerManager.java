@@ -32,17 +32,28 @@ public class CustomerManager implements ICustomerService {
 
     @Override
     public Customer findById(int id) {
-        return null;
+
+        return this.custometDao.findById(id);
     }
 
     @Override
     public void update(Customer customer) {
+
+        Customer checkMailCustomer = this.custometDao.findByMail(customer.getCustomerMail());
+
+        //bu sayede başka bir kullanıcının mailini başka bir kullanıcıya atayamazlar
+        if (checkMailCustomer != null && checkMailCustomer.getCustomerId() != customer.getCustomerId()) {
+            throw new RuntimeException(customer.getCustomerMail() + "Bu mail adresi daha önce eklenmiş");
+        }
+
+        this.custometDao.update(customer);
 
     }
 
     @Override
     public void deleteById(int id) {
 
+        this.custometDao.delete(this.findById(id));
     }
 
     @Override
