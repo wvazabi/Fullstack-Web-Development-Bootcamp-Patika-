@@ -67,7 +67,7 @@ public class CustometDao implements ICustomerDao {
                 createSelectionQuery("FROM Customer WHERE mail = :mail", Customer.class);
         // sorgudaki maili metod içersindeki parametre ile değiştir
         query.setParameter("mail",mail);
-        // eğer veri varsa customer objesi yoska null değeri 
+        // eğer veri varsa customer objesi yoska null değeri
         return query.getSingleResultOrNull();
     }
 

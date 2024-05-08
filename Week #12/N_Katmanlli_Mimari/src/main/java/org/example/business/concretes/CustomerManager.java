@@ -19,7 +19,14 @@ public class CustomerManager implements ICustomerService {
     @Override
     public void save(Customer customer) {
         // custoemr kontrolü mail konrtrolü
-        //Customer checkCustomer = this.custometDao
+        // veri tabanı işlemleri daoda işin yönetimi business
+        Customer checkMailCustomer = this.custometDao.findByMail(customer.getCustomerMail());
+
+        if (checkMailCustomer != null) {
+            throw new RuntimeException(customer.getCustomerMail() + "Bu mail adresi daha önce eklenmiş");
+        }
+
+        this.custometDao.save(customer);
 
     }
 
