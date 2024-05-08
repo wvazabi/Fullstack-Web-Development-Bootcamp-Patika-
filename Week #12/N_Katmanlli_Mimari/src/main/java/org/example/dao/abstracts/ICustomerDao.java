@@ -11,4 +11,6 @@ public interface ICustomerDao {
     void delete(Customer customer);
 
     List<Customer> findAll();
+
+    Customer findByMail(String mail);
 }

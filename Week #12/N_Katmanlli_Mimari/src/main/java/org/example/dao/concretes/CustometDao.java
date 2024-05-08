@@ -4,6 +4,7 @@ import org.example.core.HibernateSession;
 import org.example.dao.abstracts.ICustomerDao;
 import org.example.entities.Customer;
 import org.hibernate.Session;
+import org.hibernate.query.SelectionQuery;
 
 import java.util.List;
 
@@ -58,6 +59,16 @@ public class CustometDao implements ICustomerDao {
         return this.session
                 .createSelectionQuery("FROM Customer",Customer.class)
                 .getResultList();
+    }
+
+    @Override
+    public Customer findByMail(String mail) {
+        SelectionQuery<Customer> query = this.session.
+                createSelectionQuery("FROM Customer WHERE mail = :mail", Customer.class);
+        // sorgudaki maili metod içersindeki parametre ile değiştir
+        query.setParameter("mail",mail);
+        // eğer veri varsa customer objesi yoska null değeri 
+        return query.getSingleResultOrNull();
     }
 
     //yeni metoda ihtiyaç duyduğumuzda interfacede tanımlayıp işlemleri yaparız
