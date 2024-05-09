@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController  {
+
     @GetMapping("/")
     public String get() {
          return "Customer get metodu çalıştı";

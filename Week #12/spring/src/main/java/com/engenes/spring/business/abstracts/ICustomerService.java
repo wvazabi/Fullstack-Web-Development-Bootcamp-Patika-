@@ -4,7 +4,7 @@ import com.engenes.spring.Customer;
 
 public interface ICustomerService {
     Customer save(Customer customer);
-    Customer findById(int id);
+    Customer getById(int id);
     Customer update(Customer customer);
     void delete(Customer customer);
 }
