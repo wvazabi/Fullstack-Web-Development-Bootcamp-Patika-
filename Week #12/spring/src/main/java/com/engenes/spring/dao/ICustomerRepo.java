@@ -1,5 +1,6 @@
-package com.engenes.spring;
+package com.engenes.spring.dao;
 
+import com.engenes.spring.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

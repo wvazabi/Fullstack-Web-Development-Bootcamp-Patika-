@@ -1,4 +1,4 @@
-package com.engenes.spring;
+package com.engenes.spring.api;
 
 import org.springframework.web.bind.annotation.*;
 

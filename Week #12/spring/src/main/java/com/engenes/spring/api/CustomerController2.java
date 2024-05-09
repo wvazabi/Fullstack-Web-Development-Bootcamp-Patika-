@@ -1,8 +1,10 @@
-package com.engenes.spring;
+package com.engenes.spring.api;
 
 //Normalde vies presentationdan dao controllera
 // geçilmez arada business service olur bu deneme için
 
+import com.engenes.spring.Customer;
+import com.engenes.spring.dao.ICustomerRepo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
