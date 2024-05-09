@@ -11,10 +11,10 @@ public class CustomerController  {
          return "Customer get metodu çalıştı";
     }
 
-    @PostMapping("/save")
-    public String save(@RequestBody String data) {
-        return "Customer Save Metodu Çalıştı " + data;
-    }
+//    @PostMapping("/save")
+//    public String save(@RequestBody String data) {
+//        return "Customer Save Metodu Çalıştı " + data;
+//    }
 
 
 }

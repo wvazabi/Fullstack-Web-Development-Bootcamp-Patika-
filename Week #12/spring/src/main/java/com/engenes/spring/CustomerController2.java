@@ -3,10 +3,7 @@ package com.engenes.spring;
 //Normalde vies presentationdan dao controllera
 // geçilmez arada business service olur bu deneme için
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/customer")
@@ -21,4 +18,11 @@ public class CustomerController2  {
     public Customer findById(@PathVariable("id") int id) {
         return this.iCustomerRepo.findById(id).orElseThrow();
     }
+
+    @PostMapping("/save")
+    public Customer save(@RequestBody Customer customer) {
+        return this.iCustomerRepo.save(customer);
+    }
+
+
 }
