@@ -1,8 +1,6 @@
 package com.engenes.spring;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 //bunu dedikten sonra responde body dememize gerek kalmıyor
 @RestController
@@ -12,4 +10,11 @@ public class CustomerController  {
     public String get() {
          return "Customer get metodu çalıştı";
     }
+
+    @PostMapping("/save")
+    public String save(@RequestBody String data) {
+        return "Customer Save Metodu Çalıştı " + data;
+    }
+
+
 }
