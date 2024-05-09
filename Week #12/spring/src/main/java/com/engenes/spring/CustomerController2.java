@@ -5,6 +5,8 @@ package com.engenes.spring;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/customer")
 public class CustomerController2  {
@@ -22,6 +24,16 @@ public class CustomerController2  {
     @PostMapping("/save")
     public Customer save(@RequestBody Customer customer) {
         return this.iCustomerRepo.save(customer);
+    }
+
+    @GetMapping("/find-all")
+    public List<Customer> findAll(){
+        return this.iCustomerRepo.findAll();
+    }
+
+    @GetMapping("/mail/{mail}")
+    public Customer findByMail(@PathVariable("mail") String mail) {
+        return this.iCustomerRepo.findBycustomerMail(mail);
     }
 
 
