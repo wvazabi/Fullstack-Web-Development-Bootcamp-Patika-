@@ -36,5 +36,5 @@ public class CustomerController2  {
         return this.iCustomerRepo.findBycustomerMail(mail);
     }
 
-
+    //@GetMapping("/mail/{mail}/{gender}")
 }
