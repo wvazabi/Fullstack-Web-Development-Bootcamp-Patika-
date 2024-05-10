@@ -23,8 +23,29 @@ public class CustomerController {
     }
 
     @PostMapping("/customers")
+    @ResponseStatus(HttpStatus.CREATED)
     public Customer save(@RequestBody Customer customer) {
         return this.customerService.save(customer);
     }
+
+    @PutMapping("/customers")
+    @ResponseStatus(HttpStatus.OK)
+    public Customer update(@RequestBody Customer customer) {
+        return this.customerService.update(customer);
+    }
+
+    @DeleteMapping("/customers/{id}")
+    public void delete(@PathVariable("id") int id) {
+        this.customerService.delete(id);
+
+    }
+
+    @GetMapping("/customers/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Customer findById(@PathVariable("id") int id) {
+        return this.customerService.getById(id);
+    }
+
+
 
 }
