@@ -20,7 +20,7 @@ public class CustomerController  {
     /*
     IoC uygulaması 3 farklı yöntemle uygulanabilir
 
-    Constructor
+    Constructor Injection
 
     private final ICustomerRepo customerRepo;
     private final ICustomerService customerService;
@@ -33,7 +33,7 @@ public class CustomerController  {
 
 
 
-    Setter
+    Setter Injection
     @Autowired
     public setCustomerController2(ICustomerRepo iCustomerRepo, ICustomerService iCustomerService) {
         this.customerRepo = iCustomerRepo;
@@ -41,7 +41,7 @@ public class CustomerController  {
     }
 
 
-    Field
+    Field Injection
     @Autowired
     private ICustomerRepo customerRepo;
      */
