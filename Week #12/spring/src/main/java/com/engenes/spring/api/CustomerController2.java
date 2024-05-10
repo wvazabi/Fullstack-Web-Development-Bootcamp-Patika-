@@ -23,7 +23,7 @@ public class CustomerController2  {
         this.customerService = iCustomerService;
     }
 
-    // customer servisten alıyor kontrol yapıyor 
+    // customer servisten alıyor kontrol yapıyor
     @GetMapping("/{id}")
     public Customer findById(@PathVariable("id") int id) {
         return this.customerService.getById(id);

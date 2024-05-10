@@ -17,5 +17,34 @@ public class CustomerController  {
 //        return "Customer Save Metodu Çalıştı " + data;
 //    }
 
+    /*
+    IoC uygulaması 3 farklı yöntemle uygulanabilir
+
+    Constructor
+
+    private final ICustomerRepo customerRepo;
+    private final ICustomerService customerService;
+
+    public CustomerController2(ICustomerRepo iCustomerRepo, ICustomerService iCustomerService) {
+        this.customerRepo = iCustomerRepo;
+        this.customerService = iCustomerService;
+    }
+
+
+
+
+    Setter
+    @Autowired
+    public setCustomerController2(ICustomerRepo iCustomerRepo, ICustomerService iCustomerService) {
+        this.customerRepo = iCustomerRepo;
+        this.customerService = iCustomerService;
+    }
+
+
+    Field
+    @Autowired
+    private ICustomerRepo customerRepo;
+     */
+
 
 }
