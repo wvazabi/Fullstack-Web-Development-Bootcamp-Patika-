@@ -1,4 +1,4 @@
-package com.engenes.spring;
+package com.engenes.spring.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
