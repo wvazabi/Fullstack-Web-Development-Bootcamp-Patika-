@@ -40,6 +40,7 @@ public class CustomerController {
 
     }
 
+    // getById
     @GetMapping("/customers/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Customer findById(@PathVariable("id") int id) {
