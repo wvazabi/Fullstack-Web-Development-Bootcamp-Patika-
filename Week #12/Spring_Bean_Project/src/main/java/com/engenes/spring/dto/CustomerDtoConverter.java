@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 public class CustomerDtoConverter {
 
     public CustomerDto convertDto(Customer customer) {
+
         CustomerDto customerDto = new CustomerDto();
         customerDto.setId(customer.getCustomerId());
         customerDto.setName(customer.getCustomerName());
