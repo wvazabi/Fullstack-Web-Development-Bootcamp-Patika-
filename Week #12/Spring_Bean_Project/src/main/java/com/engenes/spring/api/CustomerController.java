@@ -56,12 +56,16 @@ public class CustomerController {
 
     @PostMapping("/customers")
     @ResponseStatus(HttpStatus.CREATED)
-    public Customer save(@RequestBody CustomerSaveRequest customerSaveRequest) {
-        Customer newCustomer = this.modelMapper.map(customerSaveRequest,  Customer.class);
-        // oluşturma date bilgisini api kullanıcısından almamalıyız kendimiz atıyoruz
-        newCustomer.setCustomerOnDate(LocalDate.now());
-        return this.customerService.save(newCustomer);
+    public Customer save(@RequestBody Customer customer) {
+        return this.customerService.save(customer);
     }
+    // TODO Response, Request DTO Kullanılması
+//    public Customer save(@RequestBody CustomerSaveRequest customerSaveRequest) {
+//        Customer newCustomer = this.modelMapper.map(customerSaveRequest,  Customer.class);
+//        // oluşturma date bilgisini api kullanıcısından almamalıyız kendimiz atıyoruz
+//        newCustomer.setCustomerOnDate(LocalDate.now());
+//        return this.customerService.save(newCustomer);
+//    }
 
     @PutMapping("/customers")
     @ResponseStatus(HttpStatus.OK)

@@ -1,6 +1,7 @@
 package com.engenes.spring.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -25,11 +26,13 @@ public class Customer {
     private Integer customerId;
 
     @Column(name = "customer_name", length = 100, nullable = false)
+    @NonNull
     private String customerName;
 
     //Todo cutomer mail adresi benzersz olmalı
 
     @Column(name = "customer_mail", unique = true, nullable = false)
+    @Email(message = "Lürfen Geçerli bir E posta adresi giriniz")
     private String customerMail;
 
 
