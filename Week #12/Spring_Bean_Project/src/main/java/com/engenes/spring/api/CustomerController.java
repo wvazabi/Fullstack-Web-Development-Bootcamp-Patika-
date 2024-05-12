@@ -2,13 +2,15 @@ package com.engenes.spring.api;
 
 import com.engenes.spring.business.abstracts.ICustomerService;
 import com.engenes.spring.dto.CustomerDto;
-import com.engenes.spring.dto.CustomerDtoConverter;
+//import com.engenes.spring.dto.CustomerDtoConverter;
+import com.engenes.spring.dto.CustomerSaveRequest;
 import com.engenes.spring.entities.Customer;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,8 +21,8 @@ public class CustomerController {
     @Autowired
     private ICustomerService customerService;
 
-    @Autowired
-    private CustomerDtoConverter converter;
+//    @Autowired
+//    private CustomerDtoConverter converter;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -54,8 +56,11 @@ public class CustomerController {
 
     @PostMapping("/customers")
     @ResponseStatus(HttpStatus.CREATED)
-    public Customer save(@RequestBody Customer customer) {
-        return this.customerService.save(customer);
+    public Customer save(@RequestBody CustomerSaveRequest customerSaveRequest) {
+        Customer newCustomer = this.modelMapper.map(customerSaveRequest,  Customer.class);
+        // oluşturma date bilgisini api kullanıcısından almamalıyız kendimiz atıyoruz
+        newCustomer.setCustomerOnDate(LocalDate.now());
+        return this.customerService.save(newCustomer);
     }
 
     @PutMapping("/customers")

@@ -1,5 +1,9 @@
 package com.engenes.spring.dto;
 
+import com.engenes.spring.dto.CustomerDto;
+import com.engenes.spring.entities.Customer;
+
+
 import com.engenes.spring.entities.Customer;
 import org.springframework.stereotype.Component;
 
