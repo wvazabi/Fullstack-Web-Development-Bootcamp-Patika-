@@ -1,7 +1,9 @@
 package com.engenes.spring.dto;
 
 import com.engenes.spring.entities.Customer;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerDtoConverter {
 
     public CustomerDto convertDto(Customer customer) {
@@ -10,6 +12,14 @@ public class CustomerDtoConverter {
         customerDto.setName(customer.getCustomerName());
         customerDto.setMail(customer.getCustomerMail());
 
-        return customerDto; 
+        /* Second Way
+        return new CustomerDto(
+                getCustomerId(),
+                getCustomerName(),
+                getCustomerMail()
+        );
+         */
+
+        return customerDto;
     }
 }
