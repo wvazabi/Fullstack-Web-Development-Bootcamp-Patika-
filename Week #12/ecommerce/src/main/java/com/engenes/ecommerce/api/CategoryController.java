@@ -3,6 +3,7 @@ package com.engenes.ecommerce.api;
 
 import com.engenes.ecommerce.business.abstracts.ICategoryService;
 import com.engenes.ecommerce.entities.Category;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,8 @@ public class CategoryController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save(@RequestBody Category category) {
+    // valid diyerek validation anatosyon veriyoruz bunu kontrol et diyoruz. Notnull u kontrol ediyoruz
+    public Category save(@Valid @RequestBody Category category) {
         return this.categoryService.save(category);
     }
 }
