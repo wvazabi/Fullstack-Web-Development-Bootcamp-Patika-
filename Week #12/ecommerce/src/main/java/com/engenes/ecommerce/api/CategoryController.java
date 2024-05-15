@@ -5,6 +5,7 @@ import com.engenes.ecommerce.business.abstracts.ICategoryService;
 import com.engenes.ecommerce.core.config.modelMaper.IModelMapperService;
 import com.engenes.ecommerce.core.result.Result;
 import com.engenes.ecommerce.core.result.ResultData;
+import com.engenes.ecommerce.core.utilies.ResultHelper;
 import com.engenes.ecommerce.dto.request.category.CategorySaveRequest;
 import com.engenes.ecommerce.dto.response.category.CategoryResponse;
 import com.engenes.ecommerce.entities.Category;
@@ -32,6 +33,7 @@ public class CategoryController {
         this.categoryService.save(saveCategory);
         CategoryResponse categoryResponse = this.modelMapper.forResponse().map(saveCategory, CategoryResponse.class);
 
-        return new ResultData<>(true,"Veri Eklendi","201",categoryResponse);
+
+        return  ResultHelper.created(categoryResponse);
     }
 }

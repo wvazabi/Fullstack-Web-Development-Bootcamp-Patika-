@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategorySaveRequest {
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Category must not null")
     private String name;
 
 }

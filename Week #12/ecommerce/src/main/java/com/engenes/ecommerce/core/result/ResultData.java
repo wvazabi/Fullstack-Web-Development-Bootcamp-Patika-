@@ -1,5 +1,8 @@
 package com.engenes.ecommerce.core.result;
 
+import lombok.Getter;
+
+@Getter
 public class ResultData<T> extends Result {
 
     private T data;
