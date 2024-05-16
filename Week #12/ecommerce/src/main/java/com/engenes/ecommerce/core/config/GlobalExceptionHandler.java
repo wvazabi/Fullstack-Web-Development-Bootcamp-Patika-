@@ -1,4 +1,4 @@
-package com.engenes.ecommerce.core.config.modelMaper;
+package com.engenes.ecommerce.core.config;
 
 import com.engenes.ecommerce.core.result.ResultData;
 import com.engenes.ecommerce.core.utilies.Msg;
@@ -17,6 +17,9 @@ import java.util.stream.Collectors;
 // sadece rest kontrol rest controller advice response vermeden önce yakalıyoruz
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    //yazdığımız custom exception için 
+
+
     // Benim için exceptionları yakala diyoruz
     //yakalanan exception e nesnesine atanıyor birden fazla validation error olabilir
     // Response entity hazır yazılmıs bir yapı
