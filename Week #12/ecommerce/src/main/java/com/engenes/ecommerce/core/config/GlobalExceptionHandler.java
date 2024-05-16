@@ -1,5 +1,7 @@
 package com.engenes.ecommerce.core.config;
 
+import com.engenes.ecommerce.core.exception.NotFoundException;
+import com.engenes.ecommerce.core.result.Result;
 import com.engenes.ecommerce.core.result.ResultData;
 import com.engenes.ecommerce.core.utilies.Msg;
 import com.engenes.ecommerce.core.utilies.ResultHelper;
@@ -17,7 +19,17 @@ import java.util.stream.Collectors;
 // sadece rest kontrol rest controller advice response vermeden önce yakalıyoruz
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    //yazdığımız custom exception için 
+    //yazdığımız custom exception için exception handler yazıyoruz apide hata alınınca
+    // abuk subuk mesaj değilde istediğimiz mesajı göndermek içöin
+
+    //resultdata döndürmüyoruz çünkü data göstermiyeceğiz result göstereceğiz sadece
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<Result> handleNotFoundException(NotFoundException e) {
+        // mesajı al response entity oluştur
+        return new ResponseEntity<>(ResultHelper.notFound(e.getMessage()), HttpStatus.NOT_FOUND);
+    }
+
+
 
 
     // Benim için exceptionları yakala diyoruz

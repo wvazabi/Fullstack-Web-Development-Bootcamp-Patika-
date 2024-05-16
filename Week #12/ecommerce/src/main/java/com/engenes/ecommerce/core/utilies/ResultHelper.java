@@ -1,5 +1,6 @@
 package com.engenes.ecommerce.core.utilies;
 
+import com.engenes.ecommerce.core.result.Result;
 import com.engenes.ecommerce.core.result.ResultData;
 
 public class ResultHelper {
@@ -15,5 +16,8 @@ public class ResultHelper {
         return new ResultData<>(true,Msg.OK, "200", data);
     }
 
+    public static Result notFound(String msg) {
+        return new Result(true, msg, "404");
+    }
 
 }
