@@ -1,0 +1,9 @@
+package dev.patika.repository;
+
+import dev.patika.entities.Publisher;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IPublisherRepository extends JpaRepository<Publisher, Long> {
+}
