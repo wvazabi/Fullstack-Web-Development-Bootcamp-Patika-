@@ -10,6 +10,7 @@ import com.engenes.ecommerce.dto.request.category.CategorySaveRequest;
 import com.engenes.ecommerce.dto.request.product.ProductSaveRequest;
 import com.engenes.ecommerce.dto.response.category.CategoryResponse;
 import com.engenes.ecommerce.dto.response.product.ProductResponse;
+import com.engenes.ecommerce.dto.response.supplier.SupplierResponse;
 import com.engenes.ecommerce.entities.Category;
 import com.engenes.ecommerce.entities.Product;
 import com.engenes.ecommerce.entities.Supplier;
@@ -53,6 +54,23 @@ public class ProductController {
         this.productService.save(saveProduct);
         ProductResponse productResponse = this.modelMapper.forResponse().map(saveProduct, ProductResponse.class);
         return ResultHelper.created(productResponse);
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResultData<ProductResponse> get(@PathVariable("id") int id) {
+        Product product = this.productService.get(id);
+        ProductResponse productResponse = this.modelMapper.forResponse().map(product, ProductResponse.class);
+        return ResultHelper.success(productResponse);
+    }
+
+    //product'ın supplier'ına erişmek için
+    @GetMapping("/{id}/supplier")
+    @ResponseStatus(HttpStatus.OK)
+    public ResultData<SupplierResponse> getSupplier(@PathVariable("id") int id) {
+        Product product = this.productService.get(id);
+        SupplierResponse supplierResponse = this.modelMapper.forResponse().map(product.getSupplier(), SupplierResponse.class);
+        return ResultHelper.success(supplierResponse);
     }
 
 }
