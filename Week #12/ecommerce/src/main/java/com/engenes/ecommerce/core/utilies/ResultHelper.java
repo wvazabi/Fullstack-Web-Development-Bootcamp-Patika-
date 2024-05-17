@@ -7,6 +7,8 @@ import com.engenes.ecommerce.dto.response.category.CategoryResponse;
 import org.springframework.data.domain.Page;
 
 public class ResultHelper {
+
+    //created yerine createdData successData denmesi daha doğru olabilir
     public static <T> ResultData<T> created(T data) {
         return new ResultData<>(true,Msg.CREATED, "201", data);
     }
@@ -17,6 +19,9 @@ public class ResultHelper {
 
     public static <T> ResultData<T> success(T data) {
         return new ResultData<>(true,Msg.OK, "200", data);
+    }
+    public static Result ok() {
+        return new Result(true,Msg.OK, "200");
     }
 
     public static Result notFound(String msg) {

@@ -51,17 +51,17 @@ public class CategoryController {
     public ResultData<CursorResponse<CategoryResponse>> cursor(
             // query stringler ile verileri alıyoruz
             //methodun parametreleri, required false yaparak zorunda olmadıgını söylüyoruz, değer yoksa ilk sayfa
-            @RequestParam(name = "page", required = false,defaultValue = "0") int page,
+            @RequestParam(name = "page", required = false, defaultValue = "0") int page,
             // default olarak 10 tane veri getir diyoruz
             @RequestParam(name = "pageSize", required = false, defaultValue = "10") int pageSize
 
-    ){
+    ) {
 
         Page<Category> categoryPage = this.categoryService.cursor(page, pageSize);
         // normalde strema pi sonra mapleme yaparız ama bunun içinde stream var
         Page<CategoryResponse> categoryResponsePage = categoryPage
                 //herbir kategoryi kategory response a dönüştüüryor
-                .map(category -> this.modelMapper.forResponse().map(category,CategoryResponse.class));
+                .map(category -> this.modelMapper.forResponse().map(category, CategoryResponse.class));
 
         // Result helper ın içine metod tanımaldık tekrar yazmamak için
 //        CursorResponse<CategoryResponse> cursor = new CursorResponse<>();
@@ -83,6 +83,13 @@ public class CategoryController {
         this.categoryService.update(updateCategory);
         CategoryResponse categoryResponse = this.modelMapper.forResponse().map(updateCategory, CategoryResponse.class);
         return ResultHelper.success(categoryResponse);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Result delete(@PathVariable("id") int id) {
+        this.categoryService.delete(id);
+        return ResultHelper.ok();
     }
 
 }

@@ -8,7 +8,10 @@ import com.engenes.ecommerce.entities.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Service
 public class CategoryManager implements ICategoryService {
@@ -46,10 +49,11 @@ public class CategoryManager implements ICategoryService {
 
     @Override
     public boolean delete(int id) {
-        //bir exxception varsa hata alırsak true değeri dönmüyecek hata almaya devam edecek 
+        //bir exxception varsa hata alırsak true değeri dönmüyecek hata almaya devam edecek
         Category category = this.get(id);
         this.categoryRepo.delete(category);
         return true;
     }
+
 
 }
