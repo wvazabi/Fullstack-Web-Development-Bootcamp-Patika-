@@ -7,6 +7,7 @@ import com.engenes.ecommerce.core.result.Result;
 import com.engenes.ecommerce.core.result.ResultData;
 import com.engenes.ecommerce.core.utilies.ResultHelper;
 import com.engenes.ecommerce.dto.request.category.CategorySaveRequest;
+import com.engenes.ecommerce.dto.request.category.CategoryUpdateRequest;
 import com.engenes.ecommerce.dto.response.CursorResponse;
 import com.engenes.ecommerce.dto.response.category.CategoryResponse;
 import com.engenes.ecommerce.entities.Category;
@@ -70,6 +71,18 @@ public class CategoryController {
 //        cursor.setTotalElements(categoryResponsePage.getTotalElements());
 
         return ResultHelper.cursor(categoryResponsePage);
+    }
+
+    @PutMapping()
+    @ResponseStatus(HttpStatus.OK)
+    // valid diyerek validation anatosyon veriyoruz bunu kontrol et diyoruz. Notnull u kontrol ediyoruz
+    public ResultData<CategoryResponse> update(@Valid @RequestBody CategoryUpdateRequest categoryUpdateRequest) {
+        // eğer olmayan bir ıd yi update etmek istersek hata veriyoruz
+        this.categoryService.get(categoryUpdateRequest.getId());
+        Category updateCategory = this.modelMapper.forRequest().map(categoryUpdateRequest, Category.class);
+        this.categoryService.save(updateCategory);
+        CategoryResponse categoryResponse = this.modelMapper.forResponse().map(updateCategory, CategoryResponse.class);
+        return ResultHelper.success(categoryResponse);
     }
 
 }
