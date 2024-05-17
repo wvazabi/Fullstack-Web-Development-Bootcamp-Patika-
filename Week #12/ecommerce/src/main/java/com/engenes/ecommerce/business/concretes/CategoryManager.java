@@ -38,4 +38,18 @@ public class CategoryManager implements ICategoryService {
         return this.categoryRepo.findAll(pageable);
     }
 
+    @Override
+    public Category update(Category category) {
+        this.get(category.getId());
+        return this.categoryRepo.save(category);
+    }
+
+    @Override
+    public boolean delete(int id) {
+        //bir exxception varsa hata alırsak true değeri dönmüyecek hata almaya devam edecek 
+        Category category = this.get(id);
+        this.categoryRepo.delete(category);
+        return true;
+    }
+
 }

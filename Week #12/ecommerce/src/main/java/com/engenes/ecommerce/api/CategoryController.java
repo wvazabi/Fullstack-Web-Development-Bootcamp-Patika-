@@ -77,10 +77,10 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.OK)
     // valid diyerek validation anatosyon veriyoruz bunu kontrol et diyoruz. Notnull u kontrol ediyoruz
     public ResultData<CategoryResponse> update(@Valid @RequestBody CategoryUpdateRequest categoryUpdateRequest) {
-        // eğer olmayan bir ıd yi update etmek istersek hata veriyoruz
-        this.categoryService.get(categoryUpdateRequest.getId());
+        // eğer olmayan bir ıd yi update etmek istersek hata veriyoruz daha sonra manager ı niçinde yaptık
+        //this.categoryService.get(categoryUpdateRequest.getId());
         Category updateCategory = this.modelMapper.forRequest().map(categoryUpdateRequest, Category.class);
-        this.categoryService.save(updateCategory);
+        this.categoryService.update(updateCategory);
         CategoryResponse categoryResponse = this.modelMapper.forResponse().map(updateCategory, CategoryResponse.class);
         return ResultHelper.success(categoryResponse);
     }
