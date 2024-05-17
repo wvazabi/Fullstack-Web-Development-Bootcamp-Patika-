@@ -7,6 +7,7 @@ import com.engenes.ecommerce.core.result.Result;
 import com.engenes.ecommerce.core.result.ResultData;
 import com.engenes.ecommerce.core.utilies.ResultHelper;
 import com.engenes.ecommerce.dto.request.category.CategorySaveRequest;
+import com.engenes.ecommerce.dto.response.CursorResponse;
 import com.engenes.ecommerce.dto.response.category.CategoryResponse;
 import com.engenes.ecommerce.entities.Category;
 import jakarta.validation.Valid;
@@ -46,7 +47,7 @@ public class CategoryController {
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public Page<CategoryResponse> cursor(
+    public ResultData<CursorResponse<CategoryResponse>> cursor(
             // query stringler ile verileri alıyoruz
             //methodun parametreleri, required false yaparak zorunda olmadıgını söylüyoruz, değer yoksa ilk sayfa
             @RequestParam(name = "page", required = false,defaultValue = "0") int page,
@@ -60,7 +61,14 @@ public class CategoryController {
         Page<CategoryResponse> categoryResponsePage = categoryPage
                 //herbir kategoryi kategory response a dönüştüüryor
                 .map(category -> this.modelMapper.forResponse().map(category,CategoryResponse.class));
-        return categoryResponsePage;
+
+        CursorResponse<CategoryResponse> cursor = new CursorResponse<>();
+        cursor.setItems(categoryResponsePage.getContent());
+        cursor.setPageSize(categoryResponsePage.getSize());
+        cursor.setPageNumber(categoryResponsePage.getNumber());
+        cursor.setTotalElements(categoryResponsePage.getTotalElements());
+
+        return ResultHelper.success(cursor);
     }
 
 }
