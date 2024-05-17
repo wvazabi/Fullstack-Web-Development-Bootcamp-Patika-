@@ -62,13 +62,14 @@ public class CategoryController {
                 //herbir kategoryi kategory response a dönüştüüryor
                 .map(category -> this.modelMapper.forResponse().map(category,CategoryResponse.class));
 
-        CursorResponse<CategoryResponse> cursor = new CursorResponse<>();
-        cursor.setItems(categoryResponsePage.getContent());
-        cursor.setPageSize(categoryResponsePage.getSize());
-        cursor.setPageNumber(categoryResponsePage.getNumber());
-        cursor.setTotalElements(categoryResponsePage.getTotalElements());
+        // Result helper ın içine metod tanımaldık tekrar yazmamak için
+//        CursorResponse<CategoryResponse> cursor = new CursorResponse<>();
+//        cursor.setItems(categoryResponsePage.getContent());
+//        cursor.setPageSize(categoryResponsePage.getSize());
+//        cursor.setPageNumber(categoryResponsePage.getNumber());
+//        cursor.setTotalElements(categoryResponsePage.getTotalElements());
 
-        return ResultHelper.success(cursor);
+        return ResultHelper.cursor(categoryResponsePage);
     }
 
 }
