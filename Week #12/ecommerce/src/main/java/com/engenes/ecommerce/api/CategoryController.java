@@ -10,6 +10,7 @@ import com.engenes.ecommerce.dto.request.category.CategorySaveRequest;
 import com.engenes.ecommerce.dto.response.category.CategoryResponse;
 import com.engenes.ecommerce.entities.Category;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,7 +44,23 @@ public class CategoryController {
         return ResultHelper.success(categoryResponse);
     }
 
-    @GetMapping
+    @GetMapping()
+    @ResponseStatus(HttpStatus.OK)
+    public Page<CategoryResponse> cursor(
+            // query stringler ile verileri alıyoruz
+            //methodun parametreleri, required false yaparak zorunda olmadıgını söylüyoruz, değer yoksa ilk sayfa
+            @RequestParam(name = "page", required = false,defaultValue = "0") int page,
+            // default olarak 10 tane veri getir diyoruz
+            @RequestParam(name = "pageSize", required = false, defaultValue = "10") int pageSize
 
+    ){
+
+        Page<Category> categoryPage = this.categoryService.cursor(page, pageSize);
+        // normalde strema pi sonra mapleme yaparız ama bunun içinde stream var
+        Page<CategoryResponse> categoryResponsePage = categoryPage
+                //herbir kategoryi kategory response a dönüştüüryor
+                .map(category -> this.modelMapper.forResponse().map(category,CategoryResponse.class));
+        return categoryResponsePage;
+    }
 
 }
