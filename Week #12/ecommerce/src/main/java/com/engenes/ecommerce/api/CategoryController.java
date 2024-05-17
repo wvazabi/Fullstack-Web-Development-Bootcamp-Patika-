@@ -43,5 +43,7 @@ public class CategoryController {
         return ResultHelper.success(categoryResponse);
     }
 
+    @GetMapping
+
 
 }

@@ -5,6 +5,9 @@ import com.engenes.ecommerce.core.exception.NotFoundException;
 import com.engenes.ecommerce.core.utilies.Msg;
 import com.engenes.ecommerce.dao.CategoryRepo;
 import com.engenes.ecommerce.entities.Category;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,6 +28,14 @@ public class CategoryManager implements ICategoryService {
     @Override
     public Category get(int id) {
         return this.categoryRepo.findById(id).orElseThrow(() -> new NotFoundException(Msg.NOT_FOUND));
+    }
+
+    @Override
+    public Page<Category> cursor(int page, int pageSize) {
+        //pageable sınıfı var yani kaçıncı sayfa bir sayfada kaçtane olması gerektiğini bu şekilde yazıyoruz
+        Pageable pageable = PageRequest.of(page,pageSize);
+        //peagination ı kendi otomatik yaparım diyor bu şekilde
+        return this.categoryRepo.findAll(pageable);
     }
 
 }
