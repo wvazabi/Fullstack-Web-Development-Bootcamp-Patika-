@@ -9,7 +9,23 @@
 ---
 4. [Week#4:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%234) Access Modifiers, Advance OOP, Adventure Game, Nested & Inner Class, Wrapper, Auto Boxing, Boxing, Generic Class, Generic Methods, Generic Interface, Generic Bounded Types, MyList Class Project
 ---
-5. [Week#5:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%235) 
+5. [Week#5:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%235)
+   Sure, here it is formatted as code:
+---
+6. [Week#6:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%236) JavaScript Basics, DOM Manipulation, Event Handling, Fetch API, Promises, Async/Await, Introduction to React
+---
+7. [Week#7:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%237) React Components, State Management, Props, Lifecycle Methods, React Router, Hooks, Context API
+---
+8. [Week#8:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%238) Node.js Basics, Express.js Framework, REST API Development, Middleware, MongoDB Integration, User Authentication
+---
+9. [Week#9:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%239) Advanced MongoDB, Mongoose, Data Validation, CRUD Operations, Aggregation Framework, Indexes, Security Best Practices
+---
+10. [Week#10:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%2310) Testing in JavaScript, Unit Testing, Integration Testing, E2E Testing, Test-Driven Development (TDD), Jest, Mocha, Chai
+---
+11. [Week#11:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%2311) Deployment, Continuous Integration, Continuous Deployment (CI/CD), Docker Basics, Kubernetes Overview, Cloud Services, Heroku, AWS Basics
+---
+12. [Week#12:](https://github.com/wvazabi/Fullstack-Web-Development-Bootcamp-Patika-/tree/main/Week%20%2312) Final Project, Fullstack Application Development, Best Practices, Project Management, Agile Methodologies, Code Reviews, Presentations
+
 
 ## During Bootcamp I developed:
 
