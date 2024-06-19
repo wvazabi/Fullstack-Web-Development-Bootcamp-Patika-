@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables</title>
+</head>
+<body>
+    <h1>HTML Tables</h1>
+    <table>
+        <caption>Day Title</caption>
+        <colgroup>
+        <col span="2" style="background-color: blueviolet;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Pazartesi</th>
+                <th>Salı</th>
+                <th>Çarşamba</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">1</td>
+                <td rowspan="2">2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3">Toplam</th>
+                <th>60</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+</body>
+</html>
