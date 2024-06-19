@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Images</title>
+</head>
+<body>
+    <h1>HTML Images</h1>
+
+    <h2>Example</h2>
+    <img src="./cloud.JPG" alt="cloud" height="170" width="300">
+
+    <h2>Attributes</h2>
+    <h3>The <code>srcset</code> Elemet</h3>
+    <p>original image</p>
+    <img src="./cloud.JPG" alt="cloud">
+
+    <img src="./cloud.JPG" srcset="./cloud.JPG, ./cloud.JPG 2x, ./cloud.JPG 3x">
+    
+    <div style="height:1000px;"></div>
+    <h3>The <code>loading</code> Elemet</h3>
+    <img src="./forest.JPG" srcset="./forest.JPG, ./forest.JPG 2x, ./forest.JPG 3x" loading="lazy">
+
+    
+</body>
+</html>
