@@ -1,0 +1,59 @@
+"""""""""""""""<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FORM EXAMPLE</title>
+
+</head>
+
+<body>
+
+  <h1>HTML FORM EXAMPLE</h1>
+
+  <form action="form.html" method="get">
+
+    <fieldset>
+      <legend>Personal Info</legend>
+      <label for="fname">Name:</label><br>
+      <input type="text" name="fname" id="fname"><br>
+      <label for="surname">Surname:</label><br>
+      <input type="text" name="surname" id="surname"><br>  
+      <br>
+      <label for="emai">Email:</label><br>
+      <input type="email" name="emai" id="emai"><br>
+      <label for="pass">Password:</label><br>
+      <input type="password" name="pass" id="pass"><br>  
+      <br>
+      <label for="gender">Gender:</label>
+      <input type="radio" name="gender" id="gender" value="male"> Male
+      <input type="radio" name="gender" id="gender" value="female"> Female
+      <br>
+      <label for="fruit">Favorite Fruit</label>
+      <select name="fruit" id="fruit">
+        <option value="select">Select..</option>
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+      </select>
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>Message</legend>
+      <label for="msg">Message</label><br>
+      <textarea name="message" id="msg" cols="30" rows="10"></textarea>
+    </fieldset>
+
+    <br>
+    <button type="submit">Save</button>
+  </form>
+
+  
+
+ 
+
+  
+</body>
+
+</html>
