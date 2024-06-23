@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Menü öğelerini ortalar */
+        }
+
+        nav ul li {
+            display: inline-block; /* Liste öğelerini yatay sıralar */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 14px 20px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="hakkinda.html">Hakkında</a></li>
+            <li><a href="servisler.html">Servisler</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+    </nav>
+    <h1>İletişim</h1>
+
+    <h2>İletişim Bilgileri</h2>
+    <p>Bizimle iletişime geçmek için aşağıdaki bilgileri kullanabilirsiniz:</p>
+    <ul>
+        <li>Adres: İstanbul, Türkiye</li>
+        <li>Telefon: +90 123 456 78 90</li>
+        <li>E-posta: info@istanbulhayatta.com</li>
+    </ul>
+
+    <h2>Bize Ulaşın</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Mesajınızı Bize İletin</legend>
+        <label for="name">Ad:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">E-posta:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">Mesaj:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Gönder">
+    </fieldset>
+    </form>
+</body>
+</html>
