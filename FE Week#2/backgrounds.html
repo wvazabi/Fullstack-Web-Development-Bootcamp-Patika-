@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Backgrounds</title>
+    <style>
+        .c1{
+            background-color: greenyellow;
+        }
+        .c2{
+            background-color: aqua;
+        }
+        .c3{
+            width: 500px;
+            height: 200px;
+            background-image: url('./Coderbyte/Screenshot\ 2024-06-07\ at\ 11.55.51.png');
+            /* background-size: 100% 100%; */
+            /* background-size: cover; */
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: right center;
+            border: 1px solid gray;
+            background-attachment: scroll;
+
+        }
+        .c4{
+            width: 500px;
+            height: 200px;
+            background: orange  url('./Coderbyte/Screenshot\ 2024-06-07\ at\ 11.55.51.png') no-repeat right center scroll;
+            /* background-size: 100% 100%; */
+            /* background-size: cover; */
+            background-size: 100px 100px;
+            border: 1px solid gray;
+            
+        }
+
+        .header {
+     background: linear-gradient(to top right, #FFC300, #581845);
+    /* Sarıdan koyu mora çapraz gradyan */
+}
+.radial-bg {
+     background: radial-gradient(circle, #FF0000, #00FF00);
+    /* Kırmızıdan yeşile geçiş */
+}
+
+ .circle-bg {
+     background: radial-gradient(circle at center, #00FF00, #000000);
+    /* Yeşilden siyaha merkezde daire gradyan */
+}
+    </style>
+</head>
+<body>
+    <h1 class="header">CSS Backgrounds</h1>
+    <h2 class="radial-bg">backgroud-color</h2>
+    <p class="c1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p class="c2">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>   
+    <h2>byackground-image</h2> 
+    <div class="c3 "></div>
+    <div class="c3 radial-bg"></div>
+    <div class="c3 circle-bg"></div>
+    <div class="c4"></div>
+</body>
+</html>
