@@ -4,8 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Selectors</title>
+    <!-- css codları buraya yazılır!--> 
+    <style>
+        .c1{
+            padding-left: 8px;
+            border-left: 5px solid orange;
+        }
+        .c2.c3{
+            padding-left: 8px;
+            border-left: 5px solid orange;
+        }
+        .c4 .c5{
+            padding: 1px 3px;
+            border: 3px solid orange;
+        }
+
+        #paragraph {
+            padding-left: 8px;
+            border-left: 5px solid orange;
+        }
+
+        p.c6 {
+            padding: 1px 3px;
+            border: 3px solid orange;
+        }
+    </style>
 </head>
 <body>
     <h1>CSS Selectors</h1>
+    <h2>.class</h2>
+    <p class = "c1">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    <p>sit amet consectetur adipisicing elit.</p>
+    <p>adipisicing elit.</p>
+
+    <h2>.class1.class2</h2>
+    
+    <p class="c2 c3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias aut harum molestias repellendus tempora nostrum. Asperiores rem quas in laborum atque, ratione quod ducimus optio vero possimus maxime fugiat architecto.</p>
+    <p class="c2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed totam excepturi ut obcaecati facere. Consequuntur nam porro accusamus. Odio maxime voluptate omnis sit vel aliquid eaque voluptas quisquam molestiae odit!</p>
+
+    <h2>.class1 .class2</h2>
+    <p class="c4">Lorem ipsum, dolor sit <span class="c5">Lorem ipsum, dolor sit amet</span> amet consectetur adipisicing elit. Voluptatum architecto aut, atque harum, enim sint, modi voluptates <span class="c5">Lorem ipsum, dolor sit amet</span> libero ex eos dolor aperiam doloremque sed nulla recusandae sapiente adipisci officia quibusdam.</p>
+    <span class="c5">Lorem ipsum, dolor sit amet</span> 
+
+    <h2>#id</h2>
+    <p id="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, doloribus? Fugiat eos error earum doloribus repudiandae nemo iste dicta suscipit eius, nulla voluptatum natus laboriosam quis ipsa nam dolorum voluptas.</p>
+
+    <h2>element.class</h2>
+    <p class="c6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus placeat recusandae magnam molestiae delectus possimus repellat autem ab, error laborum minus quas quis velit soluta accusamus ducimus ratione. Distinctio, odio?</p>
+    <div class="c6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ad aperiam culpa excepturi nulla! Debitis, suscipit. Quaerat exercitationem voluptates, molestiae, et eligendi quo neque labore obcaecati inventore tenetur natus nam?</div>
+
+
 </body>
 </html>
