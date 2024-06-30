@@ -1,0 +1,84 @@
+/* Metin boyutunu büyütme ve harf başlangıçlarını büyük yapma */
+h1 {
+     font-size: 36px;
+    /* Metin boyutu 36 piksel */
+     text-transform: capitalize;
+    /* Metinlerin baş harflerini büyük yapma */
+}
+
+body {
+    font-size: 16px;
+   /* Varsayılan font boyutunu belirleme */
+}
+p {
+    font-size: 1.2em;
+   /* Metin boyutunu 1.2 em olarak ayarlama (1.2 * 16px = 19.2px) */
+}
+
+p {
+    font-size: 20px;
+   /* Metin boyutu 20 piksel */
+    font-style: normal;
+   /* Yazı tipini düz metin yapma */
+}
+
+h1 {
+    font-size: 150%;
+   /* Metin boyutunu yüzde olarak artırma */
+}
+
+/* Metni ortada hizalama ve kenarlık eklemek */
+.centered-text {
+    text-align: center;
+   /* Metni merkezde yatay hizalama */
+    border: 2px solid #FF5733;
+   /* 2 piksel kalınlığında turuncu kenarlık */
+    padding: 10px;
+   /* Kenarlığın içeriye doğru boşluk bırakması */
+}
+
+div {
+    display: block;
+   /* Metni blok element olarak hizalama */
+}
+span {
+    display: inline;
+   /* Metni satır içi element olarak hizalama */
+}
+
+div {
+    display: block;
+    /* Bu özellik, div elementini blok element olarak hizalar. Blok elementler, kendilerinden sonra gelen diğer elementlerle aynı satırda yer almayıp, bir alt satıra geçerler. Ayrıca, genellikle kendilerine ait bir alan kaplarlar. */
+}
+
+span {
+    display: inline;
+    /* Bu özellik, span elementini satır içi (inline) element olarak hizalar. Satır içi elementler, kendilerinden önce ve sonra gelen diğer elementlerle aynı satırda yer alırlar ve sadece içerdikleri içeriğin boyutu kadar yer kaplarlar. */
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    /* Yükseklik değerini belirtmek önemlidir */
+}
+
+.multiline-vertical-horizontal-center {
+    display: flex;
+    align-items: center;
+    /* Dikeyde ortala: Öğeleri dikey eksende (y ekseni) ortalar. */
+    justify-content: center;
+    /* Yatayda ortala: Öğeleri yatay eksende (x ekseni) ortalar. */
+    height: 300px;
+    /* Yükseklik değerini belirtmek önemlidir */
+}
+
+.scroll-hide-content {
+    overflow: hidden;
+    /* İçeriğin görünmesini engelleme: Elementin taşan içeriği gizlenir. */
+    white-space: nowrap;
+    /* Metinlerin satır sonunda kesilmesini önleme: Metinlerin satır sonunda otomatik olarak kırılmasını engeller. */
+    text-overflow: ellipsis;
+    /* Metni ... ile gösterme (eğer içeriğin tamamı görüntülenmiyorsa): Elementin içindeki metnin sonunda ... gösterilir. */
+}
