@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 id="title">Login Form</h1>
+
+<p id="description">Please Fill All The Areas</p>
+
+<form id="survey-form">
+    <label for="name" id="name-label">Name:</label>
+    <input type="text" id="name" placeholder="Enter Your Name" required>
+
+    <br><br>
+
+    <label for="email" id="email-label">E-Mail:</label>
+    <input type="email" id="email" placeholder="Enter Your E-Mail Address" required>
+
+    <br><br>
+
+    <label for="number" id="number-label">Age:</label>
+    <input type="number" id="number" placeholder="Enter Your Age" min="18" max="90" required>
+
+    <br><br>
+
+    <label for="dropdown">Gender:</label>
+    <select id="dropdown">
+        <option value="" selected disabled>Select</option>
+        <option value="option1">Male</option>
+        <option value="option2">Female</option>
+    </select>
+
+
+    <br><br>
+
+    <fieldset>
+        <legend>Where Did You Hear Us:</legend>
+        <label for="radio1"><input type="radio" id="radio1" name="option" value="option1">Instagram</label>
+        <label for="radio2"><input type="radio" id="radio2" name="option" value="option2">Twitter</label>
+    </fieldset>
+
+    <br>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="checkbox1" value="value1">
+        <label for="checkbox1">I Read The Agreement</label>
+    </div>
+    <div class="checkbox-group">
+        <input type="checkbox" id="checkbox2" value="value2">
+        <label for="checkbox2">Accept</label>
+    </div>
+
+
+    <br>
+
+    <label for="comments">Any Comments</label><br>
+    <textarea id="comments" rows="4" cols="50" placeholder="Enter Your Thoughts"></textarea>
+
+    <br><br>
+
+    <input type="submit" id="submit" value="Submit">
+</form>
+
+</body>
+</html>

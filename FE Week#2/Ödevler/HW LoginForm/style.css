@@ -1,0 +1,109 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #72bc18;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 75px;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    color: #555;
+    text-align: center;
+    font-size: 16px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #777;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+select {
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+fieldset legend {
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+fieldset label {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+
+textarea {
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+}
