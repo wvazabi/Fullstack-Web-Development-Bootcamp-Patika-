@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('images/drum.png') no-repeat center center fixed;
+    background-size: contain;
+    color: #ff6f00;
+    font-family: Arial, sans-serif;
+}
+
+.drum-kit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sütunlu ızgara */
+    gap: 20px; /* Düğmeler arasındaki boşluk */
+}
+
+.drum {
+    padding: 20px;
+    border: none;
+    outline: none;
+    background-color: #4CAF50; /* Düğmelerin arka plan rengi */
+    color: #fff; /* Düğme metin rengi */
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.1s;
+}
+
+.drum:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.drum.playing {
+    background-color: #FFC107; /* Aktif düğme arka plan rengi */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
