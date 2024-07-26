@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karşılama Ekranı</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #greeting {
+            display: none;
+            text-align: center;
+        }
+        #time {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="nameForm">
+        <h1>Merhaba!</h1>
+        <label for="name">İsminiz nedir?</label>
+        <input type="text" id="name" name="name">
+        <button onclick="showGreeting()">Göster</button>
+    </div>
+    <div id="greeting">
+        <h1 id="welcomeMessage"></h1>
+        <div id="time"></div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
