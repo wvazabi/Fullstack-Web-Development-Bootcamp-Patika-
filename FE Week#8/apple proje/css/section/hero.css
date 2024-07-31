@@ -1,0 +1,58 @@
+#hero {
+position: relative;
+width: 100%;
+height: 100vh;
+}
+
+/* vh px gibi ölçü biçimi  tarayıcının yüksekliği ve uzunlugu 
+almak için kullanılan bir ölçü birimi via port height bu sayede hero tam boy kaplıyor */
+
+#hero video {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* margin yukardan aşağıdan sıfır sagdan soldan ortalanmasını istiyoruz*/
+
+#hero h1 {
+    position: absolute;
+    top:  245px;
+    left: 50%;
+    color:  rgb(190, 184, 174);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    transform: translateX(-50%);
+    /* absolute normal akışın dışan çıkartır etkilenmez diğer elementlerden
+    translatex yazının kendi boyutu yarısı kadar sola kaydırır */
+}
+
+#hero .hero-bottom {
+    position: absolute;
+    left: 50%;
+    bottom: 115px;
+    transform: translateX(-50%);
+
+}
+
+#hero .hero-bottom h5 {
+    display: block;
+    text-align: center;
+    margin-top: 32px;
+
+}
+
+/* ölçü verirken genelde 4 ün katlarını veriyoruz */
+
+#hero .hero-bottom .btn-primary {
+
+    font-weight: 400;
+    padding: 6px 24px;
+    letter-spacing: 1px;
+    border-radius: var(--bs-border-radius-pill);
+    /* css border radius */
+
+}

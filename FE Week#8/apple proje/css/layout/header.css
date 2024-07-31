@@ -1,0 +1,58 @@
+#header {
+    height: 80px;
+    background: transparent;
+}
+/* header'a stil veriliyor */
+
+#header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* header içersindeki container için stil  
+ konumunu ve hizalamasını için flex responsive için
+ align-items: center dikey ortalar
+ justift content yatay iz. Bu, ilk öğeyi sola, son öğeyi sağa ve aradaki boşlukları eşit şekilde bırakır.*/
+
+#header .logo img {
+    display: block;
+}
+
+/* display: block;: Bu özellik, hedeflenen img öğesini blok seviyesinde bir öğe yapar. Blok seviyesinde öğeler, varsayılan olarak genişliği kapsayıcılarının genişliğini alır ve yeni bir satıra geçer.
+
+inline block olursa boşluk bırakmış olur fazladan*/
+
+#navbar {
+    padding: 0;
+}
+
+/* bootstrapten dolayı gelen fazla padding'i sıfırlıyoruz pading iç boşluk margin dış boşluk */
+
+#navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+/* flex direction colum yerine row yapıyoruz her item satır oluyor */
+
+#navbar li {
+    position: relative;
+    padding: 6px 10px;
+}
+
+/*Konum Kaydırma: relative konumlandırma, öğenin normal konumunu korurken ek konum kaydırmaları yapmanıza olanak tanır.
+İç Konumlandırma: İç içe geçmiş öğelerin konumlandırılmasını etkilemek için relative konumlandırma kullanılır. Örneğin, menü öğelerini veya alt öğeleri belirli bir konumda tutmak için.*/
+
+#navbar li a {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* sagdan soldan padding veriyoruz tıklama için  fontu kalınlaştırıyorz
+link olmadığı için cursor ı pointer yapıyoruz 
+ */
