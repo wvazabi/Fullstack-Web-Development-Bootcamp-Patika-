@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../../../Downloads/React-Hub-main/Week-7-Javascript/ToDoList"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ToDoList"
+	}
+}
