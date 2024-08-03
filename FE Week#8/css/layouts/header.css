@@ -1,0 +1,115 @@
+#header {
+    height: 80px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    transition: all 250ms;
+  }
+
+  /* header'a stil veriliyor */
+  
+  #header.header-scrolled {
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    height: 50px;
+    background-color: rgba(22, 22, 22, 0.8);
+    border-bottom: 1px solid var(--border-color-2);
+  }
+  
+  #header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* header içersindeki container için stil  
+ konumunu ve hizalamasını için flex responsive için
+ align-items: center dikey ortalar
+ justift content yatay iz. Bu, ilk öğeyi sola, son öğeyi sağa ve aradaki boşlukları eşit şekilde bırakır.*/
+  
+  #header .logo img {
+    height: auto;
+    display: block;
+  }
+
+  /* display: block;: Bu özellik, hedeflenen img öğesini blok seviyesinde bir öğe yapar. Blok seviyesinde öğeler, varsayılan olarak genişliği kapsayıcılarının genişliğini alır ve yeni bir satıra geçer.
+
+inline block olursa boşluk bırakmış olur fazladan*/
+  
+  #navbar {
+    position: static;
+    padding: 0;
+  }
+
+  /* bootstrapten dolayı gelen fazla padding'i sıfırlıyoruz pading iç boşluk margin dış boşluk */
+  
+  #navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* flex direction colum yerine row yapıyoruz her item satır oluyor */
+
+  
+  #navbar li {
+    position: relative;
+    padding: 6px 10px;
+  }
+
+  /*Konum Kaydırma: relative konumlandırma, öğenin normal konumunu korurken ek konum kaydırmaları yapmanıza olanak tanır.
+İç Konumlandırma: İç içe geçmiş öğelerin konumlandırılmasını etkilemek için relative konumlandırma kullanılır. Örneğin, menü öğelerini veya alt öğeleri belirli bir konumda tutmak için.*/
+  
+  #navbar li a {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  /* sagdan soldan padding veriyoruz tıklama için  fontu kalınlaştırıyorz
+link olmadığı için cursor ı pointer yapıyoruz 
+ */
+  
+  @media (max-width: 991.98px) {
+    #header {
+      height: 50px;
+    }
+  
+    #header .logo img {
+      width: 22px;
+    }
+  
+    #navbar .navbar-toggler {
+      color: #fff;
+      border: 0;
+    }
+  
+    #navbar .navbar-toggler-icon {
+      width: 1.25em;
+      height: 1.25em;
+    }
+  
+    #navbar .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+      background-color: rgba(22, 22, 22, 0.8);
+      border-bottom: 1px solid var(--border-color-2);
+    }
+  
+    #navbar ul {
+      padding: 12px 0;
+      flex-direction: column;
+    }
+  
+    #navbar li {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+  }
