@@ -2,6 +2,8 @@
     width: 100%;
     padding: 0 28%;
   }
+
+  /* yüzdesek boşluk veriyoruz */
   
   #camera .swiper-button-prev,
   #camera .swiper-button-next {
@@ -13,15 +15,19 @@
     background-color: var(--background-color-2);
     border-radius: 100%;
   }
+  /* buton tuşlarına stil yazıyoruz */
   
   #camera .swiper-slide {
     opacity: 0.3;
     transition: opacity 200ms linear;
   }
+  /* sağ tarafta sonra gelecek resim  geçişler 
+  daha smooth olamsı için transition: opacity 200ms linear;*/
   
   #camera .swiper-slide.swiper-slide-active {
     opacity: 1;
   }
+  /* sol tarafta gözüken taraf */
   
   #camera .swiper-slide img {
     width: 100%;

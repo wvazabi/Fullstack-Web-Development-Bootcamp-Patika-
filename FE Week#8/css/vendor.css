@@ -3,10 +3,13 @@
     width: 100%;
     max-width: 980px;
   }
+  /* genel anlamda container'ı kısaltmak */
   
   .lead {
     font-weight: 500;
   }
+
+  /* bootstrap lead kalınlaştırması */
   
   @media (max-width: 767.98px) {
     .lead {

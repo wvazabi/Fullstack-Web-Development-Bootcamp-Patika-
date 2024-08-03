@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  // katı mode Örneğin, değişkenlerin tanımlanmadan kullanılmasına izin vermez. Yanlışlıkla global değişken yaratma riskini azaltır. Katı mod, sessizce başarısız olan bazı JavaScript işlemlerini, koşulsuz hatalar haline getirir. Bu, hata bulmayı ve düzeltmeyi kolaylaştırır.
 
   // 1. AOS (Animate On Scroll) kütüphanesinin başlatılması
   AOS.init({
@@ -9,11 +10,15 @@
   });
 
   // 2. Swiper kütüphanesi kullanılarak kamera bölümünün başlatılması
+  // kamera id li div in içinde swiper sınıflı elementi seçiyoruz slider için kapsayıcı div diyoruz
+  //speed geçiş süresi 600 ms spacebetwen slide arası boşluk
+  // new diyerek swiper kodlarından bir nesne olusturarak cameraya atıyoruz
   var camera = new Swiper('#camera .swiper', {
     speed: 600,
     spaceBetween: 12,
     navigation: {
       enabled: true,
+      // sol buton burası sağ buton burası diye belirtmek için  
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     }

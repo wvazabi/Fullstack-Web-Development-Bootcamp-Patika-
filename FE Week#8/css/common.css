@@ -24,17 +24,23 @@ var(--font-color-1) diyerek bu rengi kullanabiliriz*/
     color: var(--font-color-2);
     line-height: 1.45;
   }
+
   
   p span {
     color: var(--font-color-1);
     line-height: 1.45;
   }
   
+  /* vurgulamak için span tagların rengini farklı yapıyoruz */
+
+
   hr {
     opacity: 1;
     margin: 35px 0;
     border-top-color: var(--border-color-1);
   }
+
+  /* yatay çizgi için */
   
   .section {
     padding: 80px 0;
