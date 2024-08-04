@@ -1,6 +1,7 @@
 #products .product {
     text-align: center;
   }
+  bütün metinler ortalı olsun 
   
   #products .product-header {
     color: var(--font-color-2);
@@ -20,6 +21,8 @@
   #products .product-header p {
     margin: 32px 0;
   }
+
+  /* boşluk veriyoruz doğru gözükmesi için  */
   
   #products .product-header button {
     width: 100%;
@@ -29,6 +32,8 @@
     margin: 2px auto;
     display: block;
   }
+
+  /* hap görümtüsü için radius veriyoruz */
   
   #products .product-header a {
     font-size: 14px;
