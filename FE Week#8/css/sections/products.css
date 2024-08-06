@@ -39,6 +39,8 @@
     font-size: 14px;
   }
   
+  /* özel bir css seçicisi ilk eleman değilse 24 px olur 
+  product-feature ilk eleman da tok diğerlerinde var  */
   #products .product-feature:not(:first-child) {
     margin-top: 24px;
   }

@@ -25,6 +25,7 @@
   });
 
   // 3. GLightbox kütüphanesi kullanılarak genel lightbox (açılır görsel gösterici) başlatılması
+  
   var glightbox = GLightbox({
     selector: '.glightbox',
   })
