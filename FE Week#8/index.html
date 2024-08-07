@@ -502,8 +502,12 @@
           <div class="col-lg-5">
             <ul>
               <li>
+                <!-- akordiyon başlıkları içinde tıklayınca detaylar var -->
+                 <!-- data - olan custom attribute oluşturmak için oluşturuyor daha sonra istediğimi ismi yazabiliyoruz birine bastığımızda diğerinin kapanması bundan collapse yazıyoruz -->
                 <h3 data-bs-toggle="collapse" data-bs-target=".ecosystem-mac" class="collapse">iPhone ve Mac <i
                     class="bi bi-chevron-up"></i></h3>
+                    <!-- icon koyuyoruz akordiyon içine - -->
+                     <!-- parent diyerek kapsayıcı div'in id si veriliyor -->
                 <div class="collapse show ecosystem-mac" data-bs-parent="#ecosystem">
                   <p>iPhone'unuza gelen aramaları veya mesajları doğrudan Mac'inizden
                     yanıtlayabiliyorsunuz. iPhone'unuzdan kopyaladığınız görselleri, videoları veya metinleri yakındaki
@@ -534,6 +538,7 @@
             </ul>
           </div>
           <div class="col-lg-7 d-none d-sm-block">
+            <!-- akordiyonda resimelr değişiyor sınıflarla eşleştiriyoruz show dediğimiz gözüküyor ilk olarak -->
             <img src="images/ecosystem/iphone-mac.jpg" class="ecosystem-mac collapse show">
             <img src="images/ecosystem/iphone-watch.jpg" class="ecosystem-watch collapse">
             <img src="images/ecosystem/iphone-airpods.jpg" class="ecosystem-airpods collapse">

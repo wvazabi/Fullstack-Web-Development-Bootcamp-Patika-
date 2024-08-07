@@ -6,15 +6,19 @@
     padding: 0;
     list-style: none;
   }
+  /* listelemeden başındaki notlaraın gitmesi için list-style sıfırlanıyor */
   
   #ecosystem ul li {
     position: relative;
     padding-right: 30px;
   }
+  /* bunu relative yapıyoruz çünkü ikon absolute yaparak haraket etmesini istiyoeuz */
   
   #ecosystem ul li+li {
     border-top: 1px solid var(--border-color-1);
   }
+  /* burda farklı bir css seçiçisi kullanıcağız li tagından başlayız en sonki li ye border veriyoruz
+  en üstekinde olmasını istemiyoruz */
   
   #ecosystem ul h3 {
     position: relative;
@@ -23,6 +27,8 @@
     margin: 0;
     display: block;
   }
+
+  /* custer pointer üzerine gelince link  */
   
   #ecosystem ul h3.collapse:hover {
     opacity: 0.85;
@@ -31,6 +37,8 @@
   #ecosystem ul h3.collapsed i {
     transform: rotate(180deg);
   }
+
+  /* açık olunca ok tam tersi döndürüyoruz */
   
   #ecosystem ul i {
     position: absolute;
@@ -50,13 +58,16 @@
     width: 100%;
     transition: none;
   }
+   /* görsel css özellikleri */
+  /* transaction none olması hızlı hızlı açılır kapanır olması */
   
   
   @media (max-width: 767.98px) {
     #ecosystem .section-content {
       padding: 32px;
     }
-  
+
+   
     #ecosystem ul h3 {
       padding: 16px 0;
     }
