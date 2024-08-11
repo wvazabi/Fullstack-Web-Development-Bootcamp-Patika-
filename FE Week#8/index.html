@@ -547,6 +547,7 @@
       </div>
     </div>
   </section>
+  <!-- bu alan akordiyon ekosisteme benzediği için ortak yapılabilirdi ama ortak yapılan alanların zaman içinde tekrar bozulması çok zor oldugu için değişmesi gerekirse diye ondan başlangıçta ayrı yapmak daha mantıklı  -->
   <section class="section" id="faq">
     <div class="container">
       <div class="section-title">
@@ -556,8 +557,9 @@
       <div class="section-content">
         <ul>
           <li>
-            <h5 data-bs-toggle="collapse" data-bs-target="#faq-1" class="collapsed">Apple.com'dan neden SIM kartsızbir
-              iPhone almalıyım? <i class="bi bi-chevron-up"></i></h5>
+            <!-- faq 1 birinci soru -->
+            <h5 data-bs-toggle="collapse" data-bs-target="#faq-1" class="collapsed">Apple.com'dan neden SIM kartsızbir iPhone almalıyım? <i class="bi bi-chevron-up"></i></h5>
+            <!-- sorunun cevabı idler aynı olmalı ilk cevao gözüksün diye collapse show yapıyoruz -->
             <div id="faq-1" class="collapse show" data-bs-parent="#faq">
               <p>Apple.com'dan satın alınmış bağlı olmayan bir iPhone'un kilidi açıktır. Bu da tek bir ağ sağlayıcısına
                 veya birden fazla yılı kapsayan bir hizmet sözleşmesine bağlı olmadığınız anlamına gelir. Böylece size
@@ -628,15 +630,18 @@
       </div>
     </div>
   </section>
+  <!-- yorumlar -->
   <section class="section section-gray" id="comments">
     <div class="container">
       <div class="section-title">
         <h2 data-aos="fade">Yorumlar.</h2>
         <h4 data-aos="fade-up">Sizin için önemli olanlar <span>Apple</span> için de önemli.</h4>
       </div>
+      <!-- siledar olduğu için swiper kullanıyoruz -->
       <div class="section-content">
         <div class="swiper">
           <div class="swiper-wrapper">
+            <!-- silider yorumları -->
             <div class="swiper-slide">
               <img src="images/comments/comment-1.png" width="120" height="120" alt="">
               <h3>Can T.</h3>
@@ -658,6 +663,7 @@
                 depolama, güçlü işlemci ve güvenliğe odaklanmış bir işletim sistemi ile tam bir profesyonel cihaz.</p>
             </div>
           </div>
+          <!-- js ile pagination yapılıyor -->
           <div class="swiper-pagination"></div>
         </div>
       </div>

@@ -36,6 +36,8 @@
   });
 
   // 5. Swiper kütüphanesi kullanılarak yorumlar bölümü başlatılması
+  // swiper codelarını swiper dokumanlarından kontrol edilerek yazabiliyoruz
+  // el ile seçiciyi veriyoruz
   var comment = new Swiper('#comments .swiper', {
     pagination: {
       el: '.swiper-pagination',

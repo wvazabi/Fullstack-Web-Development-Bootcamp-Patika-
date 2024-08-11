@@ -1,8 +1,11 @@
 
 #comments .swiper {
     overflow: hidden;
-  }
   
+  }
+/* overflow hidden olarak herhangi bir tama filan olursa bir şeyin gözükmesini istemiyoruz */
+  
+
   #comments .swiper-slide {
     text-align: center;
   }
@@ -14,6 +17,7 @@
     border: 5px solid var(--border-color-2);
     margin: 0 auto;
   }
+  /* resim stilleri  margin yukardan asagıdan boşluk istemiyoruz sagdan soldan ortalanamsı*/
   
   #comments .swiper-slide h3 {
     font-size: 24px;
@@ -23,7 +27,7 @@
   
   #comments .swiper-slide p {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 300; 
   }
   
   #comments .swiper-pagination {
@@ -37,8 +41,10 @@
     opacity: 0.25;
     background-color: #fff;
   }
+  /* tüm bulletlara still opacity soluk */
   
   #comments .swiper-pagination-bullet-active {
     opacity: 1;
   }
+  /* aktif olan opak */
   
