@@ -1,0 +1,872 @@
+/* Importing Poppins font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+/* Resetting default styles and setting font family */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Smooth scrolling for the whole document */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar Section */
+.nav-style {
+  width: 100%;
+  height: 72px;
+  background-color: #355592; /* Navbar background color */
+  position: sticky; /* Navbar stays fixed at the top */
+  top: 0px;
+  z-index: 5; /* Ensures navbar is above other content */
+  transition: background-color 0.5s ease; /* Smooth background color transition */
+}
+
+.navbar {
+  width: 60%;
+  position: absolute;
+  left: 20%; /* Centering the navbar horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-item {
+  margin-left: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: aliceblue; /* Navbar item color */
+}
+
+.nav-btn {
+  border: none;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background-color: #fe9b01; /* Button background color */
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background-color: #fe9d01d8; /* Button hover color */
+}
+
+.menu-btn,
+.menu-icon {
+  display: none; /* Hidden by default */
+}
+
+/* Header Part */
+header {
+  background-image: url(/Assets/hero-man.jpg); /* Background image for header */
+  background-size: cover; /* Cover the entire header area */
+}
+
+.container-top {
+  margin: auto;
+  width: 60%;
+  padding-top: 144px; /* Space above content */
+}
+
+.container-top h3 {
+  display: inline-block;
+  color: aliceblue;
+  background-color: #355592; /* Background color for subheading */
+  padding: 4px 10px;
+  border-radius: 5px;
+  text-shadow: 2px 2px 2px black; /* Text shadow effect */
+  margin-bottom: 5px;
+}
+
+h1 {
+  color: aliceblue;
+  font-size: 72px;
+  text-shadow: 2px 2px 2px black; /* Text shadow effect */
+  margin-bottom: 5px;
+}
+
+.container-top p {
+  color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for paragraphs */
+  text-shadow: 2px 2px 2px black; /* Text shadow effect */
+  font-size: 22px;
+  margin-bottom: 8px;
+  font-weight: bold; 
+}
+
+#signup-btn {
+  padding: 8px 24px;
+  background-color: #355592; /* Signup button background color */
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: aliceblue; /* Text color */
+  font-size: 16px;
+  margin-bottom: 54px;
+  margin-right: 32px;
+  cursor: pointer;
+}
+
+#signup-btn:hover {
+  background-color: #4d7ed9; /* Signup button hover color */
+}
+
+#details-btn {
+  padding: 8px 24px;
+  background-color: rgba(0, 0, 0, 0.5); /* Details button background color */
+  border: solid 1px aliceblue;
+  border-radius: 5px;
+  font-weight: bold;
+  color: aliceblue; /* Text color */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#details-btn:hover {
+  background-color: black; /* Details button hover color */
+}
+
+/* Card Section */
+#card {
+  background-color: #f1f8ff; /* Card background color */
+}
+
+.container-card {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Wrap cards if necessary */
+}
+
+.card-item {
+  padding-top: 8px;
+  padding-bottom: 16px;
+  margin: 15px 0px;
+  width: 13rem;
+  background-color: #fff; /* Card background color */
+  text-align: center;
+  line-height: 36px;
+}
+
+.card-item h3 {
+  color: #355592; /* Card heading color */
+}
+
+.card-item p {
+  font-weight: bold; /* Font weight for card text */
+}
+
+/* Group Section */
+#classes {
+  position: relative;
+}
+
+.bg-shape {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 60%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25% 100%, 12.5% 50%);
+  background: #f6f6f6; /* Background color for group section */
+}
+
+.classes-container {
+  margin: auto;
+  width: 60%;
+}
+
+.titles {
+  text-align: center;
+  padding-top: 54px;
+  color: #355592; /* Title color */
+  margin-bottom: 15px;
+  font-size: 32px;
+}
+
+.line-item {
+  width: 75px;
+  border: solid 4px #fe9b01; /* Line item border color */
+  margin: auto;
+  border-radius: 100px;
+  margin-bottom: 32px;
+}
+
+.desc-p {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  gap: 20px;
+  flex-wrap: wrap; /* Wrap buttons if necessary */
+}
+
+.group-btn {
+  position: relative;
+  font-weight: bold;
+  background-color: #355592; /* Button background color */
+  color: aliceblue; /* Button text color */
+  padding: 8px 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.5s; /* Smooth transition for button effects */
+}
+
+.selection {
+  position: absolute;
+  top: 100%;
+  left: 40%;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fe9b01; /* Selection indicator color */
+  transition: 0.5s;
+}
+
+.group-content {
+  margin-top: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+
+.class-img {
+  width: 50%;
+}
+
+.desc h3 {
+  font-size: 24px;
+}
+
+.desc p {
+  font-size: 16px;
+  margin: 24px 0px;
+  line-height: 24px;
+}
+
+/* BMI Section */
+.bmi {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  gap: 15%;
+  padding-top: 54px;
+  padding-bottom: 54px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bmi-content {
+  width: 50%;
+}
+
+.bmi-content h2 {
+  color: #355592; /* BMI section heading color */
+  margin-bottom: 15px;
+  font-size: 40px;
+}
+
+.bmi-content p {
+  margin-top: 24px;
+}
+
+.calculator {
+  margin-top: 24px;
+}
+
+.bmi-index {
+  position: relative;
+}
+
+.bmi-index h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bmi-img {
+  width: 100%;
+}
+
+.arrow-up {
+  position: absolute;
+  left: 7%;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 20px solid #fe9b01; /* Arrow color */
+  transition: 0.5s;
+}
+
+/* Trainers Section */
+#trainers {
+  background-color: #f1f8ff; /* Trainers section background color */
+}
+
+.trainer-container {
+  width: 80%;
+  margin: auto;
+}
+
+.trainers-box {
+  gap: 5%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+
+.trainer-img {
+  width: 100%;
+  border: solid 1px #fe9b01; /* Trainer image border color */
+  border-radius: 5px;
+}
+
+.img-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.img-box .trainer-role {
+    font-size: 0.8rem; /* Font size for role information */
+    margin: 0;
+  }
+.img-box .trainer-name {
+    font-size: 0.8rem; /* Font size for name */
+    color: aliceblue;
+    margin: 0;
+  }
+
+  .img-box .tarinerbr {
+    margin: 0;
+    line-height: 1
+  }
+
+.before {
+  position: absolute;
+  content: "";
+  width: 110%;
+  height: 50%;
+  left: -5%;
+  top: 25%;
+  background-color: #355592;
+  z-index: -1;
+}
+
+.after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 104%;
+  left: 25%;
+  top: -4%;
+  background-color: #355592;
+  z-index: -1;
+}
+
+.trainer-flag {
+  clip-path: polygon(
+    0 65%,
+    15% 65%,
+    15% 55%,
+    85% 55%,
+    85% 65%,
+    100% 65%,
+    100% 90%,
+    85% 90%,
+    85% 100%,
+    15% 100%,
+    15% 90%,
+    0 90%
+  );
+  background-color: #355692;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  width: 80%;
+}
+
+.img-box .trainer-name {
+  font-size: 1.5vw;
+  color: aliceblue;
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.img-box:hover .before {
+  height: 60%;
+  transition: 0.5s;
+}
+
+/* Purchase Section */
+
+/* Container for purchase section, centered with a fixed width */
+.purchase-container {
+    width: 60%;
+    margin: auto;
+  }
+  
+  /* Flexbox layout for purchase cards with space between items and wrap option */
+  .purchase-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 54px;
+  }
+  
+  /* Style for individual purchase cards */
+  .purchase-card {
+    position: relative;
+    width: 24%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: width 0.5s;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  /* Increase card width on hover */
+  .purchase-card:hover {
+    width: 26%;
+  }
+  
+  /* Style for images within purchase cards */
+  .purchase-img {
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  
+  /* Center text within purchase card and apply font weight */
+  .purchase-card p {
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  /* Style for price and add-to-cart text */
+  .price,
+  .add-to-card {
+    font-size: 12px;
+  }
+  
+  /* Margin settings for the add-to-cart button */
+  .add-to-card {
+    margin-top: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for shopping cart icon */
+  .fa-cart-shopping {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+  }
+  
+  /* Client Review Section */
+  
+  /* Background color for the review section */
+  #review {
+    background-color: #f1f8ff;
+  }
+  
+  /* Container for reviews, centered with fixed width */
+  .review-container {
+    width: 60%;
+    margin: auto;
+  }
+  
+  /* Flexbox layout for client reviews with gap and padding */
+  .client-reviews {
+    display: flex;
+    gap: 15%;
+    padding-bottom: 96px;
+  }
+  
+  /* Flexbox layout for client information */
+  .client-info {
+    display: flex;
+    gap: 6%;
+  }
+  
+  /* Style for client info images */
+  .client-info img {
+    border-radius: 50%;
+    width: 3rem;
+  }
+  
+  /* Style for client's name text */
+  .name p:first-child {
+    font-weight: 500;
+  }
+  
+  .name p:last-child {
+    font-size: 12px;
+  }
+  
+  /* Style for client comments with margin and relative positioning */
+  .client-comment {
+    margin-top: 3%;
+    position: relative;
+  }
+  
+  /* Style for client comment text */
+  .client-comment p {
+    background-color: #355592;
+    color: aliceblue;
+    font-size: 12px;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  
+  /* Decorative triangles for client comments using pseudo-elements */
+  .client-comment::after {
+    position: absolute;
+    content: "";
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    background-color: #8096be;
+    width: 2rem;
+    height: 2rem;
+    top: 100%;
+    left: 0;
+  }
+  
+  .client-comment::before {
+    position: absolute;
+    content: "";
+    background-color: #8096be;
+    width: 2rem;
+    height: 2rem;
+    top: 100%;
+    right: 0%;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+  }
+  
+  /* Contact Section */
+  
+  /* Container for contact section, centered with fixed width */
+  .contact-container {
+    width: 60%;
+    margin: auto;
+  }
+  
+  /* Flexbox layout for contact content with gap and padding */
+  .contact-content {
+    display: flex;
+    gap: 7%;
+    padding-bottom: 124px;
+  }
+  
+  /* Flexbox layout for contact types with gap */
+  .contact-types {
+    display: flex;
+    gap: 10%;
+  }
+  
+  /* Style for contact information and map sections */
+  .contact-info {
+    width: 50%;
+  }
+  
+  .contact-map {
+    width: 50%;
+  }
+  
+  /* Style for input fields within the contact form */
+  .contact-info input {
+    display: block;
+    margin-top: 5%;
+    width: 100%;
+    height: 1.7rem;
+    border: none;
+    background-color: #f1f8ff;
+    border-radius: 5px;
+    padding-left: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+  
+  /* Style for textarea fields within the contact form */
+  textarea {
+    padding-left: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: none;
+    background-color: #f1f8ff;
+    border-radius: 5px;
+  }
+  
+  /* Specific styling for textarea in contact-info */
+  .contact-info textarea {
+    margin-top: 5%;
+    width: 100%;
+    height: 50%;
+  }
+  
+  /* Style for the contact map */
+  .map {
+    width: 100%;
+    height: 125%;
+  }
+  
+  /* Footer Section */
+  
+  /* Background color and padding for the footer */
+  footer {
+    background-color: #355592;
+    padding-bottom: 28px;
+  }
+  
+  /* Container for footer content, centered with fixed width */
+  .footer-container {
+    width: 60%;
+    margin: auto;
+  }
+  
+  /* Style for images within the footer container */
+  .footer-container img {
+    width: 25%;
+  }
+  
+  /* Style for text within the footer container */
+  .footer-container p {
+    color: aliceblue;
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+  
+  /* Flexbox layout for footer info and links */
+  .info-and-links {
+    display: flex;
+    justify-content: space-around;
+    gap: 5%;
+  }
+  
+  /* Style for footer information and helpful links headings */
+  .information h3,
+  .helpful-links h3 {
+    font-weight: 500;
+    color: aliceblue;
+  }
+  
+  /* Style for footer information and helpful links anchor tags */
+  .information a,
+  .helpful-links a {
+    display: block;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  /* Responsive design for small screens (max-width: 576px) */
+  
+  /* Adjust navbar position and spacing for smaller screens */
+  @media (max-width: 576px) {
+    .navbar {
+      left: 0%;
+      gap: 35%;
+    }
+  
+    .container-card {
+      width: 90%;
+    }
+  
+    .card-item {
+      width: 100%;
+    }
+  
+    #signup-btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  
+    #details-btn {
+      display: block;
+      width: 100%;
+    }
+  
+    .container-top {
+      width: 90%;
+      padding-bottom: 54px;
+    }
+  
+    .card-item:first-child {
+      margin-top: 25px;
+    }
+  
+    .card-item:last-child {
+      margin-bottom: 25px;
+    }
+  
+    .card-item {
+      margin: 0px;
+    }
+  
+    .classes-container {
+      width: 90%;
+    }
+  
+    .group-content {
+      display: block;
+    }
+  
+    .class-img {
+      width: 100%;
+    }
+  
+    .bmi {
+      display: block;
+    }
+  
+    .bmi-content {
+      width: 100%;
+    }
+  
+    .bmi-index {
+      margin-top: 54px;
+    }
+  
+    .bmi-img {
+      width: 100%;
+    }
+  
+    .trainer-container {
+      width: 70%;
+    }
+  
+    .trainers-box {
+      display: block;
+    }
+  
+    .trainer-img {
+      margin-top: 20px;
+    }
+  
+    .img-box {
+      margin-top: 10%;
+    }
+  
+    .after {
+      top: 0%;
+    }
+  
+    .img-box .trainer-name {
+      font-size: 5vw;
+    }
+  
+    .purchase-container {
+      width: 80%;
+    }
+  
+    .purchase-box {
+      display: block;
+      width: 100%;
+    }
+  
+    .purchase-card {
+      width: 90%;
+      margin: auto;
+      margin-top: 20px;
+    }
+  
+    .purchase-card:hover {
+      width: 100%;
+    }
+  
+    .review-container {
+      width: 90%;
+    }
+  
+    .client-reviews {
+      display: block;
+    }
+  
+    .client {
+      width: 100%;
+      margin-top: 54px;
+    }
+  
+    .contact-container {
+      width: 90%;
+    }
+  
+    .contact-content {
+      display: block;
+    }
+  
+    .contact-info {
+      width: 100%;
+    }
+  
+    .contact-map {
+      width: 100%;
+    }
+  }
+  
+  /* Responsive design for medium screens (max-width: 1350px) */
+  
+  /* Adjust navigation menu visibility and positioning for medium screens */
+  @media (max-width: 1350px) {
+    .navs {
+      position: absolute;
+      transform: translateY(-400%);
+    }
+
+    
+  .menu-btn:checked ~ .navs {
+    display: block;
+    top: 75%;
+    left: 75%;
+    width: 30%;
+    transform: translateY(0%);
+    background-color: rgba(0, 0, 0, 0.591);
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    transition: 0.5s linear;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .menu-btn:checked ~ .navs a {
+    display: block;
+    font-size: 1rem;
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+
+  .menu-btn:checked ~ .navs .nav-btn {
+    margin-bottom: 25px;
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 24px;
+    padding: 4px;
+    color: aliceblue;
+    cursor: pointer;
+  }
+}
