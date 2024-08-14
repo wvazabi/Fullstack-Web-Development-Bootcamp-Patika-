@@ -47,9 +47,12 @@
   });
 
   // 6. Header (üst bilgi) elementini almak
+  // nacbardaki  başllıkları seçmek için header seçiçisi oluştuyuyoruz elemente göre ıd yi getir
+  // hearder elementini alıyoruz
   var header = document.getElementById('header');
 
   // 7. Header'ın kaydırıldığında eklenmesi ve kaldırılması gereken sınıf
+  // sayfa kaydırıldıgında scroll eklenmesi ve çıkartılması
   var headerScrolledHandler = function () {
     if (window.scrollY > 100) {
       header.classList.add('header-scrolled');
@@ -59,6 +62,8 @@
   }
 
   // 8. Sayfa yüklendiğinde ve kaydırıldığında headerScrolledHandler'ın çağrılması
+  // scroll un elementini takip etmek için 
+  // Hem sayfa yenilendiğinde hem de scroll yapıldıgında bu şekilde çalışacak 
   window.addEventListener('load', headerScrolledHandler);
   document.addEventListener('scroll', headerScrolledHandler);
 
@@ -66,12 +71,17 @@
   var links = document.getElementsByClassName('scrollto');
 
   // 10. Her bölüm için doğru linkin odaklanmasını sağlamak
+  // tıklayarak veya scrollla haraket edince başlıkların aktifleğinin değişmesi
   var focusSectionLink = function (event) {
     for (const link of links) {
+      // tıklanılan eleman IDsi alınıyor #i silmek için ilk karakteri slice yapıyoruz
       var id = link.hash.slice(1);
-      var section = document.getElementById(id);
+      var section = document.getElementById(id); 
+      // tıklanılan elementi id si camera örneğin #siz
       var position = window.scrollY + (window.innerHeight / 2);
+      // posizyon ne zaman hangi bölüm aktif olacagını karar veriyoruz 
 
+      // tıklanılan bölüm varsa kontrolü offsettop section yukarı olan boşluk
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
         link.ariaCurrent = 'page';
         link.classList.add('active');

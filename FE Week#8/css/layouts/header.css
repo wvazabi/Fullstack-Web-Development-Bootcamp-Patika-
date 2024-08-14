@@ -5,6 +5,7 @@
     align-items: center;
     transition: all 250ms;
   }
+  /* transaction ekliyoruz daha smooth bir şekilde geçiyor  */
 
   /* header'a stil veriliyor */
   
@@ -15,6 +16,8 @@
     background-color: rgba(22, 22, 22, 0.8);
     border-bottom: 1px solid var(--border-color-2);
   }
+  /* header navbarda blur elde etmek için orjinal sitedeki css leri kopyaladık */
+  /* scroll varsa yüksekliği düşürüyoruz */
   
   #header .container {
     display: flex;
