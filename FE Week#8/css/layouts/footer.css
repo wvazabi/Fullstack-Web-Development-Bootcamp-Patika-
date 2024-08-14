@@ -2,10 +2,14 @@
     font-size: 13px;
     background-color: var(--background-color-2);
   }
+
+  /* footer için css'i layoutta oluşturuyoruz section'a oluşturmuyoruz */
   
   #footer .footer-menu {
     padding: 50px 0;
   }
+
+  /* aşağıdan yukardan boşluk bırakıcaz */
   
   #footer .footer-menu h4 {
     color: var(--font-color-1);
@@ -13,10 +17,17 @@
     font-weight: 500;
     padding-bottom: 12px;
   }
+
+  /* farklı bir ölçü birim 14 px tekabül ediyor 1em */
   
+
+
+
   #footer .footer-menu h4~h4 {
     margin-top: 24px;
   }
+
+  /* iki başlık arasında boşluk olmasını istiyoruz*/
   
   #footer .footer-menu ul {
     list-style: none;
@@ -35,6 +46,8 @@
     line-height: 1;
     text-decoration: none;
   }
+  /* bizim renk paletinde yer almadıgı için kendi renleri kullanıyoruz */
+  /* text decoration alt çizgileri none dedik ama üstüne gelince gözükmesini istiyoruz */
   
   #footer .footer-menu a:hover {
     text-decoration: underline;
@@ -47,6 +60,8 @@
     border-top: 1px solid var(--border-color-2);
     padding: 32px 0;
   }
+
+  /* daha soluk bir renk border kullanıyoruz */
   
   @media (max-width: 767.98px) {
     #footer .footer-menu {
@@ -60,4 +75,6 @@
     #footer .footer-menu h4~h4 {
       margin-top: 16px;
     }
+
+
   }

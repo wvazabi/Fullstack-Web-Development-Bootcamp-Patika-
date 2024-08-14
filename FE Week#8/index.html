@@ -677,8 +677,10 @@
       </div>
       <div class="section-content">
         <div class="row">
+          <!-- row sütunlarını bölüyoruz -->
           <div class="col-lg-5">
             <div class="contact-info">
+              <!-- icon ekleniyor -->
               <i class="bi bi-geo-alt"></i>
               <h4>Mağaza:</h4>
               <p>Bağdat Caddesi, No: 342 Caddebostan</p>
@@ -695,10 +697,12 @@
               <p>0800 448 829 875</p>
             </div>
           </div>
+          <!-- Bootstrap form elemanlarını kullanıyoruz -->
           <div class="col-lg-7">
             <form action="return false" class="contact-form">
               <div class="row">
                 <div class="col-lg-6">
+                  <!-- bu class bootstrap in inputu kullanamsı için yazdığımız bir class -->
                   <input type="text" name="name" placeholder="İsminiz" class="form-control">
                 </div>
                 <div class="col-lg-6">
@@ -706,6 +710,7 @@
                 </div>
               </div>
               <input type="text" name="subject" placeholder="Konu" class="form-control mt-4">
+              <!-- bazı etiketler self closing bazı etiketleri kendimiz kapatmalıyız -->
               <textarea name="message" rows="5" placeholder="Mesaj" class="form-control mt-4"></textarea>
               <button type="submit" class="btn btn-primary mt-4">Mesaj gönder</button>
             </form>
@@ -716,6 +721,7 @@
   </section>
   <footer id="footer">
     <div class="footer-menu">
+      <!-- sol taraftan hizalanması için container içine almamız gerekiyor -->
       <div class="container">
         <div class="d-none d-sm-block">
           <div class="row">
