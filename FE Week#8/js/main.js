@@ -3,10 +3,14 @@
   // katı mode Örneğin, değişkenlerin tanımlanmadan kullanılmasına izin vermez. Yanlışlıkla global değişken yaratma riskini azaltır. Katı mod, sessizce başarısız olan bazı JavaScript işlemlerini, koşulsuz hatalar haline getirir. Bu, hata bulmayı ve düzeltmeyi kolaylaştırır.
 
   // 1. AOS (Animate On Scroll) kütüphanesinin başlatılması
+  // animasyon eklemek için animate on scroll
   AOS.init({
     startEvent: 'load',
+    // sayfa yüklendiğinde çalışması
     offset: 20,
+    // 100 px 150 px istemiyorum
     once: true,
+    // sadece bir kez çalışması tekrar yukarı gidince çalışmasın
   });
 
   // 2. Swiper kütüphanesi kullanılarak kamera bölümünün başlatılması
