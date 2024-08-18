@@ -76,6 +76,8 @@ inline block olursa boşluk bırakmış olur fazladan*/
 link olmadığı için cursor ı pointer yapıyoruz 
  */
   
+ /* responsive olması için ölçüleri veriyoruz */
+ /* 992 tabletlerin dikey olarak alınmış referans ortalama px */
   @media (max-width: 991.98px) {
     #header {
       height: 50px;
@@ -84,6 +86,7 @@ link olmadığı için cursor ı pointer yapıyoruz
     #header .logo img {
       width: 22px;
     }
+    /* logoyu büyüttük */
   
     #navbar .navbar-toggler {
       color: #fff;
@@ -95,6 +98,8 @@ link olmadığı için cursor ı pointer yapıyoruz
       height: 1.25em;
     }
   
+    /* menüye tıkladıgı açılan pencere  */
+    /* aynı zamanda scroll yapınca menude değişiyor */
     #navbar .navbar-collapse {
       position: absolute;
       top: 100%;
@@ -105,12 +110,12 @@ link olmadığı için cursor ı pointer yapıyoruz
       background-color: rgba(22, 22, 22, 0.8);
       border-bottom: 1px solid var(--border-color-2);
     }
-  
+  /* alt alta gelmesi için colum yaptık */
     #navbar ul {
       padding: 12px 0;
       flex-direction: column;
     }
-  
+  /* list item menu deki aralıkları azalttık */
     #navbar li {
       padding-top: 2px;
       padding-bottom: 2px;

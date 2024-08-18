@@ -97,6 +97,8 @@ var(--font-color-1) diyerek bu rengi kullanabiliriz*/
     background-color: var(--background-color-1);
   }
   
+
+  /* inline elementin önceliği vardı onu kaldırdık */
   @media (max-width: 991.98px) {
     .md-none-max-width {
       max-width: 100% !important;

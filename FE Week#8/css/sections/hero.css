@@ -51,14 +51,16 @@ almak için kullanılan bir ölçü birimi via port height bu sayede hero tam bo
   }
 
    /* css border radius */
-  
+  /* tabletin yatayı bu ölçüye denk geliyor */
   @media (max-width: 1399.98px) {
     #hero h1 {
       top: 200px;
     }
   }
   
+  /* tabletin dikeyi mobil dahil */
   @media (max-width: 767.98px) {
+    /* heroyu düşürüyor */
     #hero {
       height: 90vh;
     }
@@ -67,6 +69,7 @@ almak için kullanılan bir ölçü birimi via port height bu sayede hero tam bo
       top: 100px;
     }
   
+    /* mobil hero için  */
     #hero .hero-bottom {
       width: 100%;
       left: 0;
