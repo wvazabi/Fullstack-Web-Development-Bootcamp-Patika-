@@ -35,11 +35,35 @@ const personName = "Ahmet";
 // $.ajax();
 // console.log($.size);
 
-const personName2 = "Enes";
+// const personName2 = "Enes";
 
-// console.log(typeof personName2);
+// // console.log(typeof personName2);
 
-console.log(typeof null);
+// console.log(typeof null);
+
+// console.log("ilk sırdaki işlem");
+// setTimeout(() => {
+//     console.log("ikinci sıradaki işlem");
+// }, 3000);
+
+//promise
+
+async function main() {
+    console.log("ilk sıradaki işlem");
+    const result = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("ikinci sıradaki işlem");
+        }, 3000);
+    });
+
+    console.log(result);
+}
+
+main();
+
+
+
+
 
 
 
