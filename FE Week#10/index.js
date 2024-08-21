@@ -48,18 +48,48 @@ const personName = "Ahmet";
 
 //promise
 
-async function main() {
-    console.log("ilk sıradaki işlem");
-    const result = await new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("ikinci sıradaki işlem");
-        }, 3000);
-    });
+// async function main() {
+//     console.log("ilk sıradaki işlem");
+//     const result = await new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("ikinci sıradaki işlem");
+//         }, 3000);
+//     });
 
-    console.log(result);
-}
+//     console.log(result);
+// }
 
-main();
+// main();
+
+
+// arrow function 
+
+// const person = {
+//     name: "Ahmet",
+//     age: 25,
+//     showName: function () {
+//         console.log(this.name);
+//     }
+// }
+
+// const isOver18 = (person) => person.age > 18;
+
+// console.log(isOver18(person));
+
+// spread 
+
+// const person = {...person};
+
+// destracting
+
+// const{isMarried, age} = person;
+// console.log(isMarried, age);
+
+//rest
+
+// const{isMarried, age, ...rest} = person;
+// console.log(rest);
+
 
 
 
