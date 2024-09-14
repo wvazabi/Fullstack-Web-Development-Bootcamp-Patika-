@@ -1,0 +1,19 @@
+.item-list-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-list-component input {
+    width: 100%;
+
+}
+
+
+
+.item-info {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}

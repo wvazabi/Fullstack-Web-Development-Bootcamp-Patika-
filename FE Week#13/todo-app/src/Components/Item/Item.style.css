@@ -1,0 +1,15 @@
+.item-component {
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
+.green-button {
+    background-color: green;
+}
+
+.white-button {
+    background-color: white;
+}
